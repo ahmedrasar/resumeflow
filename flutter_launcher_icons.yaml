@@ -1,0 +1,13 @@
+flutter_launcher_icons:
+
+  image_path: "assets/trademark_images/icon.png"
+  android: true
+  adaptive_icon_background: "#141414"
+  adaptive_icon_foreground: "assets/trademark_images/icon.png"
+
+  web:
+    generate: true
+
+  windows:
+    generate: true
+    icon_size: 256 # Max size

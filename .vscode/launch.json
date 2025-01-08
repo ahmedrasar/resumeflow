@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define-from-file",
+                ".env",
+                // Web port must be consistent for sharedPreferences to work properly.
+                "--web-port",
+                "7480",
+            ],
+        },
+    ]
+}

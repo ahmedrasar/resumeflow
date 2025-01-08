@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "525613075966",
+    "project_id": "resumeflow-1b9fe",
+    "storage_bucket": "resumeflow-1b9fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525613075966:android:5b99e7b83fe979eb0684af",
+        "android_client_info": {
+          "package_name": "com.resumeflow.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525613075966-g75st3io4rn87u9q2m5213s3llajdvdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ8GaWaidQkzYxwjRe9HeAPnaCc6hToVs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525613075966-g75st3io4rn87u9q2m5213s3llajdvdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

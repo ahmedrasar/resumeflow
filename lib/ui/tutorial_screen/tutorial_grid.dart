@@ -39,7 +39,7 @@ class TutorialGrid extends StatelessWidget {
             canFitThisCount > _numberOfCards ? _numberOfCards : canFitThisCount;
 
         return SizedBox(
-          width: constraints.maxWidth * 0.75,
+          width: constraints.maxWidth * 0.90,
           child: GridView.count(
             shrinkWrap: true,
             crossAxisSpacing: 10,

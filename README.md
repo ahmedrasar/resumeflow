@@ -4,7 +4,7 @@ Create your resume with ease using our AI-powered application.
 
 ## Getting Started
 
-Download the app on your platform. Or Use Our [website](https://resumeflow-1b9fe.web.app).
+Download the app on your platform. Or use our [website](https://resumeflow-1b9fe.web.app).
 
 ## Minimum Requirement
 

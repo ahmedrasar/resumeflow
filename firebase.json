@@ -1,0 +1,46 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "resumeflow-1b9fe",
+          "appId": "1:525613075966:android:5b99e7b83fe979eb0684af",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "resumeflow-1b9fe",
+          "configurations": {
+            "android": "1:525613075966:android:5b99e7b83fe979eb0684af",
+            "web": "1:525613075966:web:478c453e7541b1c60684af",
+            "windows": "1:525613075966:web:54800b1d246212b60684af"
+          }
+        }
+      }
+    }
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": 5000
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
+  }
+}

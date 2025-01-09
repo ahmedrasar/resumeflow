@@ -22,6 +22,8 @@ dependencies:
   universal_io: ^2.2.2 # Provides web with the Platform API
   window_manager: ^0.4.3 # Provides an API that sets the window constraints
   shared_preferences: ^2.3.5
+  http: ^1.2.2
+  dio: ^5.7.0
   # State Mangement
   provider: ^6.1.2
   # UI Packages
@@ -44,7 +46,8 @@ dev_dependencies:
   # Builders and Generators
   build_runner: ^2.4.14
   go_router_builder: ^2.7.2
-
+  json_serializable: ^6.9.2
+  json_annotation: ^4.9.0
 
 flutter:
   generate: true

@@ -38,9 +38,9 @@
     "hosting": {
       "port": 5000
     },
+    "singleProjectMode": true,
     "ui": {
       "enabled": true
-    },
-    "singleProjectMode": true
+    }
   }
 }

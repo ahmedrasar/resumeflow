@@ -1,9 +1,13 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
 
 import 'tutorial_card.dart';
 
 class TutorialGrid extends StatelessWidget {
+  static const maxCardWidth = 400.0;
+
   const TutorialGrid({super.key});
   static const _numberOfCards = 3;
 
@@ -36,17 +40,16 @@ class TutorialGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        const maxWidth = 400.0;
-
-        final canFitThisCount = constraints.maxWidth ~/ maxWidth;
-        final crossAxisCount =
-            canFitThisCount > _numberOfCards ? _numberOfCards : canFitThisCount;
+        final canFitThisCount = max(constraints.maxWidth ~/ maxCardWidth, 1);
+        final crossAxisCount = min(canFitThisCount, _numberOfCards);
+        final cardWidth =
+            min(constraints.maxWidth / crossAxisCount, maxCardWidth);
 
         return SizedBox(
-          width: maxWidth * crossAxisCount,
-          child: GridView.extent(
+          width: cardWidth * crossAxisCount,
+          child: GridView.count(
             shrinkWrap: true,
-            maxCrossAxisExtent: maxWidth,
+            crossAxisCount: crossAxisCount,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             childAspectRatio: 1.5,

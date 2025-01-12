@@ -8,21 +8,23 @@ class TutorialGrid extends StatelessWidget {
   static const _numberOfCards = 3;
 
   List<TutorialCard> _buildCards(ResumeflowLocalizations l10n) {
+    var step = 0;
+
     return [
       TutorialCard(
-        step: 1,
+        step: ++step,
         backgroundIconData: Icons.edit_note_rounded,
         header: l10n.createCardHeader,
         body: l10n.createCardBody,
       ),
       TutorialCard(
-        step: 2,
+        step: ++step,
         backgroundIconData: Icons.update_rounded,
         header: l10n.updateCardHeader,
         body: l10n.updateCardBody,
       ),
       TutorialCard(
-        step: 3,
+        step: ++step,
         backgroundIconData: Icons.share_rounded,
         header: l10n.shareCardHeader,
         body: l10n.shareCardBody,
@@ -34,18 +36,20 @@ class TutorialGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final canFitThisCount = constraints.maxWidth ~/ 275;
+        const maxWidth = 400.0;
+
+        final canFitThisCount = constraints.maxWidth ~/ maxWidth;
         final crossAxisCount =
             canFitThisCount > _numberOfCards ? _numberOfCards : canFitThisCount;
 
         return SizedBox(
-          width: constraints.maxWidth * 0.90,
-          child: GridView.count(
+          width: maxWidth * crossAxisCount,
+          child: GridView.extent(
             shrinkWrap: true,
+            maxCrossAxisExtent: maxWidth,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             childAspectRatio: 1.5,
-            crossAxisCount: crossAxisCount,
             children: _buildCards(ResumeflowLocalizations.of(context)),
           ),
         );

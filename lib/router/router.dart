@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:resumeflow/ui/cover_letter_screen/cover_letter_screen.dart';
 import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
 
-import '../ui/resume_screen/create_resume_screen.dart';
 import '../ui/home_screen/home_screen.dart';
 import '../ui/showcase_screen/showcase_screen.dart';
 import '../ui/tutorial_screen/tutorial_screen.dart';
@@ -44,8 +44,8 @@ final router = GoRouter(
           builder: (context, state) => const HomeScreen(),
           routes: [
             GoRoute(
-              path: '/create',
-              builder: (context, state) => const CreateResumeScreen(),
+              path: '/create-cover-letter',
+              builder: (context, state) => CoverLetterScreen(),
             ),
           ],
         ),

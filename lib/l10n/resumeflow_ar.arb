@@ -23,5 +23,19 @@
     "darkThemeText": "الثيم الداكن",
     "resumeText": "السيرة الذاتية",
     "coverletterText": "الغلاف",
-    "settingsText": "الإعدادات"
+    "settingsText": "الإعدادات",
+    "recipientName": "اسم المستلم",
+    "recipientJobPost": "المسمى الوظيفي",
+    "applicantName": "اسم المتقدم",
+    "applicantAddress": "عنوان المتقدم",
+    "applicantTelephone": "هاتف المتقدم",
+    "applicantEmail": "البريد الإلكتروني للمتقدم",
+    "applicantDegree": "الدرجة العلمية",
+    "applicantTitle": "المسمى الوظيفي",
+    "applicantExperience": "الخبرة",
+    "applicantSkills": "المهارات",
+    "generatedBody": "النص المنشأ",
+    "empytFieldError": "لا يمكن ان تكون هذة الخانة فارغة",
+    "createCoverletterBtn": "إنشاء خطاب تغطية",
+    "errorMessage": "حدث خطأ"
 }

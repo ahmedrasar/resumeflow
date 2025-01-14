@@ -1,15 +1,14 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:resumeflow/models/coverletter_models/coverletter_model.dart';
 import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 
-class CoverletterGenService {
+class CoverletterGenerationService {
   final http.Client _client;
   static final _apiUrl =
       'https://generate-cover-letter-fast-api-production.up.railway.app';
 
-  CoverletterGenService(http.Client httpClient) : _client = httpClient;
+  CoverletterGenerationService(http.Client httpClient) : _client = httpClient;
 
   Future<bool> isHealthy() async {
     final response = await _client.get(Uri.parse('$_apiUrl/health'));
@@ -20,32 +19,33 @@ class CoverletterGenService {
   }
 
   /// Returns [null] when not healthy
-  Future<String?> getKey() async {
+  Future<String?> _getKey() async {
     final response = await _client.get(Uri.parse('$_apiUrl/generate-api-key'));
     return (jsonDecode(response.body) as Map<String, dynamic>)['api_key']
         as String?;
   }
 
   /// Returns [null] on auth error
-  Future<CoverletterModel?> createCoverLetter(
-      CoverletterRequestModel requestModel,
-      {String? apiKey}) async {
-    apiKey ??= await getKey();
+  Future<CoverletterGenerativeData?> generateData(
+      CoverletterRequestModel requestModel) async {
+    final apiKey = await _getKey();
+    if (apiKey == null) return null;
 
     final headers = <String, String>{
-      'x-api-key': apiKey!,
+      'x-api-key': apiKey,
+      'content-type': 'application/json',
     };
 
     final body = requestModel.toJson();
 
     final response = await _client.post(
-      Uri.parse('$_apiUrl/generate-api-key'),
+      Uri.parse('$_apiUrl/generate-cover-letter'),
       headers: headers,
-      body: body,
+      body: jsonEncode(body),
     );
 
     if (response.statusCode != 200) return null;
 
-    return CoverletterModel.fromJson(jsonDecode(response.body));
+    return CoverletterResponseModel.fromJson(jsonDecode(response.body)).data;
   }
 }

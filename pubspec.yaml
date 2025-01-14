@@ -19,12 +19,14 @@ dependencies:
   cupertino_icons: ^1.0.8
   intl: ^0.19.0
   go_router: ^14.6.2
-  universal_io: ^2.2.2 # Provides web with the Platform API
   window_manager: ^0.4.3 # Provides an API that sets the window constraints
   shared_preferences: ^2.3.5
   http: ^1.2.2
   dio: ^5.7.0
   json_annotation: ^4.9.0
+  docx_template:
+    git: https://github.com/ahmedrasar/docx_template_dart.git
+  file_picker: ^8.1.7
   # State Mangement
   provider: ^6.1.2
   # UI Packages
@@ -56,4 +58,5 @@ flutter:
   assets:
     - assets/images/
     - assets/trademark_images/
+    - assets/templates/
 

@@ -105,7 +105,7 @@ class ShowcaseScreen extends StatelessWidget {
                 spacing: 10,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.only(top: 40),
                     child: ConstrainedBox(
                       constraints: BoxConstraints(maxWidth: 200),
                       child: Hero(

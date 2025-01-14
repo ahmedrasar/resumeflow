@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 
 class CoverletterDashboardPage extends StatelessWidget {
@@ -6,6 +7,17 @@ class CoverletterDashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridBackground();
+    return GridBackground(
+      child: _prototype(context),
+    );
+  }
+
+  Widget _prototype(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+        onPressed: () => context.go('/home/create-cover-letter'),
+        child: Text('create'),
+      ),
+    );
   }
 }

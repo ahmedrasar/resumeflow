@@ -1,27 +1,34 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:resumeflow/models/coverletter_models/coverletter_data.dart';
 
 part 'coverletter_request_model.g.dart';
 
-@JsonSerializable()
+@JsonSerializable(createFactory: false)
 class CoverletterRequestModel {
-  final String jobPost;
-  final String userName;
-  final String userDegree;
-  final String userTitle;
-  final String userExperience;
-  final String userSkills;
+  // Recipent-related
+  @JsonKey(name: 'job_post')
+  final String recipientJobPost;
+
+  // Applicant-related
+  @JsonKey(name: 'user_name')
+  final String applicantName;
+  @JsonKey(name: 'user_degree')
+  final String applicantDegree;
+  @JsonKey(name: 'user_title')
+  final String applicantTitle;
+  @JsonKey(name: 'user_experience')
+  final String applicantExperience;
+  @JsonKey(name: 'user_skills')
+  final String applicantSkills;
 
   CoverletterRequestModel({
-    required this.jobPost,
-    required this.userName,
-    required this.userDegree,
-    required this.userTitle,
-    required this.userExperience,
-    required this.userSkills,
-  });
-
-  factory CoverletterRequestModel.fromJson(Map<String, dynamic> json) =>
-      _$CoverletterRequestModelFromJson(json);
+    required CoverletterData data,
+  })  : recipientJobPost = data.recipientJobPost,
+        applicantName = data.applicantName,
+        applicantDegree = data.applicantDegree,
+        applicantTitle = data.applicantTitle,
+        applicantExperience = data.applicantExperience,
+        applicantSkills = data.applicantSkills;
 
   Map<String, dynamic> toJson() => _$CoverletterRequestModelToJson(this);
 }

@@ -1,15 +1,26 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:resumeflow/models/coverletter_models/coverletter_data.dart';
+import 'package:resumeflow/models/coverletter_models/coverletter_generative_data.dart';
 
-part 'coverletter_model.g.dart';
-
-@JsonSerializable(anyMap: false)
 class CoverletterModel {
-  final String data;
+  // Recipient-related
+  final String recipientName;
 
-  CoverletterModel({required this.data});
+  // Applicant-related
+  final String applicantName;
+  final String applicantAddress;
+  final String applicantTelephone;
+  final String applicantEmail;
 
-  factory CoverletterModel.fromJson(Map<String, dynamic> json) =>
-      _$CoverletterModelFromJson(json);
+  // Generative data
+  final String genBody;
 
-  Map<String, dynamic> toJson() => _$CoverletterModelToJson(this);
+  CoverletterModel({
+    required CoverletterData data,
+    required CoverletterGenerativeData genData,
+  })  : recipientName = data.recipientName,
+        applicantName = data.applicantName,
+        applicantAddress = data.applicantAddress,
+        applicantTelephone = data.applicantTelephone,
+        applicantEmail = data.applicantEmail,
+        genBody = genData.genBody;
 }

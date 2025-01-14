@@ -16,21 +16,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var currentPageIndex = 0;
+  var _currentPageIndex = 0;
+  void _changeDestination(int index) => setState(() {
+        _currentPageIndex = index;
+      });
 
   Widget _buildWideView() {
     final l10n = ResumeflowLocalizations.of(context);
-
-    void changeDestination(int index) => setState(() {
-          currentPageIndex = index;
-        });
 
     return Scaffold(
       body: Row(
         children: [
           NavigationRail(
-            selectedIndex: currentPageIndex,
-            groupAlignment: -0.95,
+            selectedIndex: _currentPageIndex,
             leading: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: SizedBox(
@@ -57,15 +55,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: Text(l10n.settingsText),
               ),
             ],
-            onDestinationSelected: changeDestination,
-          ),
-          Divider(
-            thickness: 29,
-            color: Colors.green,
+            onDestinationSelected: _changeDestination,
           ),
           Expanded(
             child: IndexedStack(
-              index: currentPageIndex,
+              index: _currentPageIndex,
               children: [
                 ResumeDashboardPage(),
                 CoverletterDashboardPage(),
@@ -82,45 +76,44 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildCompactView() {
     final l10n = ResumeflowLocalizations.of(context);
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          elevation: 5,
-          leading: Padding(
-            padding: const EdgeInsetsDirectional.only(start: 10),
-            child: Hero(tag: ResumeflowLogo.heroTag, child: ResumeflowLogo()),
+
+    if (_currentPageIndex == 2) return SettingsScreen();
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        elevation: 5,
+        leading: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 10),
+          child: Hero(tag: ResumeflowLogo.heroTag, child: ResumeflowLogo()),
+        ),
+        leadingWidth: 40,
+        actions: [
+          IconButton(
+            onPressed: () => context.push('/settings'),
+            icon: Icon(Icons.settings),
           ),
-          leadingWidth: 40,
-          actions: [
-            IconButton(
-              onPressed: () => context.push('/settings'),
-              icon: Icon(Icons.settings),
-            ),
-          ],
-        ),
-        bottomNavigationBar: ColoredBox(
-          color: Theme.of(context).colorScheme.surface,
-          child: TabBar(
-            tabs: [
-              Tab(
-                icon: Icon(Icons.article),
-                text: l10n.resumeText,
-              ),
-              Tab(
-                icon: Icon(Icons.mail),
-                text: l10n.coverletterText,
-              ),
-            ],
+        ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: _currentPageIndex,
+        onDestinationSelected: _changeDestination,
+        destinations: [
+          NavigationDestination(
+            icon: Icon(Icons.article),
+            label: l10n.resumeText,
           ),
-        ),
-        body: TabBarView(
-          children: [
-            ResumeDashboardPage(),
-            CoverletterDashboardPage(),
-          ],
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.mail),
+            label: l10n.coverletterText,
+          ),
+        ],
+      ),
+      body: IndexedStack(
+        index: _currentPageIndex,
+        children: [
+          ResumeDashboardPage(),
+          CoverletterDashboardPage(),
+        ],
       ),
     );
   }

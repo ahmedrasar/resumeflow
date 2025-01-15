@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resumeflow/ui/cover_letter_screen/cover_letter_screen.dart';
+import 'package:resumeflow/ui/home_screen/coverletter_dashboard_page.dart';
+import 'package:resumeflow/ui/home_screen/resume_dashboard_page.dart';
 import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
 
 import '../ui/home_screen/home_screen.dart';
@@ -18,7 +20,7 @@ final router = GoRouter(
       builder: (context, state) => const ShowcaseScreen(),
       routes: [
         GoRoute(
-          path: '/tutorial',
+          path: 'tutorial',
           pageBuilder: (context, state) {
             return CustomTransitionPage(
               child: const TutorialScreen(),
@@ -32,20 +34,49 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: '/settings',
-          builder: (context, state) => const SettingsScreen(),
-        ),
-        GoRoute(
-          path: '/login',
+          path: 'login',
           builder: (context, state) => const LoginScreen(),
         ),
         GoRoute(
-          path: '/home',
-          builder: (context, state) => const HomeScreen(),
+          path: 'home',
+          redirect: (context, state) {
+            if (state.fullPath == '/home') return '/home/resumes';
+            return null;
+          },
           routes: [
-            GoRoute(
-              path: '/create-cover-letter',
-              builder: (context, state) => CoverLetterScreen(),
+            StatefulShellRoute.indexedStack(
+              builder: (context, state, shell) => HomeScreen(shell: shell),
+              branches: [
+                StatefulShellBranch(
+                  routes: [
+                    GoRoute(
+                      path: '/resumes',
+                      builder: (context, state) => ResumeDashboardPage(),
+                    ),
+                  ],
+                ),
+                StatefulShellBranch(
+                  routes: [
+                    GoRoute(
+                        path: '/cover-letters',
+                        builder: (context, state) => CoverletterDashboardPage(),
+                        routes: [
+                          GoRoute(
+                            path: '/create',
+                            builder: (context, state) => CoverLetterScreen(),
+                          )
+                        ]),
+                  ],
+                ),
+                StatefulShellBranch(
+                  routes: [
+                    GoRoute(
+                      path: '/settings',
+                      builder: (context, state) => SettingsScreen(),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),

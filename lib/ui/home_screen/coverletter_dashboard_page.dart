@@ -15,7 +15,7 @@ class CoverletterDashboardPage extends StatelessWidget {
   Widget _prototype(BuildContext context) {
     return Center(
       child: ElevatedButton(
-        onPressed: () => context.go('/home/create-cover-letter'),
+        onPressed: () => context.go('/home/cover-letters/create'),
         child: Text('create'),
       ),
     );

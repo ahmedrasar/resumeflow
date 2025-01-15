@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
-import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
 import 'package:resumeflow/utils/adaptive_helper/adaptive_helper.dart';
 
-import 'coverletter_dashboard_page.dart';
-import 'resume_dashboard_page.dart';
 import '../widgets/resumeflow_logo.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.shell});
+  static const settingsBranchIndex = 2;
+
+  final StatefulNavigationShell shell;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  var _currentPageIndex = 0;
-  void _changeDestination(int index) => setState(() {
-        _currentPageIndex = index;
-      });
+  int _previousBranch = 0;
+  void _goBranch(int index) {
+    _previousBranch = widget.shell.currentIndex;
+    widget.shell.goBranch(index);
+  }
 
   Widget _buildWideView() {
     final l10n = ResumeflowLocalizations.of(context);
@@ -28,7 +29,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Row(
         children: [
           NavigationRail(
-            selectedIndex: _currentPageIndex,
+            selectedIndex: widget.shell.currentIndex,
             leading: Padding(
               padding: const EdgeInsets.symmetric(vertical: 10.0),
               child: SizedBox(
@@ -55,20 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: Text(l10n.settingsText),
               ),
             ],
-            onDestinationSelected: _changeDestination,
+            onDestinationSelected: _goBranch,
           ),
-          Expanded(
-            child: IndexedStack(
-              index: _currentPageIndex,
-              children: [
-                ResumeDashboardPage(),
-                CoverletterDashboardPage(),
-                SettingsScreen(
-                  isCompact: false,
-                ),
-              ],
-            ),
-          ),
+          Expanded(child: widget.shell),
         ],
       ),
     );
@@ -77,10 +67,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget _buildCompactView() {
     final l10n = ResumeflowLocalizations.of(context);
 
-    if (_currentPageIndex == 2) return SettingsScreen();
+    settingsIconCallback(Set<WidgetState> states) {
+      if (states.contains(WidgetState.selected)) {
+        return Theme.of(context).colorScheme.primary.withAlpha(100);
+      } else {
+        return Colors.transparent;
+      }
+    }
+
+    final isSettings =
+        widget.shell.currentIndex == HomeScreen.settingsBranchIndex;
+    goSettings() => _goBranch(HomeScreen.settingsBranchIndex);
+    escapeSettings() => _goBranch(_previousBranch);
+
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         elevation: 5,
         leading: Padding(
           padding: const EdgeInsetsDirectional.only(start: 10),
@@ -89,40 +90,41 @@ class _HomeScreenState extends State<HomeScreen> {
         leadingWidth: 40,
         actions: [
           IconButton(
-            onPressed: () => context.push('/settings'),
+            isSelected: isSettings,
+            style: ButtonStyle(
+              backgroundColor:
+                  WidgetStateColor.resolveWith(settingsIconCallback),
+            ),
+            onPressed: isSettings ? escapeSettings : goSettings,
             icon: Icon(Icons.settings),
           ),
         ],
       ),
-      bottomNavigationBar: NavigationBar(
-        selectedIndex: _currentPageIndex,
-        onDestinationSelected: _changeDestination,
-        destinations: [
-          NavigationDestination(
-            icon: Icon(Icons.article),
-            label: l10n.resumeText,
-          ),
-          NavigationDestination(
-            icon: Icon(Icons.mail),
-            label: l10n.coverletterText,
-          ),
-        ],
-      ),
-      body: IndexedStack(
-        index: _currentPageIndex,
-        children: [
-          ResumeDashboardPage(),
-          CoverletterDashboardPage(),
-        ],
-      ),
+      bottomNavigationBar: isSettings
+          ? null
+          : NavigationBar(
+              selectedIndex: widget.shell.currentIndex,
+              onDestinationSelected: _goBranch,
+              destinations: [
+                NavigationDestination(
+                  icon: Icon(Icons.article),
+                  label: l10n.resumeText,
+                ),
+                NavigationDestination(
+                  icon: Icon(Icons.mail),
+                  label: l10n.coverletterText,
+                ),
+              ],
+            ),
+      body: widget.shell,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final adaptiveHelper =
-        AdaptiveHelper(width: MediaQuery.sizeOf(context).width);
+    final isCompact =
+        AdaptiveHelper(width: MediaQuery.sizeOf(context).width).isCompact();
 
-    return adaptiveHelper.isWide() ? _buildWideView() : _buildCompactView();
+    return isCompact ? _buildCompactView() : _buildWideView();
   }
 }

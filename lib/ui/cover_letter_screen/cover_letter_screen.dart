@@ -156,7 +156,12 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Widget _bulildSummitBtn() {
     return ElevatedButton(
-        style: ButtonStyle(fixedSize: WidgetStatePropertyAll(Size(200, 75))),
+        style: ButtonStyle(
+            fixedSize: WidgetStatePropertyAll(Size(200, 50)),
+            backgroundColor:
+                WidgetStatePropertyAll(Theme.of(context).colorScheme.primary),
+            foregroundColor: WidgetStatePropertyAll(
+                Theme.of(context).colorScheme.onPrimary)),
         onPressed: () async {
           validatedBefore = true;
           final coverletter = await __generateCoverletter();

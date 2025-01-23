@@ -28,36 +28,47 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: Row(
         children: [
-          NavigationRail(
-            selectedIndex: widget.shell.currentIndex,
-            leading: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10.0),
-              child: SizedBox(
-                width: 40,
-                child: Hero(
-                  tag: ResumeflowLogo.heroTag,
-                  child: ResumeflowLogo(),
+          LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+            const numberOfDestinations = 3;
+            const destinationHeight = 90; // estimated
+
+            final maxHeight = constraints.maxHeight;
+            final lastItemTopPadding =
+                maxHeight - numberOfDestinations * destinationHeight;
+
+            return NavigationRail(
+              selectedIndex: widget.shell.currentIndex,
+              leading: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10.0),
+                child: SizedBox(
+                  width: 40,
+                  child: Hero(
+                    tag: ResumeflowLogo.heroTag,
+                    child: ResumeflowLogo(),
+                  ),
                 ),
               ),
-            ),
-            elevation: 5,
-            labelType: NavigationRailLabelType.all,
-            destinations: [
-              NavigationRailDestination(
-                icon: Icon(Icons.article),
-                label: Text(l10n.resumeText),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.mail),
-                label: Text(l10n.coverletterText),
-              ),
-              NavigationRailDestination(
-                icon: Icon(Icons.settings),
-                label: Text(l10n.settingsText),
-              ),
-            ],
-            onDestinationSelected: _goBranch,
-          ),
+              elevation: 5,
+              labelType: NavigationRailLabelType.all,
+              destinations: [
+                NavigationRailDestination(
+                  icon: Icon(Icons.article),
+                  label: Text(l10n.resumeText),
+                ),
+                NavigationRailDestination(
+                  icon: Icon(Icons.mail),
+                  label: Text(l10n.coverletterText),
+                ),
+                NavigationRailDestination(
+                  padding: EdgeInsets.only(top: lastItemTopPadding),
+                  icon: Icon(Icons.settings),
+                  label: Text(l10n.settingsText),
+                ),
+              ],
+              onDestinationSelected: _goBranch,
+            );
+          }),
           Expanded(child: widget.shell),
         ],
       ),

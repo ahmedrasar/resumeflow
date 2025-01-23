@@ -48,6 +48,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   trailing: DropdownMenu<LocaleEnum>(
                     width: 120,
+                    automaticMatching: true,
                     inputDecorationTheme: inputDecorationTheme,
                     initialSelection: settingsRepo.localeLO.object,
                     dropdownMenuEntries: [
@@ -73,6 +74,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                   trailing: DropdownMenu<ThemeMode>(
                     width: 150,
+                    automaticMatching: true,
                     inputDecorationTheme: inputDecorationTheme,
                     initialSelection: settingsRepo.themeModeLO.object,
                     dropdownMenuEntries: [

@@ -17,19 +17,30 @@ class CoverletterDashboardPage extends StatelessWidget {
     return SizedBox(
       width: 200,
       height: 250,
-      child: Card.filled(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Icon(
-              Icons.mail,
-              size: 75,
-            ),
-            Text(
-              ResumeflowLocalizations.of(context).createCoverLetter,
-              style: Theme.of(context).textTheme.titleMedium,
-            ),
-          ],
+      child: GestureDetector(
+        onTap: () => context.go('/home/cover-letters/create'),
+        child: Card(
+          elevation: 5,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Expanded(
+                child: ColoredBox(
+                  color: Theme.of(context).colorScheme.tertiary.withAlpha(100),
+                  child: SizedBox.expand(
+                    child: Icon(
+                      Icons.mail,
+                      size: 75,
+                    ),
+                  ),
+                ),
+              ),
+              Text(
+                ResumeflowLocalizations.of(context).createCoverLetter,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ],
+          ),
         ),
       ),
     );

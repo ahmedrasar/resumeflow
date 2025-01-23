@@ -47,23 +47,42 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Widget _buildTextField(
       {required String hint, required TextEditingController controller}) {
-    return TextFormField(
-      controller: controller,
-      minLines: 1,
-      maxLines: 5,
-      onChanged: (value) {
-        if (validatedBefore) _formKey.currentState!.validate();
-      },
-      validator: (value) => value!.isEmpty ? 'field can\'t be empty' : null,
-      decoration: InputDecoration(
-        hintText: hint,
-        filled: true,
-        fillColor: Theme.of(context).colorScheme.onPrimary.withAlpha(125),
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(25),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Align(
+            alignment: Alignment(-0.9, 0),
+            child: Text(
+              hint,
+              style: Theme.of(context).textTheme.titleMedium,
+            )),
+        TextFormField(
+          controller: controller,
+          minLines: 1,
+          maxLines: 5,
+          onChanged: (value) {
+            if (validatedBefore) _formKey.currentState!.validate();
+          },
+          validator: (value) => value!.isEmpty
+              ? ResumeflowLocalizations.of(context).empytFieldError
+              : null,
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: Theme.of(context)
+                    .textTheme
+                    .bodyMedium
+                    ?.color
+                    ?.withAlpha(100)),
+            filled: true,
+            fillColor: Theme.of(context).colorScheme.onPrimary.withAlpha(125),
+            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -75,14 +94,22 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
-              child: Column(
-                spacing: 40,
-                children: [
-                  _buildForm(),
-                  _bulildSummitBtn(),
-                ],
+            child: Material(
+              color: Theme.of(context).colorScheme.surface.withAlpha(225),
+              elevation: 10,
+              borderRadius: BorderRadius.circular(10),
+              child: ScrollConfiguration(
+                behavior: ScrollBehavior().copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+                  child: Column(
+                    spacing: 40,
+                    children: [
+                      _buildForm(),
+                      _bulildSummitBtn(),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

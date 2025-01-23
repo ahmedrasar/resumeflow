@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
 
 import 'configuration/configure_target_platform.dart';
 import 'firebase_options.dart';

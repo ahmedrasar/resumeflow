@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/ui/tutorial_screen/tutorial_grid.dart';
 import 'package:resumeflow/utils/adaptive_helper/adaptive_helper.dart';
 

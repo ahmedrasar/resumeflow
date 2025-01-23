@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 
 import 'tutorial_card.dart';
 

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 import 'package:resumeflow/services/coverletter_gen_service/coverletter_gen_service.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
-import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});

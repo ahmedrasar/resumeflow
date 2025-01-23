@@ -3,3 +3,4 @@ template-arb-file: resumeflow_en.arb
 output-localization-file: resumeflow_localizations.dart
 output-class: ResumeflowLocalizations
 nullable-getter: false
+synthetic-package: false

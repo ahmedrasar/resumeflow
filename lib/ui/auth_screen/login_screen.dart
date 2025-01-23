@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
-import 'package:flutter_gen/gen_l10n/resumeflow_localizations.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 
 import '../widgets/grid_background.dart';
 

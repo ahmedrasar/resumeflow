@@ -322,6 +322,12 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Unexpected error happend'**
   String get errorMessage;
+
+  /// No description provided for @createCoverLetter.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Cover Letter'**
+  String get createCoverLetter;
 }
 
 class _ResumeflowLocalizationsDelegate extends LocalizationsDelegate<ResumeflowLocalizations> {

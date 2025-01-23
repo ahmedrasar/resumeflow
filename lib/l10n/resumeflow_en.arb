@@ -37,5 +37,6 @@
     "generatedBody": "Generated Body",
     "empytFieldError": "Field can not be empty",
     "createCoverletterBtn": "Create Cover letter",
-    "errorMessage": "Unexpected error happend"
+    "errorMessage": "Unexpected error happend",
+    "createCoverLetter": "Create Cover Letter"
 }

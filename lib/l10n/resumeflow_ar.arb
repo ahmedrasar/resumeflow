@@ -37,5 +37,6 @@
     "generatedBody": "النص المنشأ",
     "empytFieldError": "لا يمكن ان تكون هذة الخانة فارغة",
     "createCoverletterBtn": "إنشاء خطاب تغطية",
-    "errorMessage": "حدث خطأ"
+    "errorMessage": "حدث خطأ",
+    "createCoverLetter": "إنشاء خطاب تغطية"
 }

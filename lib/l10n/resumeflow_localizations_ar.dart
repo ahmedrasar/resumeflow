@@ -121,4 +121,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
 
   @override
   String get errorMessage => 'حدث خطأ';
+
+  @override
+  String get createCoverLetter => 'إنشاء خطاب تغطية';
 }

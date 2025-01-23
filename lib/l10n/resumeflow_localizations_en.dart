@@ -121,4 +121,7 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
 
   @override
   String get errorMessage => 'Unexpected error happend';
+
+  @override
+  String get createCoverLetter => 'Create Cover Letter';
 }

@@ -4,6 +4,7 @@ import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 import 'package:resumeflow/services/coverletter_gen_service/coverletter_gen_service.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
+import 'package:resumeflow/utils/adaptive_helper/adaptive_helper.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});
@@ -51,7 +52,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Align(
-            alignment: Alignment(-0.9, 0),
+            alignment: AlignmentDirectional(-0.9, 0),
             child: Text(
               hint,
               style: Theme.of(context).textTheme.titleMedium,
@@ -90,14 +91,17 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridBackground(
-        child: Align(
-          alignment: Alignment.topCenter,
+        child: Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
             child: Material(
               color: Theme.of(context).colorScheme.surface.withAlpha(225),
               elevation: 10,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius:
+                  AdaptiveHelper(width: MediaQuery.sizeOf(context).width)
+                          .isWide()
+                      ? BorderRadius.circular(10)
+                      : null,
               child: ScrollConfiguration(
                 behavior: ScrollBehavior().copyWith(scrollbars: false),
                 child: SingleChildScrollView(

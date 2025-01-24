@@ -27,6 +27,7 @@ dependencies:
   docx_template:
     git: https://github.com/ahmedrasar/docx_template_dart.git
   file_picker: ^8.1.7
+  animations: ^2.0.11
   # State Mangement
   provider: ^6.1.2
   # UI Packages

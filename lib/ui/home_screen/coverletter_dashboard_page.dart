@@ -9,22 +9,34 @@ class CoverletterDashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridBackground(
-      child: _buildCoverletterTile(context),
+      child: GridView.builder(
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 0.75,
+        ),
+        padding: const EdgeInsets.all(20),
+        itemCount: 1,
+        itemBuilder: (BuildContext context, int index) {
+          return _buildCoverletterTile(context);
+        },
+      ),
     );
   }
 
   Widget _buildCoverletterTile(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      height: 250,
-      child: GestureDetector(
-        onTap: () => context.go('/home/cover-letters/create'),
-        child: Card(
-          elevation: 5,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Expanded(
+    return GestureDetector(
+      onTap: () => context.go('/home/cover-letters/create'),
+      child: Card(
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Expanded(
+              child: ClipRRect(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 child: ColoredBox(
                   color: Theme.of(context).colorScheme.tertiary.withAlpha(100),
                   child: SizedBox.expand(
@@ -35,12 +47,12 @@ class CoverletterDashboardPage extends StatelessWidget {
                   ),
                 ),
               ),
-              Text(
-                ResumeflowLocalizations.of(context).createCoverLetter,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
-            ],
-          ),
+            ),
+            Text(
+              ResumeflowLocalizations.of(context).createCoverLetter,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+          ],
         ),
       ),
     );

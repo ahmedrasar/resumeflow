@@ -9,17 +9,20 @@ class CoverletterDashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridBackground(
-      child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 0.75,
-        ),
-        padding: const EdgeInsets.all(20),
-        itemCount: 1,
-        itemBuilder: (BuildContext context, int index) {
-          return _buildCoverletterTile(context);
-        },
-      ),
+      child: Builder(builder: (context) {
+        return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 0.75,
+          ),
+          padding: const EdgeInsets.all(20),
+          itemCount: 1,
+          itemBuilder: (_, int index) {
+            // For unuknown reason the grid builder context does not rebuild the widget
+            return _buildCoverletterTile(context);
+          },
+        );
+      }),
     );
   }
 
@@ -38,7 +41,7 @@ class CoverletterDashboardPage extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 child: ColoredBox(
-                  color: Theme.of(context).colorScheme.tertiary.withAlpha(100),
+                  color: Theme.of(context).colorScheme.tertiary,
                   child: SizedBox.expand(
                     child: Icon(
                       Icons.mail,
@@ -50,7 +53,7 @@ class CoverletterDashboardPage extends StatelessWidget {
             ),
             Text(
               ResumeflowLocalizations.of(context).createCoverLetter,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: Theme.of(context).textTheme.titleSmall,
             ),
           ],
         ),

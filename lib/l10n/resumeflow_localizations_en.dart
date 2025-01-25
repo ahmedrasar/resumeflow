@@ -163,4 +163,7 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
 
   @override
   String get copyBtn => 'Copy';
+
+  @override
+  String get chooseDownloadDir => 'Choose download directory';
 }

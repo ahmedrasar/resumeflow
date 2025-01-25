@@ -406,6 +406,12 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Copy'**
   String get copyBtn;
+
+  /// No description provided for @chooseDownloadDir.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose download directory'**
+  String get chooseDownloadDir;
 }
 
 class _ResumeflowLocalizationsDelegate extends LocalizationsDelegate<ResumeflowLocalizations> {

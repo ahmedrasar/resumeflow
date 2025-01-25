@@ -5,6 +5,7 @@ import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 import 'package:resumeflow/services/coverletter_gen_service/coverletter_gen_service.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
+import 'package:resumeflow/utils/file_saver/file_saver.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});
@@ -218,16 +219,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Widget _bulildSummitBtn() {
     return ElevatedButton(
-      style: _loading
-          ? ButtonStyle(
-              fixedSize: WidgetStatePropertyAll(Size(200, 50)),
-              backgroundColor: WidgetStatePropertyAll(Colors.grey.shade800),
-            )
-          : ButtonStyle(
-              fixedSize: WidgetStatePropertyAll(Size(200, 50)),
-              backgroundColor: WidgetStatePropertyAll(
-                  Theme.of(context).colorScheme.secondary),
-            ),
+      style: ButtonStyle(
+        minimumSize: WidgetStatePropertyAll(Size(200, 50)),
+        maximumSize: WidgetStatePropertyAll(Size(225, 50)),
+        backgroundColor: WidgetStatePropertyAll(_loading
+            ? Colors.grey.shade800
+            : Theme.of(context).colorScheme.secondary),
+      ),
       onPressed: _loading
           ? null
           : () async {
@@ -245,10 +243,10 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text(l10n.errorMessage),
                     elevation: 10,
-                    margin: EdgeInsets.symmetric(horizontal: 50),
                     backgroundColor: Theme.of(context).colorScheme.error));
               } else {
                 await showDialog(
+                    barrierDismissible: false,
                     context: context,
                     builder: (context) {
                       return AlertDialog(
@@ -267,7 +265,10 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                                   icon: Icon(Icons.copy),
                                 ),
                                 FilledButton(
-                                  onPressed: () {},
+                                  onPressed: () async {
+                                    await FileSaver.saveCoverLetter(coverletter,
+                                        prompt: l10n.chooseDownloadDir);
+                                  },
                                   child: Text(l10n.exportToDocx),
                                 ),
                               ],
@@ -275,11 +276,14 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                           ],
                         ),
                         content: ConstrainedBox(
-                          constraints: BoxConstraints.loose(Size(400, 600)),
+                          constraints: BoxConstraints.loose(Size(600, 1200)),
                           child: Card.filled(
                             color: Theme.of(context).colorScheme.surface,
                             margin: EdgeInsets.all(10),
-                            child: SelectableText(coverletter.genBody),
+                            child: SelectableText(
+                              coverletter.genBody,
+                              style: Theme.of(context).textTheme.bodyLarge,
+                            ),
                           ),
                         ),
                         actions: [
@@ -298,7 +302,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
             },
       child: _loading
           ? Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   ResumeflowLocalizations.of(context).createCoverletterBtn,
@@ -308,6 +312,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                       ?.copyWith(color: Colors.white),
                 ),
                 CircularProgressIndicator(
+                  padding: EdgeInsets.zero,
                   constraints: BoxConstraints.tight(Size(15, 15)),
                 ),
               ],

@@ -51,5 +51,6 @@
     "applicantSkillsTooltip": "أدخل مهاراتك الرئيسية",
     "exportToDocx": "تصدير إلى DOCX",
     "closeBtn": "إغلاق",
-    "copyBtn": "نسخ"
+    "copyBtn": "نسخ",
+    "chooseDownloadDir": "اختر مجلد التنزيل"
 }

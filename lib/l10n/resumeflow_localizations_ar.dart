@@ -163,4 +163,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
 
   @override
   String get copyBtn => 'نسخ';
+
+  @override
+  String get chooseDownloadDir => 'اختر مجلد التنزيل';
 }

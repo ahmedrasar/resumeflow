@@ -15,12 +15,11 @@ void main() {
           final f = File(AssetPaths.coverletterTemplatePath);
           final docx = await DocxTemplate.fromBytes(await f.readAsBytes());
 
-          final nameReplacer = TextContent('applicant-name', 'Ahmed Ragab');
+          final nameReplacer = TextContent('applicant-name', '<NAME>');
           final c = Content()..add(nameReplacer);
 
           // Act
           final bytes = await docx.generate(c);
-          await File('coverletter_test.docx').writeAsBytes(bytes!);
 
           // Assert
           expect(bytes, isNotNull);

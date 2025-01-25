@@ -51,5 +51,6 @@
     "applicantSkillsTooltip": "List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).",
     "exportToDocx": "Export to DOCX",
     "closeBtn": "Close",
-    "copyBtn": "Copy"
+    "copyBtn": "Copy",
+    "chooseDownloadDir": "Choose download directory"
 }

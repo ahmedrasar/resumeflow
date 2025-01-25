@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/ui/tutorial_screen/tutorial_grid.dart';
-import 'package:resumeflow/utils/adaptive_helper/adaptive_helper.dart';
+import 'package:resumeflow/utils/layout_helper/layout_helper.dart';
 
 import '../widgets/grid_background.dart';
 import '../widgets/resumeflow_logo.dart';

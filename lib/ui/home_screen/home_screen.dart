@@ -16,10 +16,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _previousBranch = 0;
-  void _goBranch(int index) {
-    _previousBranch = widget.shell.currentIndex;
-    widget.shell.goBranch(index);
+  int _previousBranchIndex = 0;
+
+  @override
+  didUpdateWidget(HomeScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.shell.currentIndex != widget.shell.currentIndex) {
+      _previousBranchIndex = oldWidget.shell.currentIndex;
+    }
   }
 
   Widget _buildWideView() {
@@ -56,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 label: Text(l10n.settingsText),
               ),
             ],
-            onDestinationSelected: _goBranch,
+            onDestinationSelected: widget.shell.goBranch,
           ),
           Expanded(child: widget.shell),
         ],
@@ -77,8 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
     final isSettings =
         widget.shell.currentIndex == HomeScreen.settingsBranchIndex;
-    goSettings() => _goBranch(HomeScreen.settingsBranchIndex);
-    escapeSettings() => _goBranch(_previousBranch);
 
     return Scaffold(
       appBar: AppBar(
@@ -95,7 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor:
                   WidgetStateColor.resolveWith(settingsIconCallback),
             ),
-            onPressed: isSettings ? escapeSettings : goSettings,
+            onPressed: isSettings
+                ? () => widget.shell.goBranch(_previousBranchIndex)
+                : () => widget.shell.goBranch(HomeScreen.settingsBranchIndex),
             icon: Icon(Icons.settings),
           ),
         ],
@@ -104,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ? null
           : NavigationBar(
               selectedIndex: widget.shell.currentIndex,
-              onDestinationSelected: _goBranch,
+              onDestinationSelected: widget.shell.goBranch,
               destinations: [
                 NavigationDestination(
                   icon: Icon(Icons.article),

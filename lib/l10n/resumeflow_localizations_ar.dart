@@ -124,4 +124,43 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
 
   @override
   String get createCoverLetter => 'إنشاء خطاب تغطية';
+
+  @override
+  String get recipientNameTooltip => 'أدخل اسم الشخص المسؤول عن التوظيف';
+
+  @override
+  String get recipientJobPostTooltip => 'ادخل اعلان الوظيفة المرجو التقدم اليها';
+
+  @override
+  String get applicantNameTooltip => 'أدخل اسمك الكامل';
+
+  @override
+  String get applicantAddressTooltip => 'أدخل عنوانك الحالي';
+
+  @override
+  String get applicantTelephoneTooltip => 'أدخل رقم هاتفك';
+
+  @override
+  String get applicantEmailTooltip => 'أدخل بريدك الإلكتروني';
+
+  @override
+  String get applicantDegreeTooltip => 'أدخل درجتك العلمية';
+
+  @override
+  String get applicantTitleTooltip => 'أدخل مسماك الوظيفي الحالي';
+
+  @override
+  String get applicantExperienceTooltip => 'أدخل خبراتك السابقة';
+
+  @override
+  String get applicantSkillsTooltip => 'أدخل مهاراتك الرئيسية';
+
+  @override
+  String get exportToDocx => 'تصدير إلى DOCX';
+
+  @override
+  String get closeBtn => 'إغلاق';
+
+  @override
+  String get copyBtn => 'نسخ';
 }

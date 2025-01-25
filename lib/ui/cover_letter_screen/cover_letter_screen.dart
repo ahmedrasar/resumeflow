@@ -4,7 +4,7 @@ import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 import 'package:resumeflow/services/coverletter_gen_service/coverletter_gen_service.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
-import 'package:resumeflow/utils/adaptive_helper/adaptive_helper.dart';
+import 'package:flutter/services.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});
@@ -46,17 +46,36 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   final TextEditingController _applicantSkillsController =
       TextEditingController();
 
-  Widget _buildTextField(
-      {required String hint, required TextEditingController controller}) {
+  bool _loading = false;
+
+  Widget _buildTextField({
+    required String hint,
+    required String tooltip,
+    required TextEditingController controller,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Align(
-            alignment: AlignmentDirectional(-0.9, 0),
-            child: Text(
-              hint,
-              style: Theme.of(context).textTheme.titleMedium,
-            )),
+        Row(
+          spacing: 5,
+          children: [
+            Align(
+              alignment: Alignment(-0.9, 0),
+              child: Text(
+                hint,
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+            ),
+            Tooltip(
+              message: tooltip,
+              child: Icon(
+                Icons.info_outline_rounded,
+                size: 15,
+                color: Theme.of(context).iconTheme.color?.withAlpha(150),
+              ),
+            )
+          ],
+        ),
         TextFormField(
           controller: controller,
           minLines: 1,
@@ -91,27 +110,27 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridBackground(
-        child: Center(
+        child: Align(
+          alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
-            child: Material(
-              color: Theme.of(context).colorScheme.surface.withAlpha(225),
-              elevation: 10,
-              borderRadius:
-                  AdaptiveHelper(width: MediaQuery.sizeOf(context).width)
-                          .isWide()
-                      ? BorderRadius.circular(10)
-                      : null,
-              child: ScrollConfiguration(
-                behavior: ScrollBehavior().copyWith(scrollbars: false),
-                child: SingleChildScrollView(
-                  padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
-                  child: Column(
-                    spacing: 40,
-                    children: [
-                      _buildForm(),
-                      _bulildSummitBtn(),
-                    ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20),
+              child: Material(
+                color: Theme.of(context).colorScheme.surface.withAlpha(225),
+                elevation: 10,
+                borderRadius: BorderRadius.circular(10),
+                child: ScrollConfiguration(
+                  behavior: ScrollBehavior().copyWith(scrollbars: false),
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+                    child: Column(
+                      spacing: 40,
+                      children: [
+                        _buildForm(),
+                        _bulildSummitBtn(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -131,39 +150,51 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         spacing: 20,
         children: [
           _buildTextField(
-              hint: l10n.recipientName, controller: _applicantNameController),
+              hint: l10n.recipientName,
+              tooltip: l10n.recipientNameTooltip,
+              controller: _recipientNameController),
           _buildTextField(
               hint: l10n.recipientJobPost,
+              tooltip: l10n.recipientJobPostTooltip,
               controller: _recipientJobPostController),
           _buildTextField(
-              hint: l10n.recipientName, controller: _recipientNameController),
+              hint: l10n.applicantName,
+              tooltip: l10n.applicantNameTooltip,
+              controller: _applicantNameController),
           _buildTextField(
               hint: l10n.applicantDegree,
+              tooltip: l10n.applicantDegreeTooltip,
               controller: _applicantDegreeController),
           _buildTextField(
-              hint: l10n.applicantTitle, controller: _applicantTitleController),
+              hint: l10n.applicantTitle,
+              tooltip: l10n.applicantTitleTooltip,
+              controller: _applicantTitleController),
           _buildTextField(
               hint: l10n.applicantExperience,
+              tooltip: l10n.applicantExperienceTooltip,
               controller: _applicantExperienceController),
           _buildTextField(
               hint: l10n.applicantSkills,
+              tooltip: l10n.applicantSkillsTooltip,
               controller: _applicantSkillsController),
           _buildTextField(
               hint: l10n.applicantAddress,
+              tooltip: l10n.applicantAddressTooltip,
               controller: _applicantAddressController),
           _buildTextField(
               hint: l10n.applicantTelephone,
+              tooltip: l10n.applicantTelephoneTooltip,
               controller: _applicantTelephoneController),
           _buildTextField(
-              hint: l10n.applicantEmail, controller: _applicantEmailController),
+              hint: l10n.applicantEmail,
+              tooltip: l10n.applicantEmailTooltip,
+              controller: _applicantEmailController),
         ],
       ),
     );
   }
 
   Future<CoverletterModel?> __generateCoverletter() async {
-    if (!_formKey.currentState!.validate()) return null;
-
     final data = CoverletterData(
         recipientName: _applicantNameController.text,
         recipientJobPost: _recipientJobPostController.text,
@@ -187,26 +218,104 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Widget _bulildSummitBtn() {
     return ElevatedButton(
-        style: ButtonStyle(
-            fixedSize: WidgetStatePropertyAll(Size(200, 50)),
-            backgroundColor:
-                WidgetStatePropertyAll(Theme.of(context).colorScheme.primary),
-            foregroundColor: WidgetStatePropertyAll(
-                Theme.of(context).colorScheme.onPrimary)),
-        onPressed: () async {
-          validatedBefore = true;
-          final coverletter = await __generateCoverletter();
-          if (!mounted) return;
-          final l10n = ResumeflowLocalizations.of(context);
-
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                coverletter == null ? l10n.errorMessage : coverletter.genBody,
-              ),
+      style: _loading
+          ? ButtonStyle(
+              fixedSize: WidgetStatePropertyAll(Size(200, 50)),
+              backgroundColor: WidgetStatePropertyAll(Colors.grey.shade800),
+            )
+          : ButtonStyle(
+              fixedSize: WidgetStatePropertyAll(Size(200, 50)),
+              backgroundColor: WidgetStatePropertyAll(
+                  Theme.of(context).colorScheme.secondary),
             ),
-          );
-        },
-        child: Text(ResumeflowLocalizations.of(context).createCoverletterBtn));
+      onPressed: _loading
+          ? null
+          : () async {
+              validatedBefore = true;
+              if (!_formKey.currentState!.validate()) return;
+
+              setState(() {
+                _loading = true;
+              });
+
+              final coverletter = await __generateCoverletter();
+              if (!mounted) return;
+              final l10n = ResumeflowLocalizations.of(context);
+              if (coverletter == null) {
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    content: Text(l10n.errorMessage),
+                    elevation: 10,
+                    margin: EdgeInsets.symmetric(horizontal: 50),
+                    backgroundColor: Theme.of(context).colorScheme.error));
+              } else {
+                await showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        title: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(l10n.coverletterText),
+                            Wrap(
+                              children: [
+                                IconButton(
+                                  onPressed: () async {
+                                    await Clipboard.setData(ClipboardData(
+                                        text: coverletter.genBody));
+                                  },
+                                  tooltip: l10n.copyBtn,
+                                  icon: Icon(Icons.copy),
+                                ),
+                                FilledButton(
+                                  onPressed: () {},
+                                  child: Text(l10n.exportToDocx),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        content: ConstrainedBox(
+                          constraints: BoxConstraints.loose(Size(400, 600)),
+                          child: Card.filled(
+                            color: Theme.of(context).colorScheme.surface,
+                            margin: EdgeInsets.all(10),
+                            child: SelectableText(coverletter.genBody),
+                          ),
+                        ),
+                        actions: [
+                          ElevatedButton(
+                            onPressed: () => Navigator.of(context).pop(),
+                            child: Text(l10n.closeBtn),
+                          ),
+                        ],
+                      );
+                    });
+              }
+
+              setState(() {
+                _loading = false;
+              });
+            },
+      child: _loading
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  ResumeflowLocalizations.of(context).createCoverletterBtn,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium
+                      ?.copyWith(color: Colors.white),
+                ),
+                CircularProgressIndicator(
+                  constraints: BoxConstraints.tight(Size(15, 15)),
+                ),
+              ],
+            )
+          : Text(
+              ResumeflowLocalizations.of(context).createCoverletterBtn,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+    );
   }
 }

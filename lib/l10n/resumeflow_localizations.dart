@@ -328,6 +328,84 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Create Cover Letter'**
   String get createCoverLetter;
+
+  /// No description provided for @recipientNameTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the full name of the recipient (e.g., hiring manager or recruiter).'**
+  String get recipientNameTooltip;
+
+  /// No description provided for @recipientJobPostTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the job post that you want to apply to.'**
+  String get recipientJobPostTooltip;
+
+  /// No description provided for @applicantNameTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide your full name as it appears on official documents.'**
+  String get applicantNameTooltip;
+
+  /// No description provided for @applicantAddressTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your complete residential address, including city and postal code.'**
+  String get applicantAddressTooltip;
+
+  /// No description provided for @applicantTelephoneTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide your active phone number for communication purposes.'**
+  String get applicantTelephoneTooltip;
+
+  /// No description provided for @applicantEmailTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email address where you can be reached.'**
+  String get applicantEmailTooltip;
+
+  /// No description provided for @applicantDegreeTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Mention the highest degree or qualification you\'ve obtained (e.g., Bachelor\'s in Computer Science).'**
+  String get applicantDegreeTooltip;
+
+  /// No description provided for @applicantTitleTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'State your current job title or professional designation (e.g., Project Manager).'**
+  String get applicantTitleTooltip;
+
+  /// No description provided for @applicantExperienceTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Summarize your relevant work experience, including years in the field.'**
+  String get applicantExperienceTooltip;
+
+  /// No description provided for @applicantSkillsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).'**
+  String get applicantSkillsTooltip;
+
+  /// No description provided for @exportToDocx.
+  ///
+  /// In en, this message translates to:
+  /// **'Export to DOCX'**
+  String get exportToDocx;
+
+  /// No description provided for @closeBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get closeBtn;
+
+  /// No description provided for @copyBtn.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy'**
+  String get copyBtn;
 }
 
 class _ResumeflowLocalizationsDelegate extends LocalizationsDelegate<ResumeflowLocalizations> {

@@ -5,7 +5,7 @@ import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
 
 class CoverletterGenerationService {
   final http.Client _client;
-  static final _apiUrl = 'https://resumeai.up.railway.app';
+  static const _apiUrl = 'https://resumeai.up.railway.app';
 
   CoverletterGenerationService(http.Client httpClient) : _client = httpClient;
 

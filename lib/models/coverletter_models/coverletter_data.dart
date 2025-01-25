@@ -14,7 +14,7 @@ class CoverletterData {
   final String applicantExperience;
   final String applicantSkills;
 
-  CoverletterData({
+  const CoverletterData({
     required this.recipientName,
     required this.recipientJobPost,
     required this.applicantName,

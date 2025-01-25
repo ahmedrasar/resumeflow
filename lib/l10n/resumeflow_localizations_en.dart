@@ -124,4 +124,43 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
 
   @override
   String get createCoverLetter => 'Create Cover Letter';
+
+  @override
+  String get recipientNameTooltip => 'Enter the full name of the recipient (e.g., hiring manager or recruiter).';
+
+  @override
+  String get recipientJobPostTooltip => 'Enter the job post that you want to apply to.';
+
+  @override
+  String get applicantNameTooltip => 'Provide your full name as it appears on official documents.';
+
+  @override
+  String get applicantAddressTooltip => 'Enter your complete residential address, including city and postal code.';
+
+  @override
+  String get applicantTelephoneTooltip => 'Provide your active phone number for communication purposes.';
+
+  @override
+  String get applicantEmailTooltip => 'Enter your email address where you can be reached.';
+
+  @override
+  String get applicantDegreeTooltip => 'Mention the highest degree or qualification you\'ve obtained (e.g., Bachelor\'s in Computer Science).';
+
+  @override
+  String get applicantTitleTooltip => 'State your current job title or professional designation (e.g., Project Manager).';
+
+  @override
+  String get applicantExperienceTooltip => 'Summarize your relevant work experience, including years in the field.';
+
+  @override
+  String get applicantSkillsTooltip => 'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).';
+
+  @override
+  String get exportToDocx => 'Export to DOCX';
+
+  @override
+  String get closeBtn => 'Close';
+
+  @override
+  String get copyBtn => 'Copy';
 }

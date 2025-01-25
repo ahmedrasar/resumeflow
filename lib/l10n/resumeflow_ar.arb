@@ -38,5 +38,18 @@
     "empytFieldError": "لا يمكن ان تكون هذة الخانة فارغة",
     "createCoverletterBtn": "إنشاء خطاب تغطية",
     "errorMessage": "حدث خطأ",
-    "createCoverLetter": "إنشاء خطاب تغطية"
+    "createCoverLetter": "إنشاء خطاب تغطية",
+    "recipientNameTooltip": "أدخل اسم الشخص المسؤول عن التوظيف",
+    "recipientJobPostTooltip": "ادخل اعلان الوظيفة المرجو التقدم اليها",
+    "applicantNameTooltip": "أدخل اسمك الكامل",
+    "applicantAddressTooltip": "أدخل عنوانك الحالي",
+    "applicantTelephoneTooltip": "أدخل رقم هاتفك",
+    "applicantEmailTooltip": "أدخل بريدك الإلكتروني",
+    "applicantDegreeTooltip": "أدخل درجتك العلمية",
+    "applicantTitleTooltip": "أدخل مسماك الوظيفي الحالي",
+    "applicantExperienceTooltip": "أدخل خبراتك السابقة",
+    "applicantSkillsTooltip": "أدخل مهاراتك الرئيسية",
+    "exportToDocx": "تصدير إلى DOCX",
+    "closeBtn": "إغلاق",
+    "copyBtn": "نسخ"
 }

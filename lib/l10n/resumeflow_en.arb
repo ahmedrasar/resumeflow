@@ -38,5 +38,18 @@
     "empytFieldError": "Field can not be empty",
     "createCoverletterBtn": "Create Cover letter",
     "errorMessage": "Unexpected error happend",
-    "createCoverLetter": "Create Cover Letter"
+    "createCoverLetter": "Create Cover Letter",
+    "recipientNameTooltip": "Enter the full name of the recipient (e.g., hiring manager or recruiter).",
+    "recipientJobPostTooltip": "Enter the job post that you want to apply to.",
+    "applicantNameTooltip": "Provide your full name as it appears on official documents.",
+    "applicantAddressTooltip": "Enter your complete residential address, including city and postal code.",
+    "applicantTelephoneTooltip": "Provide your active phone number for communication purposes.",
+    "applicantEmailTooltip": "Enter your email address where you can be reached.",
+    "applicantDegreeTooltip": "Mention the highest degree or qualification you've obtained (e.g., Bachelor's in Computer Science).",
+    "applicantTitleTooltip": "State your current job title or professional designation (e.g., Project Manager).",
+    "applicantExperienceTooltip": "Summarize your relevant work experience, including years in the field.",
+    "applicantSkillsTooltip": "List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).",
+    "exportToDocx": "Export to DOCX",
+    "closeBtn": "Close",
+    "copyBtn": "Copy"
 }

@@ -2,7 +2,6 @@ flutter_native_splash:
   # Light mode
   color: "#f0f0f0"
   image: assets/trademark_images/logo.png
-  branding_bottom_padding: 200
   branding: assets/trademark_images/branding-dark.png
   # Dark mode
   color_dark: "#141414"
@@ -10,6 +9,7 @@ flutter_native_splash:
   
   # Android +12 adaptive splash
   android_12:
+    # Light  mode
     color: "#f0f0f0"
     image: assets/trademark_images/logo.png
     branding: assets/trademark_images/branding-dark.png

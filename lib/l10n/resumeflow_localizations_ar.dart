@@ -117,7 +117,9 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get empytFieldError => 'لا يمكن أن تكون هذة الخانة فارغًا';
 
   @override
-  String get unexpectedError => 'حدث خطأ غير متوقع';
+  String serverError(int code) {
+    return '($code) :حدث خطا من جانب السيرفر (كود';
+  }
 
   @override
   String get createCoverLetter => 'إنشاء خطاب تعريفى';
@@ -162,5 +164,5 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get copy => 'نسخ';
 
   @override
-  String get chooseDownloadDir => 'اختر دليل التنزيل';
+  String get chooseDownloadDir => 'اختر مجلد التنزيل';
 }

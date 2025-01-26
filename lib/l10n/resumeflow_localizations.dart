@@ -311,11 +311,11 @@ abstract class ResumeflowLocalizations {
   /// **'Field can not be empty'**
   String get empytFieldError;
 
-  /// No description provided for @unexpectedError.
+  /// No description provided for @serverError.
   ///
   /// In en, this message translates to:
-  /// **'Unexpected error happend'**
-  String get unexpectedError;
+  /// **'Server-side error happend (code: {code})'**
+  String serverError(int code);
 
   /// No description provided for @createCoverLetter.
   ///

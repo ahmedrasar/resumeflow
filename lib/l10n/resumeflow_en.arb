@@ -36,7 +36,14 @@
     "skills": "Skills",
     "generatedCoverLetter": "Your Generated Cover Letter",
     "empytFieldError": "Field can not be empty",
-    "unexpectedError": "Unexpected error happend",
+    "serverError": "Server-side error happend (code: {code})",
+    "@serverError": {
+        "placeholders": {
+            "code": {
+                "type": "int"
+            }
+        }
+    },
     "createCoverLetter": "Create Cover Letter",
     "recipientNameTooltip": "Enter the full name of the recipient (e.g., hiring manager or recruiter).",
     "jobPostTooltip": "Enter the job post that you want to apply to.",

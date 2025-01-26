@@ -3,6 +3,19 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 
+class CoverLetterGenerationServiceException implements Exception {
+  final http.Response response;
+  const CoverLetterGenerationServiceException(this.response);
+  @override
+  String toString() {
+    return '''CoverLetterGenerationServiceException:
+  requset:
+    ${response.request.toString()}
+  failed with response:
+    ${response.toString()}''';
+  }
+}
+
 class CoverLetterGenerationService {
   final http.Client _client;
   static const _apiUrl = 'https://resumeai.up.railway.app';
@@ -17,25 +30,27 @@ class CoverLetterGenerationService {
         : false;
   }
 
-  /// Returns [null] when not healthy
-  Future<String?> _getKey() async {
+  Future<String> _getKey() async {
     final response = await _client.get(Uri.parse('$_apiUrl/generate-api-key'));
-    return (jsonDecode(response.body) as Map<String, dynamic>)['api_key']
+    final key = (jsonDecode(response.body) as Map<String, dynamic>)['api_key']
         as String?;
+    if (key == null) {
+      throw CoverLetterGenerationServiceException(response);
+    }
+    return key;
   }
 
-  /// Returns [null] on auth error
-  Future<CoverLetterGenerativeData?> generateData(
-      CoverLetterRequestModel requestModel) async {
+  /// Throws [CoverLetterGenerationServiceException] on server error
+  Future<CoverLetterGenerativeData> generateData(
+      CoverLetterRequestModel coverLetterRM) async {
     final apiKey = await _getKey();
-    if (apiKey == null) return null;
 
     final headers = <String, String>{
       'x-api-key': apiKey,
       'content-type': 'application/json',
     };
 
-    final body = requestModel.toJson();
+    final body = coverLetterRM.toJson();
 
     final response = await _client.post(
       Uri.parse('$_apiUrl/generate-cover-letter'),
@@ -43,7 +58,9 @@ class CoverLetterGenerationService {
       body: jsonEncode(body),
     );
 
-    if (response.statusCode != 200) return null;
+    if (response.statusCode != 200) {
+      throw CoverLetterGenerationServiceException(response);
+    }
 
     return CoverLetterResponseModel.fromJson(jsonDecode(response.body)).data;
   }

@@ -36,7 +36,7 @@
     "skills": "المهارات",
     "generatedCoverLetter": "الخطاب التعريفى الذي تم إنشاؤه",
     "empytFieldError": "لا يمكن أن تكون هذة الخانة فارغًا",
-    "unexpectedError": "حدث خطأ غير متوقع",
+    "serverError": "({code}) :حدث خطا من جانب السيرفر (كود",
     "createCoverLetter": "إنشاء خطاب تعريفى",
     "recipientNameTooltip": "أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).",
     "jobPostTooltip": "أدخل الوظيفة التي تريد التقدم لها.",

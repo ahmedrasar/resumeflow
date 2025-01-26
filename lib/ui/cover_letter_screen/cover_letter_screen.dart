@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
@@ -15,8 +17,17 @@ class CoverLetterScreen extends StatefulWidget {
 }
 
 class _CoverLetterScreenState extends State<CoverLetterScreen> {
-  final _formKey = GlobalKey<FormState>();
+  late ThemeData theme;
+  late ResumeflowLocalizations l10n;
 
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    theme = Theme.of(context);
+    l10n = ResumeflowLocalizations.of(context);
+  }
+
+  final _formKey = GlobalKey<FormState>();
   var validatedBefore = false;
 
   // Recipient Controllers
@@ -43,7 +54,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   bool _loading = false;
 
   Widget _buildTextField({
-    required String hint,
+    required String fieldName,
     required String tooltip,
     required TextEditingController controller,
   }) {
@@ -56,7 +67,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
             Align(
               alignment: Alignment(-0.9, 0),
               child: Text(
-                hint,
+                fieldName,
                 style: Theme.of(context).textTheme.titleMedium,
               ),
             ),
@@ -81,7 +92,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               ? ResumeflowLocalizations.of(context).empytFieldError
               : null,
           decoration: InputDecoration(
-            hintText: hint,
+            hintText: fieldName,
             hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
                 color: Theme.of(context)
                     .textTheme
@@ -144,43 +155,43 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         spacing: 20,
         children: [
           _buildTextField(
-              hint: l10n.companyName,
+              fieldName: l10n.companyName,
               tooltip: l10n.recipientNameTooltip,
               controller: _recipientNameController),
           _buildTextField(
-              hint: l10n.jobPost,
+              fieldName: l10n.jobPost,
               tooltip: l10n.jobPost,
               controller: _jobPostController),
           _buildTextField(
-              hint: l10n.applicantName,
+              fieldName: l10n.applicantName,
               tooltip: l10n.applicantNameTooltip,
               controller: _applicantNameController),
           _buildTextField(
-              hint: l10n.applicantDegree,
+              fieldName: l10n.applicantDegree,
               tooltip: l10n.applicantDegreeTooltip,
               controller: _degreeController),
           _buildTextField(
-              hint: l10n.applicantTitle,
+              fieldName: l10n.applicantTitle,
               tooltip: l10n.applicantTitleTooltip,
               controller: _applicantTitleController),
           _buildTextField(
-              hint: l10n.experience,
+              fieldName: l10n.experience,
               tooltip: l10n.experienceTooltip,
               controller: _experienceController),
           _buildTextField(
-              hint: l10n.skills,
+              fieldName: l10n.skills,
               tooltip: l10n.skillsTooltip,
               controller: _skillsController),
           _buildTextField(
-              hint: l10n.address,
+              fieldName: l10n.address,
               tooltip: l10n.addressTooltip,
               controller: _addressController),
           _buildTextField(
-              hint: l10n.telephone,
+              fieldName: l10n.telephone,
               tooltip: l10n.telephoneTooltip,
               controller: _telephoneController),
           _buildTextField(
-              hint: l10n.email,
+              fieldName: l10n.email,
               tooltip: l10n.emailTooltip,
               controller: _emailController),
         ],
@@ -188,7 +199,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     );
   }
 
-  Future<CoverLetterModel?> __generateCoverletter() async {
+  Future<CoverLetterModel> __generateCoverletter() async {
     final data = CoverLetterData(
         companyName: _applicantNameController.text,
         jobPost: _jobPostController.text,
@@ -204,8 +215,6 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     final service = CoverLetterGenerationService(http.Client());
     final genData =
         await service.generateData(CoverLetterRequestModel(data: data));
-
-    if (genData == null) return null;
 
     return CoverLetterModel(data: data, genData: genData);
   }
@@ -229,64 +238,68 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 _loading = true;
               });
 
-              final coverletter = await __generateCoverletter();
-              if (!mounted) return;
-              final l10n = ResumeflowLocalizations.of(context);
-              if (coverletter == null) {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(l10n.unexpectedError),
-                    elevation: 10,
-                    backgroundColor: Theme.of(context).colorScheme.error));
-              } else {
-                await showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (context) {
-                      return AlertDialog(
-                        title: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(l10n.coverLetter),
-                            Wrap(
-                              children: [
-                                IconButton(
-                                  onPressed: () async {
-                                    await Clipboard.setData(ClipboardData(
-                                        text: coverletter.generatedBody));
-                                  },
-                                  tooltip: l10n.copy,
-                                  icon: Icon(Icons.copy),
-                                ),
-                                FilledButton(
-                                  onPressed: () async {
-                                    await FileSaver.saveCoverLetter(coverletter,
-                                        prompt: l10n.chooseDownloadDir);
-                                  },
-                                  child: Text(l10n.exportToDocx),
-                                ),
-                              ],
+              try {
+                final coverLetter = await __generateCoverletter();
+                if (mounted) {
+                  await showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(l10n.coverLetter),
+                              Wrap(
+                                children: [
+                                  IconButton(
+                                    onPressed: () async {
+                                      await Clipboard.setData(ClipboardData(
+                                          text: coverLetter.generatedBody));
+                                    },
+                                    tooltip: l10n.copy,
+                                    icon: Icon(Icons.copy),
+                                  ),
+                                  FilledButton(
+                                    onPressed: () async {
+                                      await FileSaver.saveCoverLetter(
+                                          coverLetter,
+                                          prompt: l10n.chooseDownloadDir);
+                                    },
+                                    child: Text(l10n.exportToDocx),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                          content: ConstrainedBox(
+                            constraints: BoxConstraints.loose(Size(600, 1200)),
+                            child: Card.filled(
+                              color: Theme.of(context).colorScheme.surface,
+                              margin: EdgeInsets.all(10),
+                              child: SelectableText(
+                                coverLetter.generatedBody,
+                                style: Theme.of(context).textTheme.bodyLarge,
+                              ),
+                            ),
+                          ),
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () => Navigator.of(context).pop(),
+                              child: Text(l10n.close),
                             ),
                           ],
-                        ),
-                        content: ConstrainedBox(
-                          constraints: BoxConstraints.loose(Size(600, 1200)),
-                          child: Card.filled(
-                            color: Theme.of(context).colorScheme.surface,
-                            margin: EdgeInsets.all(10),
-                            child: SelectableText(
-                              coverletter.generatedBody,
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                          ),
-                        ),
-                        actions: [
-                          ElevatedButton(
-                            onPressed: () => Navigator.of(context).pop(),
-                            child: Text(l10n.close),
-                          ),
-                        ],
-                      );
-                    });
+                        );
+                      });
+                }
+              } on CoverLetterGenerationServiceException catch (e) {
+                log(e.toString());
+                if (mounted) {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      content: Text(l10n.serverError(e.response.statusCode)),
+                      elevation: 10,
+                      backgroundColor: theme.colorScheme.error));
+                }
               }
 
               setState(() {

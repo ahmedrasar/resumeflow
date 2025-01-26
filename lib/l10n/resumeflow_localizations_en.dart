@@ -117,7 +117,9 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get empytFieldError => 'Field can not be empty';
 
   @override
-  String get unexpectedError => 'Unexpected error happend';
+  String serverError(int code) {
+    return 'Server-side error happend (code: $code)';
+  }
 
   @override
   String get createCoverLetter => 'Create Cover Letter';

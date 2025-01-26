@@ -160,7 +160,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               controller: _recipientNameController),
           _buildTextField(
               fieldName: l10n.jobPost,
-              tooltip: l10n.jobPost,
+              tooltip: l10n.jobPostTooltip,
               controller: _jobPostController),
           _buildTextField(
               fieldName: l10n.applicantName,

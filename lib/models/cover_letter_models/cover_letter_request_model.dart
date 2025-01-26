@@ -7,28 +7,28 @@ part 'cover_letter_request_model.g.dart';
 class CoverLetterRequestModel {
   // Recipent-related
   @JsonKey(name: 'job_post')
-  final String recipientJobPost;
+  final String jobPost;
 
   // Applicant-related
   @JsonKey(name: 'user_name')
-  final String applicantName;
+  final String name;
   @JsonKey(name: 'user_degree')
-  final String applicantDegree;
+  final String degree;
   @JsonKey(name: 'user_title')
-  final String applicantTitle;
+  final String title;
   @JsonKey(name: 'user_experience')
-  final String applicantExperience;
+  final String experience;
   @JsonKey(name: 'user_skills')
-  final String applicantSkills;
+  final String skills;
 
   CoverLetterRequestModel({
     required CoverLetterData data,
-  })  : recipientJobPost = data.recipientJobPost,
-        applicantName = data.applicantName,
-        applicantDegree = data.applicantDegree,
-        applicantTitle = data.applicantTitle,
-        applicantExperience = data.applicantExperience,
-        applicantSkills = data.applicantSkills;
+  })  : jobPost = data.jobPost,
+        name = data.name,
+        degree = data.degree,
+        title = data.title,
+        experience = data.experience,
+        skills = data.skills;
 
   Map<String, dynamic> toJson() => _$CoverLetterRequestModelToJson(this);
 }

@@ -7,7 +7,7 @@ import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 import 'package:resumeflow/utils/asset_paths/asset_helper.dart';
 
 class CoverLetterDocx {
-  static const String _recipientNameKey = 'recipient-name';
+  static const String _recipientNameKey = 'company-name';
   static const String _applicantNameKey = 'applicant-name';
   static const String _addressKey = 'address';
   static const String _telephoneKey = 'telephone';
@@ -22,12 +22,12 @@ class CoverLetterDocx {
 
     final content = Content()
       ..addAll({
-        _recipientNameKey: TextContent(_recipientNameKey, model.recipientName),
-        _applicantNameKey: TextContent(_applicantNameKey, model.applicantName),
-        _addressKey: TextContent(_addressKey, model.applicantAddress),
-        _telephoneKey: TextContent(_telephoneKey, model.applicantTelephone),
-        _emailKey: TextContent(_emailKey, model.applicantEmail),
-        _genBodyKey: TextContent(_genBodyKey, model.genBody),
+        _recipientNameKey: TextContent(_recipientNameKey, model.comapnyName),
+        _applicantNameKey: TextContent(_applicantNameKey, model.name),
+        _addressKey: TextContent(_addressKey, model.address),
+        _telephoneKey: TextContent(_telephoneKey, model.telephone),
+        _emailKey: TextContent(_emailKey, model.email),
+        _genBodyKey: TextContent(_genBodyKey, model.generatedBody),
       });
 
     return await template.generate(content);

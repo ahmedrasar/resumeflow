@@ -101,59 +101,59 @@ abstract class ResumeflowLocalizations {
   /// **'ResumeFlow'**
   String get appName;
 
-  /// No description provided for @startScreenHeaderSeg1.
+  /// No description provided for @showcaseScreenHeaderSeg1.
   ///
   /// In en, this message translates to:
   /// **'Build Your Resume'**
-  String get startScreenHeaderSeg1;
+  String get showcaseScreenHeaderSeg1;
 
-  /// No description provided for @startScreenHeaderSeg2.
+  /// No description provided for @showcaseScreenHeaderSeg2.
   ///
   /// In en, this message translates to:
   /// **'With AI'**
-  String get startScreenHeaderSeg2;
+  String get showcaseScreenHeaderSeg2;
 
-  /// No description provided for @startScreenHeaderBody.
+  /// No description provided for @showcaseScreenBody.
   ///
   /// In en, this message translates to:
   /// **'Effortlessly Craft a Professional Resume with Our AI-Powered Builder'**
-  String get startScreenHeaderBody;
+  String get showcaseScreenBody;
 
-  /// No description provided for @getStartedButtonTitle.
+  /// No description provided for @getStarted.
   ///
   /// In en, this message translates to:
   /// **'Get Started'**
-  String get getStartedButtonTitle;
+  String get getStarted;
 
-  /// No description provided for @learnMoreButtonTitle.
+  /// No description provided for @learnMore.
   ///
   /// In en, this message translates to:
   /// **'Learn More'**
-  String get learnMoreButtonTitle;
+  String get learnMore;
 
-  /// No description provided for @howItWorksHeader.
+  /// No description provided for @howItWorks.
   ///
   /// In en, this message translates to:
   /// **'How It Works?'**
-  String get howItWorksHeader;
+  String get howItWorks;
 
-  /// No description provided for @howItWorksBody.
+  /// No description provided for @generateInSimpleSteps.
   ///
   /// In en, this message translates to:
-  /// **'Generate resume in just simple steps'**
-  String get howItWorksBody;
+  /// **'Generate Well-Crafted Resume in Simple Steps!'**
+  String get generateInSimpleSteps;
 
-  /// No description provided for @loginButtonTitle.
+  /// No description provided for @login.
   ///
   /// In en, this message translates to:
   /// **'Login'**
-  String get loginButtonTitle;
+  String get login;
 
-  /// No description provided for @createCardHeader.
+  /// No description provided for @createCard.
   ///
   /// In en, this message translates to:
-  /// **'Create Your Template'**
-  String get createCardHeader;
+  /// **'Choose Your Template'**
+  String get createCard;
 
   /// No description provided for @createCardBody.
   ///
@@ -161,11 +161,11 @@ abstract class ResumeflowLocalizations {
   /// **'Start by selecting the color scheme for your resume template. Our single, professionally designed template ensures a clean and consistent look for all users.'**
   String get createCardBody;
 
-  /// No description provided for @updateCardHeader.
+  /// No description provided for @updateCard.
   ///
   /// In en, this message translates to:
   /// **'Update Your Information'**
-  String get updateCardHeader;
+  String get updateCard;
 
   /// No description provided for @updateCardBody.
   ///
@@ -173,11 +173,11 @@ abstract class ResumeflowLocalizations {
   /// **'Enter your personal details, work experience, education, and skills into the provided form. Our AI assists you in filling out each section accurately and effectively.'**
   String get updateCardBody;
 
-  /// No description provided for @shareCardHeader.
+  /// No description provided for @shareCard.
   ///
   /// In en, this message translates to:
   /// **'Share Your Resume'**
-  String get shareCardHeader;
+  String get shareCard;
 
   /// No description provided for @shareCardBody.
   ///
@@ -185,125 +185,125 @@ abstract class ResumeflowLocalizations {
   /// **'After completing your resume, save it securely and generate a shareable link. Easily update your information anytime and share the link with potential employers or download it in a preferred format.'**
   String get shareCardBody;
 
-  /// No description provided for @languageText.
+  /// No description provided for @language.
   ///
   /// In en, this message translates to:
   /// **'Language'**
-  String get languageText;
+  String get language;
 
-  /// No description provided for @systemLangText.
+  /// No description provided for @systemLanguage.
   ///
   /// In en, this message translates to:
   /// **'Follow System Language'**
-  String get systemLangText;
+  String get systemLanguage;
 
-  /// No description provided for @systemThemeText.
+  /// No description provided for @systemTheme.
   ///
   /// In en, this message translates to:
   /// **'Follow System Theme'**
-  String get systemThemeText;
+  String get systemTheme;
 
-  /// No description provided for @themeBtnText.
+  /// No description provided for @theme.
   ///
   /// In en, this message translates to:
   /// **'Theme'**
-  String get themeBtnText;
+  String get theme;
 
-  /// No description provided for @lightThemeText.
+  /// No description provided for @lightTheme.
   ///
   /// In en, this message translates to:
   /// **'Light Theme'**
-  String get lightThemeText;
+  String get lightTheme;
 
-  /// No description provided for @darkThemeText.
+  /// No description provided for @darkTheme.
   ///
   /// In en, this message translates to:
   /// **'Dark Theme'**
-  String get darkThemeText;
+  String get darkTheme;
 
-  /// No description provided for @resumeText.
+  /// No description provided for @resume.
   ///
   /// In en, this message translates to:
   /// **'Resume'**
-  String get resumeText;
+  String get resume;
 
-  /// No description provided for @coverLetterText.
+  /// No description provided for @coverLetter.
   ///
   /// In en, this message translates to:
-  /// **'Cover letter'**
-  String get coverLetterText;
+  /// **'Cover Letter'**
+  String get coverLetter;
 
-  /// No description provided for @settingsText.
+  /// No description provided for @settings.
   ///
   /// In en, this message translates to:
   /// **'Settings'**
-  String get settingsText;
+  String get settings;
 
-  /// No description provided for @recipientName.
+  /// No description provided for @companyName.
   ///
   /// In en, this message translates to:
-  /// **'Recipient Name'**
-  String get recipientName;
+  /// **'Company Name'**
+  String get companyName;
 
-  /// No description provided for @recipientJobPost.
+  /// No description provided for @jobPost.
   ///
   /// In en, this message translates to:
-  /// **'Recipient Job Post'**
-  String get recipientJobPost;
+  /// **'Job Post'**
+  String get jobPost;
 
   /// No description provided for @applicantName.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Name'**
+  /// **'Name'**
   String get applicantName;
 
-  /// No description provided for @applicantAddress.
+  /// No description provided for @address.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Address'**
-  String get applicantAddress;
+  /// **'Address'**
+  String get address;
 
-  /// No description provided for @applicantTelephone.
+  /// No description provided for @telephone.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Telephone'**
-  String get applicantTelephone;
+  /// **'Telephone'**
+  String get telephone;
 
-  /// No description provided for @applicantEmail.
+  /// No description provided for @email.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Email'**
-  String get applicantEmail;
+  /// **'Email'**
+  String get email;
 
   /// No description provided for @applicantDegree.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Degree'**
+  /// **'Degree'**
   String get applicantDegree;
 
   /// No description provided for @applicantTitle.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Title'**
+  /// **'Title'**
   String get applicantTitle;
 
-  /// No description provided for @applicantExperience.
+  /// No description provided for @experience.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Experience'**
-  String get applicantExperience;
+  /// **'Experience'**
+  String get experience;
 
-  /// No description provided for @applicantSkills.
+  /// No description provided for @skills.
   ///
   /// In en, this message translates to:
-  /// **'Applicant Skills'**
-  String get applicantSkills;
+  /// **'Skills'**
+  String get skills;
 
-  /// No description provided for @generatedBody.
+  /// No description provided for @generatedCoverLetter.
   ///
   /// In en, this message translates to:
-  /// **'Generated Body'**
-  String get generatedBody;
+  /// **'Your Generated Cover Letter'**
+  String get generatedCoverLetter;
 
   /// No description provided for @empytFieldError.
   ///
@@ -311,17 +311,11 @@ abstract class ResumeflowLocalizations {
   /// **'Field can not be empty'**
   String get empytFieldError;
 
-  /// No description provided for @createCoverLetterBtn.
-  ///
-  /// In en, this message translates to:
-  /// **'Create Cover letter'**
-  String get createCoverLetterBtn;
-
-  /// No description provided for @errorMessage.
+  /// No description provided for @unexpectedError.
   ///
   /// In en, this message translates to:
   /// **'Unexpected error happend'**
-  String get errorMessage;
+  String get unexpectedError;
 
   /// No description provided for @createCoverLetter.
   ///
@@ -335,11 +329,11 @@ abstract class ResumeflowLocalizations {
   /// **'Enter the full name of the recipient (e.g., hiring manager or recruiter).'**
   String get recipientNameTooltip;
 
-  /// No description provided for @recipientJobPostTooltip.
+  /// No description provided for @jobPostTooltip.
   ///
   /// In en, this message translates to:
   /// **'Enter the job post that you want to apply to.'**
-  String get recipientJobPostTooltip;
+  String get jobPostTooltip;
 
   /// No description provided for @applicantNameTooltip.
   ///
@@ -347,23 +341,23 @@ abstract class ResumeflowLocalizations {
   /// **'Provide your full name as it appears on official documents.'**
   String get applicantNameTooltip;
 
-  /// No description provided for @applicantAddressTooltip.
+  /// No description provided for @addressTooltip.
   ///
   /// In en, this message translates to:
   /// **'Enter your complete residential address, including city and postal code.'**
-  String get applicantAddressTooltip;
+  String get addressTooltip;
 
-  /// No description provided for @applicantTelephoneTooltip.
+  /// No description provided for @telephoneTooltip.
   ///
   /// In en, this message translates to:
   /// **'Provide your active phone number for communication purposes.'**
-  String get applicantTelephoneTooltip;
+  String get telephoneTooltip;
 
-  /// No description provided for @applicantEmailTooltip.
+  /// No description provided for @emailTooltip.
   ///
   /// In en, this message translates to:
   /// **'Enter your email address where you can be reached.'**
-  String get applicantEmailTooltip;
+  String get emailTooltip;
 
   /// No description provided for @applicantDegreeTooltip.
   ///
@@ -374,20 +368,20 @@ abstract class ResumeflowLocalizations {
   /// No description provided for @applicantTitleTooltip.
   ///
   /// In en, this message translates to:
-  /// **'State your current job title or professional designation (e.g., Project Manager).'**
+  /// **'State your current job  or professional designation (e.g., Project Manager).'**
   String get applicantTitleTooltip;
 
-  /// No description provided for @applicantExperienceTooltip.
+  /// No description provided for @experienceTooltip.
   ///
   /// In en, this message translates to:
   /// **'Summarize your relevant work experience, including years in the field.'**
-  String get applicantExperienceTooltip;
+  String get experienceTooltip;
 
-  /// No description provided for @applicantSkillsTooltip.
+  /// No description provided for @skillsTooltip.
   ///
   /// In en, this message translates to:
   /// **'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).'**
-  String get applicantSkillsTooltip;
+  String get skillsTooltip;
 
   /// No description provided for @exportToDocx.
   ///
@@ -395,17 +389,17 @@ abstract class ResumeflowLocalizations {
   /// **'Export to DOCX'**
   String get exportToDocx;
 
-  /// No description provided for @closeBtn.
+  /// No description provided for @close.
   ///
   /// In en, this message translates to:
   /// **'Close'**
-  String get closeBtn;
+  String get close;
 
-  /// No description provided for @copyBtn.
+  /// No description provided for @copy.
   ///
   /// In en, this message translates to:
   /// **'Copy'**
-  String get copyBtn;
+  String get copy;
 
   /// No description provided for @chooseDownloadDir.
   ///

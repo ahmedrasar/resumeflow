@@ -22,7 +22,7 @@ class __ClerkCustomWidgetState extends State<_ClerkCustomWidget> {
       children: [
         ElevatedButton(
           onPressed: () => __skipLogin(context),
-          child: Text(ResumeflowLocalizations.of(context).loginButtonTitle),
+          child: Text(ResumeflowLocalizations.of(context).login),
         ),
       ],
     );

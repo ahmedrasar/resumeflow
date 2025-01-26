@@ -3,24 +3,24 @@ import 'package:resumeflow/models/cover_letter_models/cover_letter_generative_da
 
 class CoverLetterModel {
   // Recipient-related
-  final String recipientName;
+  final String comapnyName;
 
   // Applicant-related
-  final String applicantName;
-  final String applicantAddress;
-  final String applicantTelephone;
-  final String applicantEmail;
+  final String name;
+  final String address;
+  final String telephone;
+  final String email;
 
   // Generative data
-  final String genBody;
+  final String generatedBody;
 
   CoverLetterModel({
     required CoverLetterData data,
     required CoverLetterGenerativeData genData,
-  })  : recipientName = data.recipientName,
-        applicantName = data.applicantName,
-        applicantAddress = data.applicantAddress,
-        applicantTelephone = data.applicantTelephone,
-        applicantEmail = data.applicantEmail,
-        genBody = genData.genBody;
+  })  : comapnyName = data.companyName,
+        name = data.name,
+        address = data.address,
+        telephone = data.telephone,
+        email = data.email,
+        generatedBody = genData.generatedBody;
 }

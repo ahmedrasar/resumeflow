@@ -22,30 +22,23 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   // Recipient Controllers
   final TextEditingController _recipientNameController =
       TextEditingController();
-  final TextEditingController _recipientJobPostController =
-      TextEditingController();
+  final TextEditingController _jobPostController = TextEditingController();
 
   // Applicant Controllers
   final TextEditingController _applicantNameController =
       TextEditingController();
-  final TextEditingController _applicantAddressController =
-      TextEditingController();
-  final TextEditingController _applicantTelephoneController =
-      TextEditingController();
-  final TextEditingController _applicantEmailController =
-      TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _telephoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
 
-  final TextEditingController _applicantDegreeController =
-      TextEditingController();
+  final TextEditingController _degreeController = TextEditingController();
 
   final TextEditingController _applicantTitleController =
       TextEditingController();
 
-  final TextEditingController _applicantExperienceController =
-      TextEditingController();
+  final TextEditingController _experienceController = TextEditingController();
 
-  final TextEditingController _applicantSkillsController =
-      TextEditingController();
+  final TextEditingController _skillsController = TextEditingController();
 
   bool _loading = false;
 
@@ -151,13 +144,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         spacing: 20,
         children: [
           _buildTextField(
-              hint: l10n.recipientName,
+              hint: l10n.companyName,
               tooltip: l10n.recipientNameTooltip,
               controller: _recipientNameController),
           _buildTextField(
-              hint: l10n.recipientJobPost,
-              tooltip: l10n.recipientJobPostTooltip,
-              controller: _recipientJobPostController),
+              hint: l10n.jobPost,
+              tooltip: l10n.jobPost,
+              controller: _jobPostController),
           _buildTextField(
               hint: l10n.applicantName,
               tooltip: l10n.applicantNameTooltip,
@@ -165,31 +158,31 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           _buildTextField(
               hint: l10n.applicantDegree,
               tooltip: l10n.applicantDegreeTooltip,
-              controller: _applicantDegreeController),
+              controller: _degreeController),
           _buildTextField(
               hint: l10n.applicantTitle,
               tooltip: l10n.applicantTitleTooltip,
               controller: _applicantTitleController),
           _buildTextField(
-              hint: l10n.applicantExperience,
-              tooltip: l10n.applicantExperienceTooltip,
-              controller: _applicantExperienceController),
+              hint: l10n.experience,
+              tooltip: l10n.experienceTooltip,
+              controller: _experienceController),
           _buildTextField(
-              hint: l10n.applicantSkills,
-              tooltip: l10n.applicantSkillsTooltip,
-              controller: _applicantSkillsController),
+              hint: l10n.skills,
+              tooltip: l10n.skillsTooltip,
+              controller: _skillsController),
           _buildTextField(
-              hint: l10n.applicantAddress,
-              tooltip: l10n.applicantAddressTooltip,
-              controller: _applicantAddressController),
+              hint: l10n.address,
+              tooltip: l10n.addressTooltip,
+              controller: _addressController),
           _buildTextField(
-              hint: l10n.applicantTelephone,
-              tooltip: l10n.applicantTelephoneTooltip,
-              controller: _applicantTelephoneController),
+              hint: l10n.telephone,
+              tooltip: l10n.telephoneTooltip,
+              controller: _telephoneController),
           _buildTextField(
-              hint: l10n.applicantEmail,
-              tooltip: l10n.applicantEmailTooltip,
-              controller: _applicantEmailController),
+              hint: l10n.email,
+              tooltip: l10n.emailTooltip,
+              controller: _emailController),
         ],
       ),
     );
@@ -197,16 +190,16 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Future<CoverLetterModel?> __generateCoverletter() async {
     final data = CoverLetterData(
-        recipientName: _applicantNameController.text,
-        recipientJobPost: _recipientJobPostController.text,
-        applicantName: _applicantNameController.text,
-        applicantAddress: _applicantAddressController.text,
-        applicantTelephone: _applicantTelephoneController.text,
-        applicantEmail: _applicantEmailController.text,
-        applicantDegree: _applicantDegreeController.text,
-        applicantTitle: _applicantTitleController.text,
-        applicantExperience: _applicantExperienceController.text,
-        applicantSkills: _applicantSkillsController.text);
+        companyName: _applicantNameController.text,
+        jobPost: _jobPostController.text,
+        name: _applicantNameController.text,
+        address: _addressController.text,
+        telephone: _telephoneController.text,
+        email: _emailController.text,
+        degree: _degreeController.text,
+        title: _applicantTitleController.text,
+        experience: _experienceController.text,
+        skills: _skillsController.text);
 
     final service = CoverLetterGenerationService(http.Client());
     final genData =
@@ -241,7 +234,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               final l10n = ResumeflowLocalizations.of(context);
               if (coverletter == null) {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text(l10n.errorMessage),
+                    content: Text(l10n.unexpectedError),
                     elevation: 10,
                     backgroundColor: Theme.of(context).colorScheme.error));
               } else {
@@ -253,15 +246,15 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                         title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(l10n.coverLetterText),
+                            Text(l10n.coverLetter),
                             Wrap(
                               children: [
                                 IconButton(
                                   onPressed: () async {
                                     await Clipboard.setData(ClipboardData(
-                                        text: coverletter.genBody));
+                                        text: coverletter.generatedBody));
                                   },
-                                  tooltip: l10n.copyBtn,
+                                  tooltip: l10n.copy,
                                   icon: Icon(Icons.copy),
                                 ),
                                 FilledButton(
@@ -281,7 +274,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                             color: Theme.of(context).colorScheme.surface,
                             margin: EdgeInsets.all(10),
                             child: SelectableText(
-                              coverletter.genBody,
+                              coverletter.generatedBody,
                               style: Theme.of(context).textTheme.bodyLarge,
                             ),
                           ),
@@ -289,7 +282,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                         actions: [
                           ElevatedButton(
                             onPressed: () => Navigator.of(context).pop(),
-                            child: Text(l10n.closeBtn),
+                            child: Text(l10n.close),
                           ),
                         ],
                       );
@@ -305,7 +298,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  ResumeflowLocalizations.of(context).createCoverLetterBtn,
+                  ResumeflowLocalizations.of(context).createCoverLetter,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -318,7 +311,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               ],
             )
           : Text(
-              ResumeflowLocalizations.of(context).createCoverLetterBtn,
+              ResumeflowLocalizations.of(context).createCoverLetter,
               style: Theme.of(context).textTheme.titleMedium,
             ),
     );

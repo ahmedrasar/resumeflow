@@ -7,7 +7,7 @@ class FileSaver {
   static Future<bool> saveCoverLetter(CoverLetterModel model,
       {required String prompt}) async {
     final bytes = await CoverLetterDocx.fromModel(model);
-    final fileName = '${model.recipientName}-cover-letter.docx';
+    final fileName = '${model.comapnyName}-cover-letter.docx';
     return TargetFileSaver().saveFile(bytes!, fileName, prompt, 'docx');
   }
 }

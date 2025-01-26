@@ -14,5 +14,5 @@ class CoverLetterResponseModel {
       _$CoverLetterResponseModelFromJson(json);
 
   CoverLetterGenerativeData get data =>
-      CoverLetterGenerativeData(genBody: genBody);
+      CoverLetterGenerativeData(generatedBody: genBody);
 }

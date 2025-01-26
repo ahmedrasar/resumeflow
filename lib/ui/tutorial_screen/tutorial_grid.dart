@@ -18,19 +18,19 @@ class TutorialGrid extends StatelessWidget {
       TutorialCard(
         step: ++step,
         backgroundIconData: Icons.edit_note_rounded,
-        header: l10n.createCardHeader,
+        header: l10n.createCard,
         body: l10n.createCardBody,
       ),
       TutorialCard(
         step: ++step,
         backgroundIconData: Icons.update_rounded,
-        header: l10n.updateCardHeader,
+        header: l10n.updateCard,
         body: l10n.updateCardBody,
       ),
       TutorialCard(
         step: ++step,
         backgroundIconData: Icons.share_rounded,
-        header: l10n.shareCardHeader,
+        header: l10n.shareCard,
         body: l10n.shareCardBody,
       )
     ];

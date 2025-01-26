@@ -22,18 +22,18 @@ class ShowcaseScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             text: TextSpan(
               text:
-                  '${ResumeflowLocalizations.of(context).startScreenHeaderSeg1}\n',
+                  '${ResumeflowLocalizations.of(context).showcaseScreenHeaderSeg1}\n',
               style: Theme.of(context).textTheme.displayMedium,
               children: [
                 TextSpan(
                   text:
-                      '${ResumeflowLocalizations.of(context).startScreenHeaderSeg2}\n',
+                      '${ResumeflowLocalizations.of(context).showcaseScreenHeaderSeg2}\n',
                   style:
                       TextStyle(color: Theme.of(context).colorScheme.secondary),
                 ),
                 TextSpan(
-                    text: ResumeflowLocalizations.of(context)
-                        .startScreenHeaderBody,
+                    text:
+                        ResumeflowLocalizations.of(context).showcaseScreenBody,
                     style: Theme.of(context).textTheme.bodyLarge),
               ],
             ),
@@ -60,13 +60,13 @@ class ShowcaseScreen extends StatelessWidget {
   }
 
   Widget _buildGetStartedButton(BuildContext context) => __buildBaseButton(
-      ResumeflowLocalizations.of(context).getStartedButtonTitle,
+      ResumeflowLocalizations.of(context).getStarted,
       Theme.of(context).colorScheme.secondary,
       Theme.of(context).colorScheme.onSecondary,
       () => context.go('/home'));
 
   Widget _buildLearnMoreButton(BuildContext context) => __buildBaseButton(
-      ResumeflowLocalizations.of(context).learnMoreButtonTitle,
+      ResumeflowLocalizations.of(context).learnMore,
       Theme.of(context).colorScheme.inverseSurface,
       Theme.of(context).colorScheme.onInverseSurface,
       () => context.go('/tutorial'));
@@ -75,12 +75,12 @@ class ShowcaseScreen extends StatelessWidget {
     return Column(
       children: [
         Text(
-          ResumeflowLocalizations.of(context).howItWorksHeader,
+          ResumeflowLocalizations.of(context).howItWorks,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.headlineLarge,
         ),
         Text(
-          ResumeflowLocalizations.of(context).howItWorksBody,
+          ResumeflowLocalizations.of(context).generateInSimpleSteps,
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.bodyLarge,
         ),

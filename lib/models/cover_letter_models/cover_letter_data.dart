@@ -1,29 +1,29 @@
 /// Holds all user data
 class CoverLetterData {
   // Recipient-related
-  final String recipientName;
-  final String recipientJobPost;
+  final String companyName;
+  final String jobPost;
 
   // Applicant-related
-  final String applicantName;
-  final String applicantAddress;
-  final String applicantTelephone;
-  final String applicantEmail;
-  final String applicantDegree;
-  final String applicantTitle;
-  final String applicantExperience;
-  final String applicantSkills;
+  final String name;
+  final String address;
+  final String telephone;
+  final String email;
+  final String degree;
+  final String title;
+  final String experience;
+  final String skills;
 
   const CoverLetterData({
-    required this.recipientName,
-    required this.recipientJobPost,
-    required this.applicantName,
-    required this.applicantAddress,
-    required this.applicantTelephone,
-    required this.applicantEmail,
-    required this.applicantDegree,
-    required this.applicantTitle,
-    required this.applicantExperience,
-    required this.applicantSkills,
+    required this.companyName,
+    required this.jobPost,
+    required this.name,
+    required this.address,
+    required this.telephone,
+    required this.email,
+    required this.degree,
+    required this.title,
+    required this.experience,
+    required this.skills,
   });
 }

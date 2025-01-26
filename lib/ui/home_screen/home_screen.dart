@@ -49,15 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
             destinations: [
               NavigationRailDestination(
                 icon: Icon(Icons.article),
-                label: Text(l10n.resumeText),
+                label: Text(l10n.resume),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.mail),
-                label: Text(l10n.coverLetterText),
+                label: Text(l10n.coverLetter),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.settings),
-                label: Text(l10n.settingsText),
+                label: Text(l10n.settings),
               ),
             ],
             onDestinationSelected: widget.shell.goBranch,
@@ -112,11 +112,11 @@ class _HomeScreenState extends State<HomeScreen> {
               destinations: [
                 NavigationDestination(
                   icon: Icon(Icons.article),
-                  label: l10n.resumeText,
+                  label: l10n.resume,
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.mail),
-                  label: l10n.coverLetterText,
+                  label: l10n.coverLetter,
                 ),
               ],
             ),

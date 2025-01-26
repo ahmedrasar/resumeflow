@@ -9,161 +9,158 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   ResumeflowLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get appName => 'ريزميفلو';
+  String get appName => 'ResumeFlow';
 
   @override
-  String get startScreenHeaderSeg1 => 'أنشئ سيرتك الذاتية';
+  String get showcaseScreenHeaderSeg1 => 'بناء سيرتك الذاتية';
 
   @override
-  String get startScreenHeaderSeg2 => 'بالذكاء الاصطناعي';
+  String get showcaseScreenHeaderSeg2 => 'باستخدام الذكاء الاصطناعي';
 
   @override
-  String get startScreenHeaderBody => 'قم بإنشاء سيرة ذاتية احترافية بسهولة باستخدام منشئنا المدعوم بالذكاء الاصطناعي';
+  String get showcaseScreenBody => 'قم بإنشاء سيرة ذاتية احترافية بسهولة باستخدام منشئنا المدعوم بالذكاء الاصطناعي';
 
   @override
-  String get getStartedButtonTitle => 'ابدأ الآن';
+  String get getStarted => 'ابدأ الآن';
 
   @override
-  String get learnMoreButtonTitle => 'تعرف على المزيد';
+  String get learnMore => 'تعرف على المزيد';
 
   @override
-  String get howItWorksHeader => 'كيف يعمل؟';
+  String get howItWorks => 'كيف يعمل؟';
 
   @override
-  String get howItWorksBody => 'أنشئ سيرتك الذاتية بخطوات بسيطة';
+  String get generateInSimpleSteps => 'قم بإنشاء سيرة ذاتية متقنة في خطوات بسيطة!';
 
   @override
-  String get loginButtonTitle => 'تسجيل الدخول';
+  String get login => 'تسجيل الدخول';
 
   @override
-  String get createCardHeader => 'أنشئ القالب الخاص بك';
+  String get createCard => 'اختر القالب الخاص بك';
 
   @override
-  String get createCardBody => 'ابدأ باختيار نظام الألوان لقالب سيرتك الذاتية. يضمن قالبنا الاحترافي الفردي مظهراً نظيفاً ومتناسقاً لجميع المستخدمين.';
+  String get createCardBody => 'ابدأ باختيار نظام الألوان لقالب سيرتك الذاتية. يضمن قالبنا المصمم بشكل احترافي مظهرًا نظيفًا ومتسقًا لجميع المستخدمين.';
 
   @override
-  String get updateCardHeader => 'حدّث معلوماتك';
+  String get updateCard => 'تحديث معلوماتك';
 
   @override
-  String get updateCardBody => 'أدخل بياناتك الشخصية وخبراتك العملية وتعليمك ومهاراتك في النموذج المخصص. يساعدك الذكاء الاصطناعي لدينا على ملء كل قسم بدقة وفعالية.';
+  String get updateCardBody => 'أدخل بياناتك الشخصية وخبراتك العملية وتعليمك ومهاراتك في النموذج المقدم. يساعدك الذكاء الاصطناعي لدينا في ملء كل قسم بدقة وفعالية.';
 
   @override
-  String get shareCardHeader => 'شارك سيرتك الذاتية';
+  String get shareCard => 'شارك سيرتك الذاتية';
 
   @override
-  String get shareCardBody => 'بعد إكمال سيرتك الذاتية، احفظها بأمان وأنشئ رابطاً قابلاً للمشاركة. يمكنك بسهولة تحديث معلوماتك في أي وقت ومشاركة الرابط مع أصحاب العمل المحتملين أو تنزيلها بتنسيق مفضل.';
+  String get shareCardBody => 'بعد إكمال سيرتك الذاتية، احفظها بأمان وقم بإنشاء رابط قابل للمشاركة. قم بتحديث معلوماتك بسهولة في أي وقت وشارك الرابط مع أصحاب العمل المحتملين أو قم بتنزيله بتنسيق مفضل.';
 
   @override
-  String get languageText => 'اللغة';
+  String get language => 'اللغة';
 
   @override
-  String get systemLangText => 'اتباع لغة النظام';
+  String get systemLanguage => 'اتبع لغة النظام';
 
   @override
-  String get systemThemeText => 'اتباع ثيم النظام';
+  String get systemTheme => 'اتبع سمة النظام';
 
   @override
-  String get themeBtnText => 'الثيم';
+  String get theme => 'السمة';
 
   @override
-  String get lightThemeText => 'الثيم الفاتح';
+  String get lightTheme => 'السمة الفاتحة';
 
   @override
-  String get darkThemeText => 'الثيم الداكن';
+  String get darkTheme => 'السمة الداكنة';
 
   @override
-  String get resumeText => 'السيرة الذاتية';
+  String get resume => 'السيرة الذاتية';
 
   @override
-  String get coverLetterText => 'الغلاف';
+  String get coverLetter => 'الخطاب التعريفى';
 
   @override
-  String get settingsText => 'الإعدادات';
+  String get settings => 'الإعدادات';
 
   @override
-  String get recipientName => 'اسم المستلم';
+  String get companyName => 'اسم الشركة';
 
   @override
-  String get recipientJobPost => 'المسمى الوظيفي';
+  String get jobPost => 'الوظيفة';
 
   @override
-  String get applicantName => 'اسم المتقدم';
+  String get applicantName => 'الاسم';
 
   @override
-  String get applicantAddress => 'عنوان المتقدم';
+  String get address => 'العنوان';
 
   @override
-  String get applicantTelephone => 'هاتف المتقدم';
+  String get telephone => 'الهاتف';
 
   @override
-  String get applicantEmail => 'البريد الإلكتروني للمتقدم';
+  String get email => 'البريد الإلكتروني';
 
   @override
   String get applicantDegree => 'الدرجة العلمية';
 
   @override
-  String get applicantTitle => 'المسمى الوظيفي';
+  String get applicantTitle => 'المسمى الوظيقى';
 
   @override
-  String get applicantExperience => 'الخبرة';
+  String get experience => 'الخبرة';
 
   @override
-  String get applicantSkills => 'المهارات';
+  String get skills => 'المهارات';
 
   @override
-  String get generatedBody => 'النص المنشأ';
+  String get generatedCoverLetter => 'الخطاب التعريفى الذي تم إنشاؤه';
 
   @override
-  String get empytFieldError => 'لا يمكن ان تكون هذة الخانة فارغة';
+  String get empytFieldError => 'لا يمكن أن تكون هذة الخانة فارغًا';
 
   @override
-  String get createCoverLetterBtn => 'إنشاء خطاب تغطية';
+  String get unexpectedError => 'حدث خطأ غير متوقع';
 
   @override
-  String get errorMessage => 'حدث خطأ';
+  String get createCoverLetter => 'إنشاء خطاب تعريفى';
 
   @override
-  String get createCoverLetter => 'إنشاء خطاب تغطية';
+  String get recipientNameTooltip => 'أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).';
 
   @override
-  String get recipientNameTooltip => 'أدخل اسم الشخص المسؤول عن التوظيف';
+  String get jobPostTooltip => 'أدخل الوظيفة التي تريد التقدم لها.';
 
   @override
-  String get recipientJobPostTooltip => 'ادخل اعلان الوظيفة المرجو التقدم اليها';
+  String get applicantNameTooltip => 'قدم اسمك الكامل كما يظهر في المستندات الرسمية.';
 
   @override
-  String get applicantNameTooltip => 'أدخل اسمك الكامل';
+  String get addressTooltip => 'أدخل عنوانك السكني الكامل، بما في ذلك المدينة والرمز البريدي.';
 
   @override
-  String get applicantAddressTooltip => 'أدخل عنوانك الحالي';
+  String get telephoneTooltip => 'قدم رقم هاتفك النشط لأغراض الاتصال.';
 
   @override
-  String get applicantTelephoneTooltip => 'أدخل رقم هاتفك';
+  String get emailTooltip => 'أدخل عنوان بريدك الإلكتروني حيث يمكن الوصول إليك.';
 
   @override
-  String get applicantEmailTooltip => 'أدخل بريدك الإلكتروني';
+  String get applicantDegreeTooltip => 'اذكر أعلى درجة أو مؤهل حصلت عليه (مثل بكالوريوس في علوم الكمبيوتر).';
 
   @override
-  String get applicantDegreeTooltip => 'أدخل درجتك العلمية';
+  String get applicantTitleTooltip => 'اذكر وظيفتك الحالية أو لقبك المهني (مثل مدير مشروع).';
 
   @override
-  String get applicantTitleTooltip => 'أدخل مسماك الوظيفي الحالي';
+  String get experienceTooltip => 'لخص خبرتك العملية ذات الصلة، بما في ذلك سنوات العمل في المجال.';
 
   @override
-  String get applicantExperienceTooltip => 'أدخل خبراتك السابقة';
-
-  @override
-  String get applicantSkillsTooltip => 'أدخل مهاراتك الرئيسية';
+  String get skillsTooltip => 'قم بإدراج المهارات الرئيسية التي تجعلك مناسبًا للدور (مثل JavaScript، حل المشكلات، القيادة).';
 
   @override
   String get exportToDocx => 'تصدير إلى DOCX';
 
   @override
-  String get closeBtn => 'إغلاق';
+  String get close => 'إغلاق';
 
   @override
-  String get copyBtn => 'نسخ';
+  String get copy => 'نسخ';
 
   @override
-  String get chooseDownloadDir => 'اختر مجلد التنزيل';
+  String get chooseDownloadDir => 'اختر دليل التنزيل';
 }

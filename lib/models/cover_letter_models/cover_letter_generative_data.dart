@@ -1,5 +1,5 @@
 class CoverLetterGenerativeData {
-  final String genBody;
+  final String generatedBody;
 
-  CoverLetterGenerativeData({required this.genBody});
+  CoverLetterGenerativeData({required this.generatedBody});
 }

@@ -42,7 +42,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ListTile(
                   leading: Icon(Icons.language_outlined),
                   title: Text(
-                    l10n.languageText,
+                    l10n.language,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
@@ -53,7 +53,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     initialSelection: settingsRepo.localeLO.object,
                     dropdownMenuEntries: [
                       DropdownMenuEntry(
-                          value: LocaleEnum.system, label: l10n.systemLangText),
+                          value: LocaleEnum.system, label: l10n.systemLanguage),
                       DropdownMenuEntry(
                           value: LocaleEnum.english,
                           label: LocaleEnum.english.nativeName!),
@@ -68,7 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ListTile(
                   leading: Icon(Icons.color_lens_outlined),
                   title: Text(
-                    l10n.themeBtnText,
+                    l10n.theme,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
@@ -79,11 +79,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     initialSelection: settingsRepo.themeModeLO.object,
                     dropdownMenuEntries: [
                       DropdownMenuEntry(
-                          value: ThemeMode.system, label: l10n.systemThemeText),
+                          value: ThemeMode.system, label: l10n.systemTheme),
                       DropdownMenuEntry(
-                          value: ThemeMode.light, label: l10n.lightThemeText),
+                          value: ThemeMode.light, label: l10n.lightTheme),
                       DropdownMenuEntry(
-                          value: ThemeMode.dark, label: l10n.darkThemeText),
+                          value: ThemeMode.dark, label: l10n.darkTheme),
                     ],
                     onSelected: (themeMode) =>
                         settingsRepo.themeModeLO.setObject(themeMode!),

@@ -1,5 +1,5 @@
 /// Holds all user data
-class CoverletterData {
+class CoverLetterData {
   // Recipient-related
   final String recipientName;
   final String recipientJobPost;
@@ -14,7 +14,7 @@ class CoverletterData {
   final String applicantExperience;
   final String applicantSkills;
 
-  const CoverletterData({
+  const CoverLetterData({
     required this.recipientName,
     required this.recipientJobPost,
     required this.applicantName,

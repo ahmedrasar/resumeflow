@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
-import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
-import 'package:resumeflow/services/coverletter_gen_service/coverletter_gen_service.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
+import 'package:resumeflow/services/cover_letter_gen_service/cover_letter_gen_service.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
 import 'package:resumeflow/utils/file_saver/file_saver.dart';
@@ -195,8 +195,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     );
   }
 
-  Future<CoverletterModel?> __generateCoverletter() async {
-    final data = CoverletterData(
+  Future<CoverLetterModel?> __generateCoverletter() async {
+    final data = CoverLetterData(
         recipientName: _applicantNameController.text,
         recipientJobPost: _recipientJobPostController.text,
         applicantName: _applicantNameController.text,
@@ -208,13 +208,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         applicantExperience: _applicantExperienceController.text,
         applicantSkills: _applicantSkillsController.text);
 
-    final service = CoverletterGenerationService(http.Client());
+    final service = CoverLetterGenerationService(http.Client());
     final genData =
-        await service.generateData(CoverletterRequestModel(data: data));
+        await service.generateData(CoverLetterRequestModel(data: data));
 
     if (genData == null) return null;
 
-    return CoverletterModel(data: data, genData: genData);
+    return CoverLetterModel(data: data, genData: genData);
   }
 
   Widget _bulildSummitBtn() {
@@ -253,7 +253,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                         title: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(l10n.coverletterText),
+                            Text(l10n.coverLetterText),
                             Wrap(
                               children: [
                                 IconButton(
@@ -305,7 +305,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  ResumeflowLocalizations.of(context).createCoverletterBtn,
+                  ResumeflowLocalizations.of(context).createCoverLetterBtn,
                   style: Theme.of(context)
                       .textTheme
                       .titleMedium
@@ -318,7 +318,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               ],
             )
           : Text(
-              ResumeflowLocalizations.of(context).createCoverletterBtn,
+              ResumeflowLocalizations.of(context).createCoverLetterBtn,
               style: Theme.of(context).textTheme.titleMedium,
             ),
     );

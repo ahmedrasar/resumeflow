@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.mail),
-                label: Text(l10n.coverletterText),
+                label: Text(l10n.coverLetterText),
               ),
               NavigationRailDestination(
                 icon: Icon(Icons.settings),
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 NavigationDestination(
                   icon: Icon(Icons.mail),
-                  label: l10n.coverletterText,
+                  label: l10n.coverLetterText,
                 ),
               ],
             ),

@@ -75,7 +75,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get resumeText => 'السيرة الذاتية';
 
   @override
-  String get coverletterText => 'الغلاف';
+  String get coverLetterText => 'الغلاف';
 
   @override
   String get settingsText => 'الإعدادات';
@@ -117,7 +117,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get empytFieldError => 'لا يمكن ان تكون هذة الخانة فارغة';
 
   @override
-  String get createCoverletterBtn => 'إنشاء خطاب تغطية';
+  String get createCoverLetterBtn => 'إنشاء خطاب تغطية';
 
   @override
   String get errorMessage => 'حدث خطأ';

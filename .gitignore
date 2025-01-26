@@ -22,6 +22,7 @@ migrate_working_dir/
 .env
 
 # Firebase
+.firebase/
 /lib/firebase_options.dart
 /android/app/google-services.json
 

@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'coverletter_response_model.dart';
+part of 'cover_letter_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-CoverletterResponseModel _$CoverletterResponseModelFromJson(
+CoverLetterResponseModel _$CoverLetterResponseModelFromJson(
         Map<String, dynamic> json) =>
-    CoverletterResponseModel(
+    CoverLetterResponseModel(
       genBody: json['cover_letter'] as String,
     );

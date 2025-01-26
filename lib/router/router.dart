@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resumeflow/ui/cover_letter_screen/cover_letter_screen.dart';
-import 'package:resumeflow/ui/home_screen/coverletter_dashboard_page.dart';
+import 'package:resumeflow/ui/home_screen/cover_letter_dashboard_page.dart';
 import 'package:resumeflow/ui/home_screen/resume_dashboard_page.dart';
 import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
 
@@ -59,7 +59,7 @@ final router = GoRouter(
                   routes: [
                     GoRoute(
                         path: '/cover-letters',
-                        builder: (context, state) => CoverletterDashboardPage(),
+                        builder: (context, state) => CoverLetterDashboardPage(),
                         routes: [
                           GoRoute(
                             path: '/create',

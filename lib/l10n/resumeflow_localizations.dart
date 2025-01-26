@@ -227,11 +227,11 @@ abstract class ResumeflowLocalizations {
   /// **'Resume'**
   String get resumeText;
 
-  /// No description provided for @coverletterText.
+  /// No description provided for @coverLetterText.
   ///
   /// In en, this message translates to:
   /// **'Cover letter'**
-  String get coverletterText;
+  String get coverLetterText;
 
   /// No description provided for @settingsText.
   ///
@@ -311,11 +311,11 @@ abstract class ResumeflowLocalizations {
   /// **'Field can not be empty'**
   String get empytFieldError;
 
-  /// No description provided for @createCoverletterBtn.
+  /// No description provided for @createCoverLetterBtn.
   ///
   /// In en, this message translates to:
   /// **'Create Cover letter'**
-  String get createCoverletterBtn;
+  String get createCoverLetterBtn;
 
   /// No description provided for @errorMessage.
   ///

@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 
-class CoverletterGenerationService {
+class CoverLetterGenerationService {
   final http.Client _client;
   static const _apiUrl = 'https://resumeai.up.railway.app';
 
-  CoverletterGenerationService(http.Client httpClient) : _client = httpClient;
+  CoverLetterGenerationService(http.Client httpClient) : _client = httpClient;
 
   Future<bool> isHealthy() async {
     final response = await _client.get(Uri.parse('$_apiUrl/health'));
@@ -25,8 +25,8 @@ class CoverletterGenerationService {
   }
 
   /// Returns [null] on auth error
-  Future<CoverletterGenerativeData?> generateData(
-      CoverletterRequestModel requestModel) async {
+  Future<CoverLetterGenerativeData?> generateData(
+      CoverLetterRequestModel requestModel) async {
     final apiKey = await _getKey();
     if (apiKey == null) return null;
 
@@ -45,6 +45,6 @@ class CoverletterGenerationService {
 
     if (response.statusCode != 200) return null;
 
-    return CoverletterResponseModel.fromJson(jsonDecode(response.body)).data;
+    return CoverLetterResponseModel.fromJson(jsonDecode(response.body)).data;
   }
 }

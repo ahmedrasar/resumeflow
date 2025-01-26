@@ -3,10 +3,10 @@ import 'dart:typed_data';
 import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:docx_template/docx_template.dart';
-import 'package:resumeflow/models/coverletter_models/coverletter_models.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 import 'package:resumeflow/utils/asset_paths/asset_helper.dart';
 
-class CoverletterDocx {
+class CoverLetterDocx {
   static const String _recipientNameKey = 'recipient-name';
   static const String _applicantNameKey = 'applicant-name';
   static const String _addressKey = 'address';
@@ -14,9 +14,9 @@ class CoverletterDocx {
   static const String _emailKey = 'email';
   static const String _genBodyKey = 'body';
 
-  static Future<List<int>?> fromModel(CoverletterModel model) async {
+  static Future<List<int>?> fromModel(CoverLetterModel model) async {
     final templateFile =
-        await rootBundle.load(AssetPaths.coverletterTemplatePath);
+        await rootBundle.load(AssetPaths.coverLetterTemplatePath);
     final template =
         await DocxTemplate.fromBytes(Int8List.sublistView(templateFile));
 

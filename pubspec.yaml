@@ -62,5 +62,5 @@ flutter:
     # Images
     - assets/trademark_images/
     # Templates
-    - assets/templates/coverletter_templates/
+    - assets/docx_templates/cover_letter_templates/
 

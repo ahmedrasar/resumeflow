@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 
-class CoverletterDashboardPage extends StatelessWidget {
-  const CoverletterDashboardPage({super.key});
+class CoverLetterDashboardPage extends StatelessWidget {
+  const CoverLetterDashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {

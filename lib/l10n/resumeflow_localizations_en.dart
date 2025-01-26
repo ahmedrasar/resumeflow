@@ -75,7 +75,7 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get resumeText => 'Resume';
 
   @override
-  String get coverletterText => 'Cover letter';
+  String get coverLetterText => 'Cover letter';
 
   @override
   String get settingsText => 'Settings';
@@ -117,7 +117,7 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get empytFieldError => 'Field can not be empty';
 
   @override
-  String get createCoverletterBtn => 'Create Cover letter';
+  String get createCoverLetterBtn => 'Create Cover letter';
 
   @override
   String get errorMessage => 'Unexpected error happend';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
-import 'package:resumeflow/repos/settings_repo/settings_repo.dart';
+import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
 import 'package:resumeflow/utils/locale_enum/locale_enum.dart';
 
 import '../widgets/grid_background.dart';

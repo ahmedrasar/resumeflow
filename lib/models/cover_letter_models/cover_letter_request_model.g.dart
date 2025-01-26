@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'coverletter_request_model.dart';
+part of 'cover_letter_request_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-Map<String, dynamic> _$CoverletterRequestModelToJson(
-        CoverletterRequestModel instance) =>
+Map<String, dynamic> _$CoverLetterRequestModelToJson(
+        CoverLetterRequestModel instance) =>
     <String, dynamic>{
       'job_post': instance.recipientJobPost,
       'user_name': instance.applicantName,

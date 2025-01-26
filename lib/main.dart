@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'configuration/configure_target_platform.dart';
 import 'firebase_options.dart';
-import 'repos/settings_repo/settings_repo.dart';
+import 'repos/settings_repository/settings_repository.dart';
 import 'router/router.dart';
 import 'themes/themes.dart';
 

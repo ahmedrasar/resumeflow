@@ -1,10 +1,10 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:resumeflow/models/coverletter_models/coverletter_data.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_data.dart';
 
-part 'coverletter_request_model.g.dart';
+part 'cover_letter_request_model.g.dart';
 
 @JsonSerializable(createFactory: false)
-class CoverletterRequestModel {
+class CoverLetterRequestModel {
   // Recipent-related
   @JsonKey(name: 'job_post')
   final String recipientJobPost;
@@ -21,8 +21,8 @@ class CoverletterRequestModel {
   @JsonKey(name: 'user_skills')
   final String applicantSkills;
 
-  CoverletterRequestModel({
-    required CoverletterData data,
+  CoverLetterRequestModel({
+    required CoverLetterData data,
   })  : recipientJobPost = data.recipientJobPost,
         applicantName = data.applicantName,
         applicantDegree = data.applicantDegree,
@@ -30,5 +30,5 @@ class CoverletterRequestModel {
         applicantExperience = data.applicantExperience,
         applicantSkills = data.applicantSkills;
 
-  Map<String, dynamic> toJson() => _$CoverletterRequestModelToJson(this);
+  Map<String, dynamic> toJson() => _$CoverLetterRequestModelToJson(this);
 }

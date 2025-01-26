@@ -1,7 +1,7 @@
-import 'package:resumeflow/models/coverletter_models/coverletter_data.dart';
-import 'package:resumeflow/models/coverletter_models/coverletter_generative_data.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_data.dart';
+import 'package:resumeflow/models/cover_letter_models/cover_letter_generative_data.dart';
 
-class CoverletterModel {
+class CoverLetterModel {
   // Recipient-related
   final String recipientName;
 
@@ -14,9 +14,9 @@ class CoverletterModel {
   // Generative data
   final String genBody;
 
-  CoverletterModel({
-    required CoverletterData data,
-    required CoverletterGenerativeData genData,
+  CoverLetterModel({
+    required CoverLetterData data,
+    required CoverLetterGenerativeData genData,
   })  : recipientName = data.recipientName,
         applicantName = data.applicantName,
         applicantAddress = data.applicantAddress,

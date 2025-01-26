@@ -12,7 +12,7 @@ void main() {
         'simple text replacer test',
         () async {
           // Arrange
-          final f = File(AssetPaths.coverletterTemplatePath);
+          final f = File(AssetPaths.coverLetterTemplatePath);
           final docx = await DocxTemplate.fromBytes(await f.readAsBytes());
 
           final nameReplacer = TextContent('applicant-name', '<NAME>');

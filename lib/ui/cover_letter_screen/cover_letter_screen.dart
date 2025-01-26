@@ -156,7 +156,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         children: [
           _buildTextField(
               fieldName: l10n.companyName,
-              tooltip: l10n.recipientNameTooltip,
+              tooltip: l10n.companyNameTooltip,
               controller: _recipientNameController),
           _buildTextField(
               fieldName: l10n.jobPost,

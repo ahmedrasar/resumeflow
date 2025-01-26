@@ -60,16 +60,16 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get systemLanguage => 'اتبع لغة النظام';
 
   @override
-  String get systemTheme => 'اتبع سمة النظام';
+  String get systemTheme => 'اتبع ثيم النظام';
 
   @override
-  String get theme => 'السمة';
+  String get theme => 'الثيم';
 
   @override
-  String get lightTheme => 'السمة الفاتحة';
+  String get lightTheme => 'الثيم الفاتح';
 
   @override
-  String get darkTheme => 'السمة الداكنة';
+  String get darkTheme => 'الثيم الداكن';
 
   @override
   String get resume => 'السيرة الذاتية';
@@ -84,7 +84,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get companyName => 'اسم الشركة';
 
   @override
-  String get jobPost => 'الوظيفة';
+  String get jobPost => 'اعلان الوظيفة';
 
   @override
   String get applicantName => 'الاسم';
@@ -125,10 +125,10 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get createCoverLetter => 'إنشاء خطاب تعريفى';
 
   @override
-  String get recipientNameTooltip => 'أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).';
+  String get companyNameTooltip => 'أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).';
 
   @override
-  String get jobPostTooltip => 'أدخل الوظيفة التي تريد التقدم لها.';
+  String get jobPostTooltip => 'أدخل اعلان او منشور الوظيفة التي تريد التقدم لها.';
 
   @override
   String get applicantNameTooltip => 'قدم اسمك الكامل كما يظهر في المستندات الرسمية.';

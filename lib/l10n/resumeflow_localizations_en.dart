@@ -125,7 +125,7 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get createCoverLetter => 'Create Cover Letter';
 
   @override
-  String get recipientNameTooltip => 'Enter the full name of the recipient (e.g., hiring manager or recruiter).';
+  String get companyNameTooltip => 'Enter the full name of the recipient (e.g., hiring manager or recruiter).';
 
   @override
   String get jobPostTooltip => 'Enter the job post that you want to apply to.';

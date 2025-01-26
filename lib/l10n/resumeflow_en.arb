@@ -45,7 +45,7 @@
         }
     },
     "createCoverLetter": "Create Cover Letter",
-    "recipientNameTooltip": "Enter the full name of the recipient (e.g., hiring manager or recruiter).",
+    "companyNameTooltip": "Enter the full name of the recipient (e.g., hiring manager or recruiter).",
     "jobPostTooltip": "Enter the job post that you want to apply to.",
     "applicantNameTooltip": "Provide your full name as it appears on official documents.",
     "addressTooltip": "Enter your complete residential address, including city and postal code.",

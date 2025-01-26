@@ -323,11 +323,11 @@ abstract class ResumeflowLocalizations {
   /// **'Create Cover Letter'**
   String get createCoverLetter;
 
-  /// No description provided for @recipientNameTooltip.
+  /// No description provided for @companyNameTooltip.
   ///
   /// In en, this message translates to:
   /// **'Enter the full name of the recipient (e.g., hiring manager or recruiter).'**
-  String get recipientNameTooltip;
+  String get companyNameTooltip;
 
   /// No description provided for @jobPostTooltip.
   ///

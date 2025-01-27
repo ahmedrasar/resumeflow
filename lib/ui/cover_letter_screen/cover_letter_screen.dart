@@ -31,8 +31,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   var validatedBefore = false;
 
   // Recipient Controllers
-  final TextEditingController _recipientNameController =
-      TextEditingController();
+  final TextEditingController _companyNameController = TextEditingController();
   final TextEditingController _jobPostController = TextEditingController();
 
   // Applicant Controllers
@@ -157,7 +156,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           _buildTextField(
               fieldName: l10n.companyName,
               tooltip: l10n.companyNameTooltip,
-              controller: _recipientNameController),
+              controller: _companyNameController),
           _buildTextField(
               fieldName: l10n.jobPost,
               tooltip: l10n.jobPostTooltip,

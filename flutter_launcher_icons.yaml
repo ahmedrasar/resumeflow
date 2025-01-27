@@ -3,8 +3,8 @@ flutter_launcher_icons:
   android: true
   image_path: assets/trademark_images/icon.png
   # Android +12 adaptive icon
-  adaptive_icon_background: #141414
-  adaptive_icon_foreground: assets/trademark_images/icon.png
+  adaptive_icon_background: "#141414"
+  adaptive_icon_foreground: assets/trademark_images/logo-with-padding.png
 
   web:
     generate: true
@@ -13,4 +13,4 @@ flutter_launcher_icons:
   windows:
     generate: true
     image_path: assets/trademark_images/logo.png
-    icon_size: 256 # Max size
+    icon_size: 256 # Range 48:256, defaults to 48

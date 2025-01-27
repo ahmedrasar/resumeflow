@@ -295,7 +295,12 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 log(e.toString());
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      content: Text(l10n.serverError(e.response.statusCode)),
+                      width: 300,
+                      behavior: SnackBarBehavior.floating,
+                      content: Text(
+                        l10n.serverError(e.response.statusCode),
+                        textAlign: TextAlign.center,
+                      ),
                       elevation: 10,
                       backgroundColor: theme.colorScheme.error));
                 }

@@ -8,6 +8,7 @@ import 'package:resumeflow/services/cover_letter_gen_service/cover_letter_gen_se
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
 import 'package:resumeflow/utils/file_saver/file_saver.dart';
+import 'package:resumeflow/utils/layout_helper/layout_helper.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});
@@ -63,19 +64,17 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         Row(
           spacing: 5,
           children: [
-            Align(
-              alignment: Alignment(-0.9, 0),
-              child: Text(
-                fieldName,
-                style: Theme.of(context).textTheme.titleMedium,
-              ),
+            SizedBox(width: 10),
+            Text(
+              fieldName,
+              style: theme.textTheme.titleMedium,
             ),
             Tooltip(
               message: tooltip,
               child: Icon(
                 Icons.info_outline_rounded,
                 size: 15,
-                color: Theme.of(context).iconTheme.color?.withAlpha(150),
+                color: theme.iconTheme.color?.withAlpha(150),
               ),
             )
           ],
@@ -87,19 +86,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           onChanged: (value) {
             if (validatedBefore) _formKey.currentState!.validate();
           },
-          validator: (value) => value!.isEmpty
-              ? ResumeflowLocalizations.of(context).empytFieldError
-              : null,
+          validator: (value) => value!.isEmpty ? l10n.empytFieldError : null,
           decoration: InputDecoration(
             hintText: fieldName,
-            hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: Theme.of(context)
-                    .textTheme
-                    .bodyMedium
-                    ?.color
-                    ?.withAlpha(100)),
+            hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.textTheme.bodyMedium?.color?.withAlpha(100)),
             filled: true,
-            fillColor: Theme.of(context).colorScheme.onPrimary.withAlpha(125),
+            fillColor: theme.colorScheme.onPrimary.withAlpha(125),
             contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -112,6 +105,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final layoutHelper = LayoutHelper(width: MediaQuery.sizeOf(context).width);
+
     return Scaffold(
       body: GridBackground(
         child: Align(
@@ -119,11 +114,14 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
             child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 20),
+              padding: layoutHelper.isWide()
+                  ? const EdgeInsets.symmetric(vertical: 20)
+                  : EdgeInsets.zero,
               child: Material(
-                color: Theme.of(context).colorScheme.surface.withAlpha(225),
-                elevation: 10,
-                borderRadius: BorderRadius.circular(10),
+                color: theme.colorScheme.surface.withAlpha(225),
+                elevation: layoutHelper.isWide() ? 10 : 0,
+                borderRadius:
+                    layoutHelper.isWide() ? BorderRadius.circular(10) : null,
                 child: ScrollConfiguration(
                   behavior: ScrollBehavior().copyWith(scrollbars: false),
                   child: SingleChildScrollView(
@@ -146,8 +144,6 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   }
 
   Form _buildForm() {
-    final l10n = ResumeflowLocalizations.of(context);
-
     return Form(
       key: _formKey,
       child: Column(
@@ -223,9 +219,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
       style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(200, 50)),
         maximumSize: WidgetStatePropertyAll(Size(225, 50)),
-        backgroundColor: WidgetStatePropertyAll(_loading
-            ? Colors.grey.shade800
-            : Theme.of(context).colorScheme.secondary),
+        backgroundColor: WidgetStatePropertyAll(
+            _loading ? Colors.grey.shade800 : theme.colorScheme.secondary),
       ),
       onPressed: _loading
           ? null
@@ -274,11 +269,11 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                           content: ConstrainedBox(
                             constraints: BoxConstraints.loose(Size(600, 1200)),
                             child: Card.filled(
-                              color: Theme.of(context).colorScheme.surface,
+                              color: theme.colorScheme.surface,
                               margin: EdgeInsets.all(10),
                               child: SelectableText(
                                 coverLetter.generatedBody,
-                                style: Theme.of(context).textTheme.bodyLarge,
+                                style: theme.textTheme.bodyLarge,
                               ),
                             ),
                           ),
@@ -315,10 +310,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  ResumeflowLocalizations.of(context).createCoverLetter,
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleMedium
+                  l10n.createCoverLetter,
+                  style: theme.textTheme.titleMedium
                       ?.copyWith(color: Colors.white),
                 ),
                 CircularProgressIndicator(
@@ -328,8 +321,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               ],
             )
           : Text(
-              ResumeflowLocalizations.of(context).createCoverLetter,
-              style: Theme.of(context).textTheme.titleMedium,
+              l10n.createCoverLetter,
+              style: theme.textTheme.titleMedium,
             ),
     );
   }

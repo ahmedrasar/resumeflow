@@ -118,7 +118,7 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
 
   @override
   String serverError(int code) {
-    return '($code) :حدث خطا من جانب السيرفر (كود';
+    return 'حدث خطا من جانب السيرفر (code: $code)';
   }
 
   @override

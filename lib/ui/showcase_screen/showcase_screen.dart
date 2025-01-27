@@ -91,7 +91,7 @@ class ShowcaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final adaptiveHelper =
-        AdaptiveHelper(width: MediaQuery.sizeOf(context).width);
+        LayoutHelper(width: MediaQuery.sizeOf(context).width);
 
     return Scaffold(
       body: GridBackground(

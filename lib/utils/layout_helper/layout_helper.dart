@@ -2,11 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class AdaptiveHelper {
+class LayoutHelper {
   static const _wideThreashold = 600;
   final double _width;
 
-  AdaptiveHelper({required double width}) : _width = width;
+  LayoutHelper({required double width}) : _width = width;
 
   bool isCompact() => _width < _wideThreashold;
   bool isWide() => !isCompact();

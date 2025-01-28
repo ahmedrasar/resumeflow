@@ -110,39 +110,41 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   Widget build(BuildContext context) {
     final layoutHelper = LayoutHelper(width: MediaQuery.sizeOf(context).width);
 
-    return Scaffold(
-      body: GridBackground(
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: 600),
-            child: Padding(
-              padding: layoutHelper.isWide()
-                  ? const EdgeInsets.symmetric(vertical: 20)
-                  : EdgeInsets.zero,
-              child: Material(
-                color: theme.colorScheme.surface.withAlpha(225),
-                elevation: layoutHelper.isWide() ? 10 : 0,
-                borderRadius:
-                    layoutHelper.isWide() ? BorderRadius.circular(10) : null,
-                child: ScrollConfiguration(
-                  behavior: ScrollBehavior().copyWith(scrollbars: false),
-                  child: SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
-                    child: Column(
-                      spacing: 40,
-                      children: [
-                        _buildForm(),
-                        _bulildSummitBtn(),
-                      ],
-                    ),
-                  ),
+    final formBackgroundColor = theme.colorScheme.surface.withAlpha(225);
+    final content = Align(
+      alignment: Alignment.topCenter,
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: 600),
+        child: Padding(
+          padding: layoutHelper.isWide()
+              ? const EdgeInsets.symmetric(vertical: 20)
+              : EdgeInsets.zero,
+          child: Material(
+            color: formBackgroundColor,
+            elevation: layoutHelper.isWide() ? 10 : 0,
+            borderRadius:
+                layoutHelper.isWide() ? BorderRadius.circular(10) : null,
+            child: ScrollConfiguration(
+              behavior: ScrollBehavior().copyWith(scrollbars: false),
+              child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
+                child: Column(
+                  spacing: 40,
+                  children: [
+                    _buildForm(),
+                    _bulildSummitBtn(),
+                  ],
                 ),
               ),
             ),
           ),
         ),
       ),
+    );
+
+    return Scaffold(
+      backgroundColor: formBackgroundColor,
+      body: layoutHelper.isWide() ? GridBackground(child: content) : content,
     );
   }
 

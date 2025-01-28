@@ -40,7 +40,7 @@ final router = GoRouter(
         GoRoute(
           path: 'home',
           redirect: (context, state) {
-            if (state.fullPath == '/home') return '/home/resumes';
+            if (state.fullPath == '/home') return '/home/cover-letters';
             return null;
           },
           routes: [

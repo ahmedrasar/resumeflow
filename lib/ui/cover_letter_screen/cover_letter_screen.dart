@@ -26,6 +26,9 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     super.didChangeDependencies();
     theme = Theme.of(context);
     l10n = ResumeflowLocalizations.of(context);
+    if (validatedBefore) {
+      _formKey.currentState!.validate();
+    }
   }
 
   final _formKey = GlobalKey<FormState>();

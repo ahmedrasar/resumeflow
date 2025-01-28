@@ -1,0 +1,38 @@
+name: Build, and Deploy to Firebase
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build_and_deploy:
+    name: Build, and Deploy to Firebase
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initilize Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: master
+      - run: |
+          flutter --version
+          cd ${{ env.FLUTTER_ROOT }}
+          curl https://patch-diff.githubusercontent.com/raw/flutter/flutter/pull/162062.patch | git apply
+          git status
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Build Web
+        run: flutter build web
+      
+      - name: Deploy to Firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_RESUMEFLOW_1B9FE }}
+          channelId: live
+          projectId: resumeflow-1b9fe
+
+   

@@ -245,51 +245,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                       barrierDismissible: false,
                       context: context,
                       builder: (context) {
-                        return AlertDialog(
-                          title: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(l10n.coverLetter),
-                              Wrap(
-                                children: [
-                                  IconButton(
-                                    onPressed: () async {
-                                      await Clipboard.setData(ClipboardData(
-                                          text: coverLetter.generatedBody));
-                                    },
-                                    tooltip: l10n.copy,
-                                    icon: Icon(Icons.copy),
-                                  ),
-                                  FilledButton(
-                                    onPressed: () async {
-                                      await FileSaver.saveCoverLetter(
-                                          coverLetter,
-                                          prompt: l10n.chooseDownloadDir);
-                                    },
-                                    child: Text(l10n.exportToDocx),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          content: ConstrainedBox(
-                            constraints: BoxConstraints.loose(Size(600, 1200)),
-                            child: Card.filled(
-                              color: theme.colorScheme.surface,
-                              margin: EdgeInsets.all(10),
-                              child: SelectableText(
-                                coverLetter.generatedBody,
-                                style: theme.textTheme.bodyLarge,
-                              ),
-                            ),
-                          ),
-                          actions: [
-                            ElevatedButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Text(l10n.close),
-                            ),
-                          ],
-                        );
+                        return _buildCoverLetterAlert(coverLetter);
                       });
                 }
               } on CoverLetterGenerationServiceException catch (e) {
@@ -311,25 +267,73 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 });
               }
             },
-      child: _loading
-          ? Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  l10n.createCoverLetter,
-                  style: theme.textTheme.titleMedium
-                      ?.copyWith(color: Colors.white),
-                ),
-                CircularProgressIndicator(
-                  padding: EdgeInsets.zero,
-                  constraints: BoxConstraints.tight(Size(15, 15)),
-                ),
-              ],
-            )
-          : Text(
-              l10n.createCoverLetter,
-              style: theme.textTheme.titleMedium,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: 20,
+        children: [
+          Text(
+            l10n.createCoverLetter,
+            style: theme.textTheme.titleMedium?.copyWith(color: Colors.white),
+          ),
+          if (_loading)
+            CircularProgressIndicator(
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints.tight(Size(15, 15)),
             ),
+        ],
+      ),
+    );
+  }
+
+  AlertDialog _buildCoverLetterAlert(CoverLetterModel coverLetter) {
+    return AlertDialog(
+      insetPadding: EdgeInsets.all(20),
+      title: Text(l10n.generatedCoverLetter),
+      content: ConstrainedBox(
+        constraints: BoxConstraints.loose(Size(600, 1200)),
+        child: Stack(
+          children: [
+            Card.filled(
+              color: theme.colorScheme.surface,
+              margin: EdgeInsets.all(10),
+              child: SelectableText(
+                coverLetter.generatedBody,
+                style: theme.textTheme.bodyLarge,
+              ),
+            ),
+            Positioned.directional(
+              textDirection: Directionality.of(context),
+              end: 5,
+              top: 0,
+              child: IconButton(
+                onPressed: () async {
+                  await Clipboard.setData(
+                      ClipboardData(text: coverLetter.generatedBody));
+                },
+                tooltip: l10n.copy,
+                style: ButtonStyle(
+                    backgroundColor:
+                        WidgetStatePropertyAll(theme.colorScheme.tertiary)),
+                icon: Icon(Icons.copy_all),
+              ),
+            )
+          ],
+        ),
+      ),
+      actionsAlignment: MainAxisAlignment.end,
+      actions: [
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(l10n.close),
+        ),
+        FilledButton(
+          onPressed: () async {
+            await FileSaver.saveCoverLetter(coverLetter,
+                prompt: l10n.chooseDownloadDir);
+          },
+          child: Text(l10n.exportToDocx),
+        ),
+      ],
     );
   }
 }

@@ -60,6 +60,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     required String fieldName,
     required String tooltip,
     required TextEditingController controller,
+    TextInputType? keyboardType,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -89,6 +90,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           onChanged: (value) {
             if (validatedBefore) _formKey.currentState!.validate();
           },
+          keyboardType: keyboardType,
           validator: (value) => value!.isEmpty ? l10n.empytFieldError : null,
           decoration: InputDecoration(
             hintText: fieldName,
@@ -187,7 +189,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           _buildTextField(
               fieldName: l10n.telephone,
               tooltip: l10n.telephoneTooltip,
-              controller: _telephoneController),
+              controller: _telephoneController,
+              keyboardType: TextInputType.phone),
           _buildTextField(
               fieldName: l10n.email,
               tooltip: l10n.emailTooltip,

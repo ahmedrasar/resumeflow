@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
@@ -293,7 +291,6 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                       });
                 }
               } on CoverLetterGenerationServiceException catch (e) {
-                log(e.toString());
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       width: 300,
@@ -305,11 +302,12 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                       elevation: 10,
                       backgroundColor: theme.colorScheme.error));
                 }
+                rethrow;
+              } finally {
+                setState(() {
+                  _loading = false;
+                });
               }
-
-              setState(() {
-                _loading = false;
-              });
             },
       child: _loading
           ? Row(

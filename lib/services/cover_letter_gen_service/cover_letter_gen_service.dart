@@ -8,11 +8,15 @@ class CoverLetterGenerationServiceException implements Exception {
   const CoverLetterGenerationServiceException(this.response);
   @override
   String toString() {
+    final request = response.request! as http.Request;
     return '''CoverLetterGenerationServiceException:
-  requset:
-    ${response.request.toString()}
-  failed with response:
-    ${response.toString()}''';
+Requset: ${request.method} ${request.url}
+With Headers: ${request.headers}
+And Payload: ${request.body} 
+...Failed with:
+Status code: ${response.statusCode} 
+Headers: ${response.headers}
+Payload: ${response.body}''';
   }
 }
 

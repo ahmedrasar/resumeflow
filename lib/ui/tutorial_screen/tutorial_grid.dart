@@ -49,6 +49,7 @@ class TutorialGrid extends StatelessWidget {
           width: cardWidth * crossAxisCount,
           child: GridView.count(
             shrinkWrap: true,
+            primary: false,
             crossAxisCount: crossAxisCount,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,

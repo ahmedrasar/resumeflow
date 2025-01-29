@@ -14,10 +14,24 @@ enum MockEnum {
 @GenerateMocks([SharedPreferences])
 void main() {
   group(
-    'StoargeType tests',
+    'LocalObject StoargeType tests',
     () {
       test(
-        'int',
+        'bool is a LocalObject StoargeType',
+        () {
+          // Arrange
+          const Type boolType = bool;
+
+          // Act
+          final isValidType = LocalObject.isStoargeType(boolType);
+
+          // Assert
+          expect(isValidType, isTrue);
+        },
+      );
+
+      test(
+        'int is a LocalObject StoargeType',
         () {
           // Arrange
           const Type intType = int;
@@ -29,8 +43,36 @@ void main() {
           expect(isValidType, isTrue);
         },
       );
+
       test(
-        'List<String>',
+        'double is a LocalObject StoargeType',
+        () {
+          // Arrange
+          const Type doubleType = double;
+
+          // Act
+          final isValidType = LocalObject.isStoargeType(doubleType);
+
+          // Assert
+          expect(isValidType, isTrue);
+        },
+      );
+
+      test(
+        'String is a LocalObject StoargeType',
+        () {
+          // Arrange
+          const Type stringType = String;
+
+          // Act
+          final isValidType = LocalObject.isStoargeType(stringType);
+
+          // Assert
+          expect(isValidType, isTrue);
+        },
+      );
+      test(
+        'List<String> is a LocalObject StoargeType',
         () {
           // Arrange
           const Type listStringType = List<String>;
@@ -48,31 +90,49 @@ void main() {
   group(
     'LocalObject Tests',
     () {
-      final mockSharedPreferences = MockSharedPreferences();
+      const testKey = '-test-key-';
+      const localValue = MockEnum.t0;
+      const fallbackValue = MockEnum.t1;
 
       test(
-        'EnumLocalObject',
+        'LocalObject does not use the fallback value when a local value exists',
         () {
           // Arrange
-          const testKey = '-test-enum-';
-          const testValue = MockEnum.t0;
-          const fallbackValue = MockEnum.t1;
-          when(mockSharedPreferences.setInt(testKey, testValue.index))
-              .thenAnswer((_) async => true);
+          final mockSharedPreferences = MockSharedPreferences();
           when(mockSharedPreferences.getInt(testKey))
-              .thenReturn(testValue.index);
+              .thenReturn(localValue.index);
 
           // Act
           final localEnum = EnumLocalObject<MockEnum>(
-            object: fallbackValue,
             objectKey: testKey,
+            fallbackObject: fallbackValue,
             sharedPreferences: mockSharedPreferences,
             onChangeCallback: null,
             values: MockEnum.values,
           );
 
           // Assert
-          expect(localEnum.object, equals(testValue));
+          expect(localEnum.object, equals(localValue));
+        },
+      );
+      test(
+        'LocalObject is initilzed with the fallback value when a local value does not exist',
+        () {
+          // Arrange
+          final mockSharedPreferences = MockSharedPreferences();
+          when(mockSharedPreferences.getInt(testKey)).thenReturn(null);
+
+          // Act
+          final localEnum = EnumLocalObject<MockEnum>(
+            objectKey: testKey,
+            fallbackObject: fallbackValue,
+            sharedPreferences: mockSharedPreferences,
+            onChangeCallback: null,
+            values: MockEnum.values,
+          );
+
+          // Assert
+          expect(localEnum.object, equals(fallbackValue));
         },
       );
     },

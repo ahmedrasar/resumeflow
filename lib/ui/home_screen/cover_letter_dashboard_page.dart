@@ -19,16 +19,17 @@ class CoverLetterDashboardPage extends StatelessWidget {
           itemCount: 1,
           itemBuilder: (_, int index) {
             // For unuknown reason the grid builder context does not rebuild the widget
-            return _buildCoverletterTile(context);
+            return _buildCoverletterCard(
+                context, () => context.go('/home/cover-letters/create'));
           },
         );
       }),
     );
   }
 
-  Widget _buildCoverletterTile(BuildContext context) {
+  Widget _buildCoverletterCard(BuildContext context, void Function() ontap) {
     return GestureDetector(
-      onTap: () => context.go('/home/cover-letters/create'),
+      onTap: ontap,
       child: Card(
         elevation: 5,
         shape: RoundedRectangleBorder(

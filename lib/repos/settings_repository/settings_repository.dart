@@ -5,20 +5,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class SettingsRepository with ChangeNotifier {
   static const _themeKey = 'cur-theme-key';
-  static const _localeKey = 'cur-local-key';
+  static const _localeKey = 'cur-locale-key';
 
   final SharedPreferences _sharedPreferences;
 
   SettingsRepository(this._sharedPreferences) {
     themeModeLO = EnumLocalObject<ThemeMode>(
         objectKey: _themeKey,
-        object: ThemeMode.system,
+        fallbackObject: ThemeMode.system,
         sharedPreferences: _sharedPreferences,
         onChangeCallback: notifyListeners,
         values: ThemeMode.values);
     localeLO = EnumLocalObject<LocaleEnum>(
         objectKey: _localeKey,
-        object: LocaleEnum.system,
+        fallbackObject: LocaleEnum.system,
         sharedPreferences: _sharedPreferences,
         onChangeCallback: notifyListeners,
         values: LocaleEnum.values);

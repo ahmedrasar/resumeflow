@@ -6,19 +6,20 @@ import 'package:shared_preferences/shared_preferences.dart';
 abstract class LocalObject<DomainType, StoargeType> {
   final SharedPreferences _sharedPreferences;
 
-  /// Must be unique
   final String _objectKey;
   late DomainType _object;
   void Function()? onChangeCallback;
+
+  /// [objectKey] must be unique
   LocalObject(
       {required String objectKey,
-      required DomainType object,
+      required DomainType fallbackObject,
       required SharedPreferences sharedPreferences,
       required this.onChangeCallback})
       : _objectKey = objectKey,
         _sharedPreferences = sharedPreferences {
     assert(isStoargeType(StoargeType));
-    _loadObject(object);
+    _loadObject(fallbackObject);
   }
 
   @visibleForTesting
@@ -82,9 +83,10 @@ abstract class LocalObject<DomainType, StoargeType> {
 /// (ie. [bool], [int], [double], [String], [List<String>])
 class SymmetricLocalObject<StoargeType>
     extends LocalObject<StoargeType, StoargeType> {
+  /// [objectKey] must be unique
   SymmetricLocalObject(
       {required super.objectKey,
-      required super.object,
+      required super.fallbackObject,
       required super.sharedPreferences,
       required super.onChangeCallback});
 
@@ -99,9 +101,10 @@ class EnumLocalObject<EnumType extends Enum>
     extends LocalObject<EnumType, int> {
   final List<EnumType> _values;
 
+  /// [objectKey] must be unique
   EnumLocalObject(
       {required super.objectKey,
-      required super.object,
+      required super.fallbackObject,
       required super.sharedPreferences,
       required super.onChangeCallback,
       required List<EnumType> values})

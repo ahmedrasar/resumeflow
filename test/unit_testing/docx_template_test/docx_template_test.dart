@@ -6,10 +6,10 @@ import 'package:test/test.dart';
 
 void main() {
   group(
-    'docx_template_test',
+    'docx_template library test',
     () {
       test(
-        'simple text replacer test',
+        'Generating file does not throw exception',
         () async {
           // Arrange
           final f = File(AssetPaths.coverLetterTemplatePath);

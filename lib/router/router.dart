@@ -8,7 +8,7 @@ import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
 import '../ui/home_screen/home_screen.dart';
 import '../ui/showcase_screen/showcase_screen.dart';
 import '../ui/tutorial_screen/tutorial_screen.dart';
-import '../ui/auth_screen/login_screen.dart';
+import '../ui/login_screen/login_screen.dart';
 import 'not_found_screen.dart';
 
 final router = GoRouter(

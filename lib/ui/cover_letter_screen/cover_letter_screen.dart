@@ -110,7 +110,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   Widget build(BuildContext context) {
     final layoutHelper = LayoutHelper(width: MediaQuery.sizeOf(context).width);
 
-    final formBackgroundColor = theme.colorScheme.surface.withAlpha(225);
+    final formBackgroundColor = theme.colorScheme.surface;
     final content = Align(
       alignment: Alignment.topCenter,
       child: ConstrainedBox(

@@ -245,7 +245,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                       barrierDismissible: false,
                       context: context,
                       builder: (context) {
-                        return _buildCoverLetterAlert(coverLetter);
+                        return _buildCoverLetterAlert(context, coverLetter);
                       });
                 }
               } on CoverLetterGenerationServiceException catch (e) {
@@ -285,7 +285,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     );
   }
 
-  AlertDialog _buildCoverLetterAlert(CoverLetterModel coverLetter) {
+  AlertDialog _buildCoverLetterAlert(
+      BuildContext context, CoverLetterModel coverLetter) {
     return AlertDialog(
       insetPadding: EdgeInsets.all(20),
       title: Text(l10n.generatedCoverLetter),

@@ -297,7 +297,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
             Card.filled(
               color: theme.colorScheme.surface,
               margin: EdgeInsets.all(10),
-              child: SelectableText(
+              child: Text(
                 coverLetter.generatedBody,
                 style: theme.textTheme.bodyLarge,
               ),

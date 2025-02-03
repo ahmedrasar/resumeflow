@@ -288,6 +288,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   AlertDialog _buildCoverLetterAlert(
       BuildContext context, CoverLetterModel coverLetter) {
     return AlertDialog(
+      scrollable: true,
       insetPadding: EdgeInsets.all(20),
       title: Text(l10n.generatedCoverLetter),
       content: ConstrainedBox(

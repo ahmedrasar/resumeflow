@@ -224,7 +224,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     return ElevatedButton(
       style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(200, 50)),
-        maximumSize: WidgetStatePropertyAll(Size(225, 50)),
+        maximumSize: WidgetStatePropertyAll(Size(250, 50)),
         backgroundColor: WidgetStatePropertyAll(
             _loading ? Colors.grey.shade800 : theme.colorScheme.secondary),
       ),

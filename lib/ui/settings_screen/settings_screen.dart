@@ -31,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
             child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 20),
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
               child: Column(
                 spacing: 10,
                 children: [

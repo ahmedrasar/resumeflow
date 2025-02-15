@@ -165,4 +165,13 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
 
   @override
   String get chooseDownloadDir => 'Choose download directory';
+
+  @override
+  String get aiModel => 'AI Generation';
+
+  @override
+  String get serverAiModel => 'Server-Side';
+
+  @override
+  String get clientAiModel => 'Client-Side';
 }

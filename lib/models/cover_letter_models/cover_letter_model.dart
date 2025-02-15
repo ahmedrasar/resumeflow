@@ -16,7 +16,7 @@ class CoverLetterModel {
 
   CoverLetterModel({
     required CoverLetterData data,
-    required CoverLetterGenerativeData genData,
+    required CoverLetterGenData genData,
   })  : comapnyName = data.companyName,
         name = data.name,
         address = data.address,

@@ -406,6 +406,24 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Choose download directory'**
   String get chooseDownloadDir;
+
+  /// No description provided for @aiModel.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Generation'**
+  String get aiModel;
+
+  /// No description provided for @serverAiModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Server-Side'**
+  String get serverAiModel;
+
+  /// No description provided for @clientAiModel.
+  ///
+  /// In en, this message translates to:
+  /// **'Client-Side'**
+  String get clientAiModel;
 }
 
 class _ResumeflowLocalizationsDelegate extends LocalizationsDelegate<ResumeflowLocalizations> {

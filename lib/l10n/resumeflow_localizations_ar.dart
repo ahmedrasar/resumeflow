@@ -165,4 +165,13 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
 
   @override
   String get chooseDownloadDir => 'اختر مجلد التنزيل';
+
+  @override
+  String get aiModel => 'نموذج الذكاء الاصطناعي';
+
+  @override
+  String get serverAiModel => 'السحابة';
+
+  @override
+  String get clientAiModel => 'محلي';
 }

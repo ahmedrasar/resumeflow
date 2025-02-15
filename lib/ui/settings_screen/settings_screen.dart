@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
+import 'package:resumeflow/utils/ai_model_enum/ai_model_enum.dart';
 import 'package:resumeflow/utils/locale_enum/locale_enum.dart';
 
 import '../widgets/grid_background.dart';
@@ -36,8 +37,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
             child: ListView(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 5),
-              shrinkWrap: true,
+              padding: EdgeInsets.symmetric(vertical: 20),
               children: [
                 ListTile(
                   leading: Icon(Icons.language_outlined),
@@ -87,6 +87,30 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                     onSelected: (themeMode) =>
                         settingsRepo.themeModeLO.setObject(themeMode!),
+                  ),
+                ),
+                ListTile(
+                  leading: Icon(Icons.model_training_outlined),
+                  title: Text(
+                    l10n.aiModel,
+                    overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyLarge,
+                  ),
+                  trailing: DropdownMenu<AiGenServiceEnum>(
+                    width: 150,
+                    automaticMatching: true,
+                    inputDecorationTheme: inputDecorationTheme,
+                    initialSelection: settingsRepo.aiModelLO.object,
+                    dropdownMenuEntries: [
+                      DropdownMenuEntry(
+                          value: AiGenServiceEnum.clientSide,
+                          label: l10n.clientAiModel),
+                      DropdownMenuEntry(
+                          value: AiGenServiceEnum.serverSide,
+                          label: l10n.serverAiModel),
+                    ],
+                    onSelected: (aiModelEnum) =>
+                        settingsRepo.aiModelLO.setObject(aiModelEnum!),
                   ),
                 ),
               ],

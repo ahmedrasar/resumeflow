@@ -13,6 +13,5 @@ class CoverLetterResponseModel {
   factory CoverLetterResponseModel.fromJson(Map<String, dynamic> json) =>
       _$CoverLetterResponseModelFromJson(json);
 
-  CoverLetterGenerativeData get data =>
-      CoverLetterGenerativeData(generatedBody: genBody);
+  CoverLetterGenData get data => CoverLetterGenData(generatedBody: genBody);
 }

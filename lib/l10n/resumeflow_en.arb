@@ -58,5 +58,8 @@
     "exportToDocx": "Export to DOCX",
     "close": "Close",
     "copy": "Copy",
-    "chooseDownloadDir": "Choose download directory"
+    "chooseDownloadDir": "Choose download directory",
+    "aiModel": "AI Generation",
+    "serverAiModel": "Server-Side",
+    "clientAiModel": "Client-Side"
 }

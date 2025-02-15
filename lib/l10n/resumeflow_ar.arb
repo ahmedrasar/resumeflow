@@ -51,5 +51,8 @@
     "exportToDocx": "تصدير إلى DOCX",
     "close": "إغلاق",
     "copy": "نسخ",
-    "chooseDownloadDir": "اختر مجلد التنزيل"
+    "chooseDownloadDir": "اختر مجلد التنزيل",
+    "aiModel": "نموذج الذكاء الاصطناعي",
+    "serverAiModel": "السحابة",
+    "clientAiModel": "محلي"
 }

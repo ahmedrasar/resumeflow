@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
-import 'package:resumeflow/services/cover_letter_gen_service/cover_letter_gen_service.dart';
+import 'package:resumeflow/models/gen_ai_service_interfaces/gen_ai_exception.dart';
+import 'package:resumeflow/models/gen_ai_service_interfaces/gen_ai_service_interface.dart';
+import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
 import 'package:resumeflow/utils/file_saver/file_saver.dart';
@@ -18,6 +20,7 @@ class CoverLetterScreen extends StatefulWidget {
 class _CoverLetterScreenState extends State<CoverLetterScreen> {
   late ThemeData theme;
   late ResumeflowLocalizations l10n;
+  late GenAiServiceInterface genAiService;
 
   @override
   void didChangeDependencies() {
@@ -27,6 +30,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     if (validatedBefore) {
       _formKey.currentState!.validate();
     }
+    genAiService =
+        context.read<SettingsRepository>().aiModelLO.object.aiGenService;
   }
 
   final _formKey = GlobalKey<FormState>();
@@ -213,10 +218,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         experience: _experienceController.text,
         skills: _skillsController.text);
 
-    final service = CoverLetterGenerationService(http.Client());
     final genData =
-        await service.generateData(CoverLetterRequestModel(data: data));
-
+        await genAiService.genCoverLetter(CoverLetterRequestModel(data: data));
     return CoverLetterModel(data: data, genData: genData);
   }
 
@@ -248,13 +251,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                         return _buildCoverLetterAlert(context, coverLetter);
                       });
                 }
-              } on CoverLetterGenerationServiceException catch (e) {
+              } on GenAiException catch (e) {
                 if (mounted) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       width: 300,
                       behavior: SnackBarBehavior.floating,
                       content: Text(
-                        l10n.serverError(e.response.statusCode),
+                        l10n.serverError(e.code),
                         textAlign: TextAlign.center,
                       ),
                       elevation: 10,

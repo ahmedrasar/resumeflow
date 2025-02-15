@@ -22,7 +22,7 @@ class CoverLetterDocx {
 
     final content = Content()
       ..addAll({
-        _recipientNameKey: TextContent(_recipientNameKey, model.comapnyName),
+        _recipientNameKey: TextContent(_recipientNameKey, model.companyName),
         _applicantNameKey: TextContent(_applicantNameKey, model.name),
         _addressKey: TextContent(_addressKey, model.address),
         _telephoneKey: TextContent(_telephoneKey, model.telephone),

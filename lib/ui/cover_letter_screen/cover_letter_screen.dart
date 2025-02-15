@@ -235,7 +235,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
     final genData =
         await genAiService.genCoverLetter(CoverLetterRequestModel(data: data));
-    return CoverLetterModel(data: data, genData: genData);
+    return CoverLetterModel.fromData(data: data, genData: genData);
   }
 
   Widget _bulildSummitBtn() {
@@ -305,6 +305,8 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   AlertDialog _buildCoverLetterAlert(
       BuildContext context, CoverLetterModel coverLetter) {
+    final genBodyTextController =
+        TextEditingController(text: coverLetter.generatedBody);
     return AlertDialog(
       scrollable: true,
       insetPadding: EdgeInsets.all(20),
@@ -316,8 +318,9 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
             Card.filled(
               color: theme.colorScheme.surface,
               margin: EdgeInsets.all(10),
-              child: Text(
-                coverLetter.generatedBody,
+              child: TextField(
+                controller: genBodyTextController,
+                maxLines: null,
                 style: theme.textTheme.bodyLarge,
               ),
             ),
@@ -328,7 +331,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               child: IconButton(
                 onPressed: () async {
                   await Clipboard.setData(
-                      ClipboardData(text: coverLetter.generatedBody));
+                      ClipboardData(text: genBodyTextController.text));
                 },
                 tooltip: l10n.copy,
                 style: ButtonStyle(
@@ -348,7 +351,9 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         ),
         FilledButton(
           onPressed: () async {
-            await FileSaver.saveCoverLetter(coverLetter,
+            final editedCoverLetter =
+                coverLetter.copyWith(generatedBody: genBodyTextController.text);
+            await FileSaver.saveCoverLetter(editedCoverLetter,
                 prompt: l10n.chooseDownloadDir);
           },
           child: Text(l10n.exportToDocx),

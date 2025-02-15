@@ -7,20 +7,14 @@ import 'package:resumeflow/utils/locale_enum/locale_enum.dart';
 
 import '../widgets/grid_background.dart';
 
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key, this.popCallback});
+class SettingsScreen extends StatelessWidget {
+  const SettingsScreen({super.key});
 
-  final void Function()? popCallback;
-
-  @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final settingsRepo = context.read<SettingsRepository>();
     final l10n = ResumeflowLocalizations.of(context);
+    final theme = Theme.of(context);
 
     final inputDecorationTheme = InputDecorationTheme(
       border: OutlineInputBorder(
@@ -36,84 +30,106 @@ class _SettingsScreenState extends State<SettingsScreen> {
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
             constraints: BoxConstraints(maxWidth: 600),
-            child: ListView(
+            child: SingleChildScrollView(
               padding: EdgeInsets.symmetric(vertical: 20),
-              children: [
-                ListTile(
-                  leading: Icon(Icons.language_outlined),
-                  title: Text(
-                    l10n.language,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodyLarge,
+              child: Column(
+                spacing: 10,
+                children: [
+                  Material(
+                    color: theme.colorScheme.surface.withAlpha(200),
+                    borderRadius: BorderRadius.circular(20),
+                    child: ListTile(
+                      minTileHeight: 75,
+                      leading: Icon(Icons.language_outlined),
+                      title: Text(
+                        l10n.language,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      trailing: DropdownMenu<LocaleEnum>(
+                        width: 150,
+                        automaticMatching: true,
+                        inputDecorationTheme: inputDecorationTheme,
+                        initialSelection: settingsRepo.localeLO.object,
+                        dropdownMenuEntries: [
+                          DropdownMenuEntry(
+                              value: LocaleEnum.system,
+                              label: l10n.systemLanguage),
+                          DropdownMenuEntry(
+                              value: LocaleEnum.english,
+                              label: LocaleEnum.english.nativeName!),
+                          DropdownMenuEntry(
+                              value: LocaleEnum.arabic,
+                              label: LocaleEnum.arabic.nativeName!),
+                        ],
+                        onSelected: (locale) async =>
+                            await settingsRepo.localeLO.setObject(locale!),
+                      ),
+                    ),
                   ),
-                  trailing: DropdownMenu<LocaleEnum>(
-                    width: 120,
-                    automaticMatching: true,
-                    inputDecorationTheme: inputDecorationTheme,
-                    initialSelection: settingsRepo.localeLO.object,
-                    dropdownMenuEntries: [
-                      DropdownMenuEntry(
-                          value: LocaleEnum.system, label: l10n.systemLanguage),
-                      DropdownMenuEntry(
-                          value: LocaleEnum.english,
-                          label: LocaleEnum.english.nativeName!),
-                      DropdownMenuEntry(
-                          value: LocaleEnum.arabic,
-                          label: LocaleEnum.arabic.nativeName!),
-                    ],
-                    onSelected: (locale) async =>
-                        await settingsRepo.localeLO.setObject(locale!),
+                  Material(
+                    color: theme.colorScheme.surface.withAlpha(200),
+                    borderRadius: BorderRadius.circular(20),
+                    child: ListTile(
+                      minTileHeight: 75,
+                      leading: Icon(Icons.color_lens_outlined),
+                      title: Text(
+                        l10n.theme,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      trailing: DropdownMenu<ThemeMode>(
+                        width: 150,
+                        automaticMatching: true,
+                        inputDecorationTheme: inputDecorationTheme,
+                        initialSelection: settingsRepo.themeModeLO.object,
+                        dropdownMenuEntries: [
+                          DropdownMenuEntry(
+                              value: ThemeMode.system, label: l10n.systemTheme),
+                          DropdownMenuEntry(
+                              value: ThemeMode.light, label: l10n.lightTheme),
+                          DropdownMenuEntry(
+                              value: ThemeMode.dark, label: l10n.darkTheme),
+                        ],
+                        onSelected: (themeMode) =>
+                            settingsRepo.themeModeLO.setObject(themeMode!),
+                      ),
+                    ),
                   ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.color_lens_outlined),
-                  title: Text(
-                    l10n.theme,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodyLarge,
+                  Material(
+                    color: theme.colorScheme.surface.withAlpha(200),
+                    borderRadius: BorderRadius.circular(20),
+                    child: ListTile(
+                      minTileHeight: 75,
+                      leading: Icon(Icons.model_training_outlined),
+                      title: Text(
+                        l10n.aiModel,
+                        overflow: TextOverflow.ellipsis,
+                        style: Theme.of(context).textTheme.bodyLarge,
+                      ),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                      trailing: DropdownMenu<AiGenServiceEnum>(
+                        width: 150,
+                        automaticMatching: true,
+                        inputDecorationTheme: inputDecorationTheme,
+                        initialSelection: settingsRepo.aiModelLO.object,
+                        dropdownMenuEntries: [
+                          DropdownMenuEntry(
+                              value: AiGenServiceEnum.clientSide,
+                              label: l10n.clientAiModel),
+                          DropdownMenuEntry(
+                              value: AiGenServiceEnum.serverSide,
+                              label: l10n.serverAiModel),
+                        ],
+                        onSelected: (aiModelEnum) =>
+                            settingsRepo.aiModelLO.setObject(aiModelEnum!),
+                      ),
+                    ),
                   ),
-                  trailing: DropdownMenu<ThemeMode>(
-                    width: 150,
-                    automaticMatching: true,
-                    inputDecorationTheme: inputDecorationTheme,
-                    initialSelection: settingsRepo.themeModeLO.object,
-                    dropdownMenuEntries: [
-                      DropdownMenuEntry(
-                          value: ThemeMode.system, label: l10n.systemTheme),
-                      DropdownMenuEntry(
-                          value: ThemeMode.light, label: l10n.lightTheme),
-                      DropdownMenuEntry(
-                          value: ThemeMode.dark, label: l10n.darkTheme),
-                    ],
-                    onSelected: (themeMode) =>
-                        settingsRepo.themeModeLO.setObject(themeMode!),
-                  ),
-                ),
-                ListTile(
-                  leading: Icon(Icons.model_training_outlined),
-                  title: Text(
-                    l10n.aiModel,
-                    overflow: TextOverflow.ellipsis,
-                    style: Theme.of(context).textTheme.bodyLarge,
-                  ),
-                  trailing: DropdownMenu<AiGenServiceEnum>(
-                    width: 150,
-                    automaticMatching: true,
-                    inputDecorationTheme: inputDecorationTheme,
-                    initialSelection: settingsRepo.aiModelLO.object,
-                    dropdownMenuEntries: [
-                      DropdownMenuEntry(
-                          value: AiGenServiceEnum.clientSide,
-                          label: l10n.clientAiModel),
-                      DropdownMenuEntry(
-                          value: AiGenServiceEnum.serverSide,
-                          label: l10n.serverAiModel),
-                    ],
-                    onSelected: (aiModelEnum) =>
-                        settingsRepo.aiModelLO.setObject(aiModelEnum!),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

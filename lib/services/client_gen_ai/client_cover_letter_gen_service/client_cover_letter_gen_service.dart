@@ -3,7 +3,7 @@ import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 import 'package:resumeflow/models/gen_ai_service_interfaces/cover_letter_gen_service_interface/cover_letter_gen_service_model.dart';
 import 'package:resumeflow/models/gen_ai_service_interfaces/gen_ai_exception.dart';
 
-class ClientCoverLetterGenServie implements CoverLetterGenServiceInterface {
+class ClientCoverLetterGenService implements CoverLetterGenServiceInterface {
   static final requestPromot = Content.text(
       '''Craft a professional cover letter using the provided job posting and candidate data. Focus solely on the essential content, eliminating any placeholder or template-style headers like addresses or contact information. 
 
@@ -51,7 +51,7 @@ Generate a concise, impactful cover letter that goes straight to the professiona
 ''');
 
   final GenerativeModel model;
-  const ClientCoverLetterGenServie(this.model);
+  const ClientCoverLetterGenService(this.model);
 
   @override
   Future<CoverLetterGenData> genData(

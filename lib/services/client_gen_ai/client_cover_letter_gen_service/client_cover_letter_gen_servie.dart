@@ -38,6 +38,7 @@ Specific Requirements:
 - Use a professional, confident tone
 - Focus on technical achievements
 - Avoid generic statements
+- Sign off with "Sincerely," followed by the provided name in the next line
 - Use numerals for all numbers (e.g., "5 years", "40% improvement") - never spell out numbers
 
 Emphasize:

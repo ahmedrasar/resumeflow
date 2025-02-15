@@ -62,8 +62,10 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   Widget _buildTextField({
     required String fieldName,
     required String tooltip,
+    required String example,
     required TextEditingController controller,
     TextInputType? keyboardType,
+    int lines = 1,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,20 +90,20 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         ),
         TextFormField(
           controller: controller,
-          minLines: 1,
-          maxLines: 5,
+          minLines: lines,
+          maxLines: lines,
           onChanged: (value) {
             if (validatedBefore) _formKey.currentState!.validate();
           },
           keyboardType: keyboardType,
           validator: (value) => value!.isEmpty ? l10n.empytFieldError : null,
           decoration: InputDecoration(
-            hintText: fieldName,
+            hintText: example,
             hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.textTheme.bodyMedium?.color?.withAlpha(100)),
+                color: theme.textTheme.bodyMedium?.color?.withAlpha(75)),
             filled: true,
             fillColor: theme.colorScheme.onPrimary.withAlpha(125),
-            contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -162,43 +164,56 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           _buildTextField(
               fieldName: l10n.companyName,
               tooltip: l10n.companyNameTooltip,
+              example: l10n.companyNameExample,
               controller: _companyNameController),
           _buildTextField(
               fieldName: l10n.jobPost,
               tooltip: l10n.jobPostTooltip,
-              controller: _jobPostController),
+              example: l10n.jobPostExample,
+              controller: _jobPostController,
+              lines: 5),
           _buildTextField(
               fieldName: l10n.applicantName,
               tooltip: l10n.applicantNameTooltip,
+              example: l10n.applicantNameExample,
               controller: _applicantNameController),
           _buildTextField(
               fieldName: l10n.applicantDegree,
               tooltip: l10n.applicantDegreeTooltip,
+              example: l10n.applicantDegreeExample,
               controller: _degreeController),
           _buildTextField(
               fieldName: l10n.applicantTitle,
               tooltip: l10n.applicantTitleTooltip,
+              example: l10n.applicantTitleExample,
               controller: _applicantTitleController),
           _buildTextField(
               fieldName: l10n.experience,
               tooltip: l10n.experienceTooltip,
-              controller: _experienceController),
+              example: l10n.experienceExample,
+              controller: _experienceController,
+              lines: 3),
           _buildTextField(
               fieldName: l10n.skills,
               tooltip: l10n.skillsTooltip,
-              controller: _skillsController),
+              example: l10n.skillsExample,
+              controller: _skillsController,
+              lines: 3),
           _buildTextField(
               fieldName: l10n.address,
               tooltip: l10n.addressTooltip,
+              example: l10n.addressExample,
               controller: _addressController),
           _buildTextField(
               fieldName: l10n.telephone,
               tooltip: l10n.telephoneTooltip,
+              example: l10n.telephoneExample,
               controller: _telephoneController,
               keyboardType: TextInputType.phone),
           _buildTextField(
               fieldName: l10n.email,
               tooltip: l10n.emailTooltip,
+              example: l10n.emailExample,
               controller: _emailController),
         ],
       ),

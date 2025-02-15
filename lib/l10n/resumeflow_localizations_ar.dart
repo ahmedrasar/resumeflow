@@ -155,6 +155,36 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get skillsTooltip => 'قم بإدراج المهارات الرئيسية التي تجعلك مناسبًا للدور (مثل JavaScript، حل المشكلات، القيادة).';
 
   @override
+  String get companyNameExample => 'مثال: جوجل إنك.';
+
+  @override
+  String get jobPostExample => 'مثال: مطلوب مطور ويب ماهر للانضمام إلى فريقنا الديناميكي.\nيجب أن يكون المرشح المثالي متمرسًا في HTML5 وCSS3 وJavaScript وأطر العمل الحديثة (React/Vue/Angular).\nيجب أن يكون لديه خبرة في التصميم المتجاوب، وإدارة الإصدارات (Git)، وواجهات برمجة التطبيقات (REST APIs).\nتعتبر الخبرة في Node.js وإدارة قواعد البيانات ميزة إضافية. سيتعاون مع فرق متعددة التخصصات لتطوير وصيانة تطبيقات الويب.\nمطلوب مهارات قوية في حل المشكلات والالتزام بكتابة كود نظيف وفعال. يفضل أن يكون لديه 3+ سنوات من الخبرة.';
+
+  @override
+  String get applicantNameExample => 'مثال: جون سميث';
+
+  @override
+  String get addressExample => 'مثال: 123 شارع مين، نيويورك، NY 10001';
+
+  @override
+  String get telephoneExample => 'مثال: +1 (555) 123-4567';
+
+  @override
+  String get emailExample => 'مثال: john.smith@email.com';
+
+  @override
+  String get applicantDegreeExample => 'مثال: ماجستير في علوم الحاسوب';
+
+  @override
+  String get applicantTitleExample => 'مثال: مطور Full Stack';
+
+  @override
+  String get experienceExample => 'مثال: - 5 سنوات من تطوير Full Stack في شركات تقنية كبرى\n- قيادة فريق مكون من 6 مطورين في مشاريع سحابية على مستوى المؤسسة\n- تنفيذ خطوط CI/CD مما أدى إلى تقليل وقت النشر بنسبة 40%';
+
+  @override
+  String get skillsExample => 'مثال: - JavaScript وTypeScript وReact وNode.js وPython\n- تصميم قواعد البيانات، تطوير واجهات برمجة التطبيقات، البنية التحتية السحابية (AWS)\n- منهجيات Agile، قيادة الفرق، التوثيق التقني';
+
+  @override
   String get exportToDocx => 'تصدير إلى DOCX';
 
   @override

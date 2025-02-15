@@ -383,6 +383,66 @@ abstract class ResumeflowLocalizations {
   /// **'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).'**
   String get skillsTooltip;
 
+  /// No description provided for @companyNameExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: Google Inc.'**
+  String get companyNameExample;
+
+  /// No description provided for @jobPostExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.'**
+  String get jobPostExample;
+
+  /// No description provided for @applicantNameExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: John Smith'**
+  String get applicantNameExample;
+
+  /// No description provided for @addressExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: 123 Main Street, New York, NY 10001'**
+  String get addressExample;
+
+  /// No description provided for @telephoneExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: +1 (555) 123-4567'**
+  String get telephoneExample;
+
+  /// No description provided for @emailExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: john.smith@email.com'**
+  String get emailExample;
+
+  /// No description provided for @applicantDegreeExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: Master\'s in Computer Science'**
+  String get applicantDegreeExample;
+
+  /// No description provided for @applicantTitleExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: Full Stack Developer'**
+  String get applicantTitleExample;
+
+  /// No description provided for @experienceExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%'**
+  String get experienceExample;
+
+  /// No description provided for @skillsExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation'**
+  String get skillsExample;
+
   /// No description provided for @exportToDocx.
   ///
   /// In en, this message translates to:

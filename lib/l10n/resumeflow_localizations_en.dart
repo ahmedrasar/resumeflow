@@ -155,6 +155,36 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get skillsTooltip => 'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).';
 
   @override
+  String get companyNameExample => 'Example: Google Inc.';
+
+  @override
+  String get jobPostExample => 'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.';
+
+  @override
+  String get applicantNameExample => 'Example: John Smith';
+
+  @override
+  String get addressExample => 'Example: 123 Main Street, New York, NY 10001';
+
+  @override
+  String get telephoneExample => 'Example: +1 (555) 123-4567';
+
+  @override
+  String get emailExample => 'Example: john.smith@email.com';
+
+  @override
+  String get applicantDegreeExample => 'Example: Master\'s in Computer Science';
+
+  @override
+  String get applicantTitleExample => 'Example: Full Stack Developer';
+
+  @override
+  String get experienceExample => 'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%';
+
+  @override
+  String get skillsExample => 'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation';
+
+  @override
   String get exportToDocx => 'Export to DOCX';
 
   @override

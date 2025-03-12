@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -13,11 +14,14 @@ class TargetFileSaver implements FileSaverInterface {
     final file = await FilePicker.platform.saveFile(
         dialogTitle: prompt,
         type: FileType.custom,
+        bytes: Uint8List.fromList(bytes),
         allowedExtensions: [extension],
         fileName: fileName,
         initialDirectory: (await getApplicationDocumentsDirectory()).path);
     if (file == null) return false;
-    await File(file).writeAsBytes(bytes);
+    if (!Platform.isAndroid && !Platform.isIOS) {
+      await File(file).writeAsBytes(bytes);
+    }
     return true;
   }
 }

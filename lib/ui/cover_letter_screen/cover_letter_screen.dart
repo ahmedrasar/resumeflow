@@ -218,7 +218,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Future<CoverLetterModel> __generateCoverletter() async {
     final data = CoverLetterData(
-        companyName: _applicantNameController.text,
+        companyName: _companyNameController.text,
         jobPost: _jobPostController.text,
         name: _applicantNameController.text,
         address: _addressController.text,

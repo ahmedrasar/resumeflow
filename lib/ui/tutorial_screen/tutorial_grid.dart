@@ -32,7 +32,7 @@ class TutorialGrid extends StatelessWidget {
         backgroundIconData: Icons.share_rounded,
         header: l10n.shareCard,
         body: l10n.shareCardBody,
-      )
+      ),
     ];
   }
 
@@ -42,8 +42,10 @@ class TutorialGrid extends StatelessWidget {
       builder: (context, constraints) {
         final canFitThisCount = max(constraints.maxWidth ~/ maxCardWidth, 1);
         final crossAxisCount = min(canFitThisCount, _numberOfCards);
-        final cardWidth =
-            min(constraints.maxWidth / crossAxisCount, maxCardWidth);
+        final cardWidth = min(
+          constraints.maxWidth / crossAxisCount,
+          maxCardWidth,
+        );
 
         return SizedBox(
           width: cardWidth * crossAxisCount,

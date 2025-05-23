@@ -26,10 +26,15 @@ final router = GoRouter(
               child: const TutorialScreen(),
               transitionDuration: Durations.medium1,
               reverseTransitionDuration: Durations.medium1,
-              transitionsBuilder: (context, animation, secondaryAnimation,
-                      child) =>
-                  OpenUpwardsPageTransitionsBuilder().buildTransitions(
-                      null, context, animation, secondaryAnimation, child),
+              transitionsBuilder:
+                  (context, animation, secondaryAnimation, child) =>
+                      OpenUpwardsPageTransitionsBuilder().buildTransitions(
+                        null,
+                        context,
+                        animation,
+                        secondaryAnimation,
+                        child,
+                      ),
             );
           },
         ),
@@ -58,14 +63,15 @@ final router = GoRouter(
                 StatefulShellBranch(
                   routes: [
                     GoRoute(
-                        path: '/cover-letters',
-                        builder: (context, state) => CoverLetterDashboardPage(),
-                        routes: [
-                          GoRoute(
-                            path: '/create',
-                            builder: (context, state) => CoverLetterScreen(),
-                          )
-                        ]),
+                      path: '/cover-letters',
+                      builder: (context, state) => CoverLetterDashboardPage(),
+                      routes: [
+                        GoRoute(
+                          path: '/create',
+                          builder: (context, state) => CoverLetterScreen(),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 StatefulShellBranch(

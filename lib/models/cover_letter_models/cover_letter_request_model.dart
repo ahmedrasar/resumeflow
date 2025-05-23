@@ -21,14 +21,13 @@ class CoverLetterRequestModel {
   @JsonKey(name: 'user_skills')
   final String skills;
 
-  CoverLetterRequestModel({
-    required CoverLetterData data,
-  })  : jobPost = data.jobPost,
-        name = data.name,
-        degree = data.degree,
-        title = data.title,
-        experience = data.experience,
-        skills = data.skills;
+  CoverLetterRequestModel({required CoverLetterData data})
+    : jobPost = data.jobPost,
+      name = data.name,
+      degree = data.degree,
+      title = data.title,
+      experience = data.experience,
+      skills = data.skills;
 
   Map<String, dynamic> toJson() => _$CoverLetterRequestModelToJson(this);
 }

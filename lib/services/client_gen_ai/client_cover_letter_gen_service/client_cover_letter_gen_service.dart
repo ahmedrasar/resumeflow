@@ -5,7 +5,7 @@ import 'package:resumeflow/models/gen_ai_service_interfaces/gen_ai_exception.dar
 
 class ClientCoverLetterGenService implements CoverLetterGenServiceInterface {
   static final requestPromot = Content.text(
-      '''Craft a professional cover letter using the provided job posting and candidate data. Focus solely on the essential content, eliminating any placeholder or template-style headers like addresses or contact information. 
+    '''Craft a professional cover letter using the provided job posting and candidate data. Focus solely on the essential content, eliminating any placeholder or template-style headers like addresses or contact information. 
 
 Candidate Profile Will be provided as JSON Later.
 
@@ -48,17 +48,19 @@ Emphasize:
 - Alignment with job requirements
 
 Generate a concise, impactful cover letter that goes straight to the professional content, using the provided candidate data throughout.
-''');
+''',
+  );
 
   final GenerativeModel model;
   const ClientCoverLetterGenService(this.model);
 
   @override
   Future<CoverLetterGenData> genData(
-      CoverLetterRequestModel coverLetter) async {
+    CoverLetterRequestModel coverLetter,
+  ) async {
     final prompt = [
       requestPromot,
-      Content.text(coverLetter.toJson().toString())
+      Content.text(coverLetter.toJson().toString()),
     ];
     try {
       final response = await model.generateContent(prompt);

@@ -13,23 +13,26 @@ class SettingsRepository with ChangeNotifier {
 
   SettingsRepository(this._sharedPreferences) {
     themeModeLO = EnumLocalObject<ThemeMode>(
-        objectKey: _themeKey,
-        fallbackObject: ThemeMode.system,
-        sharedPreferences: _sharedPreferences,
-        onChangeCallback: notifyListeners,
-        values: ThemeMode.values);
+      objectKey: _themeKey,
+      fallbackObject: ThemeMode.system,
+      sharedPreferences: _sharedPreferences,
+      onChangeCallback: notifyListeners,
+      values: ThemeMode.values,
+    );
     localeLO = EnumLocalObject<LocaleEnum>(
-        objectKey: _localeKey,
-        fallbackObject: LocaleEnum.system,
-        sharedPreferences: _sharedPreferences,
-        onChangeCallback: notifyListeners,
-        values: LocaleEnum.values);
+      objectKey: _localeKey,
+      fallbackObject: LocaleEnum.system,
+      sharedPreferences: _sharedPreferences,
+      onChangeCallback: notifyListeners,
+      values: LocaleEnum.values,
+    );
     aiModelLO = EnumLocalObject<AiGenServiceEnum>(
-        objectKey: _aiModelKey,
-        fallbackObject: AiGenServiceEnum.clientSide,
-        sharedPreferences: _sharedPreferences,
-        onChangeCallback: null,
-        values: AiGenServiceEnum.values);
+      objectKey: _aiModelKey,
+      fallbackObject: AiGenServiceEnum.clientSide,
+      sharedPreferences: _sharedPreferences,
+      onChangeCallback: null,
+      values: AiGenServiceEnum.values,
+    );
   }
 
   late final EnumLocalObject<ThemeMode> themeModeLO;

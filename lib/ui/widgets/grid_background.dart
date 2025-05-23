@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 class GridBackground extends StatelessWidget {
   final Widget? child;
 
-  const GridBackground({
-    super.key,
-    this.child,
-  });
+  const GridBackground({super.key, this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +22,10 @@ class GridBackground extends StatelessWidget {
               colors: [maskColor, backgroundColor],
             ).createShader(bounds);
           },
-          blendMode: brightness == Brightness.light
-              ? BlendMode.multiply
-              : BlendMode.screen,
+          blendMode:
+              brightness == Brightness.light
+                  ? BlendMode.multiply
+                  : BlendMode.screen,
           child: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
               return CustomPaint(
@@ -54,9 +52,10 @@ class _Grid extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color.withAlpha(_alpha)
-      ..strokeWidth = _strokeWidth;
+    final paint =
+        Paint()
+          ..color = color.withAlpha(_alpha)
+          ..strokeWidth = _strokeWidth;
 
     // Vertical lines
     for (double h = 0; h < size.width; h += _space) {

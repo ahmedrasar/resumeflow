@@ -18,7 +18,8 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get showcaseScreenHeaderSeg2 => 'With AI';
 
   @override
-  String get showcaseScreenBody => 'Effortlessly Craft a Professional Resume with Our AI-Powered Builder';
+  String get showcaseScreenBody =>
+      'Effortlessly Craft a Professional Resume with Our AI-Powered Builder';
 
   @override
   String get getStarted => 'Get Started';
@@ -30,7 +31,8 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get howItWorks => 'How It Works?';
 
   @override
-  String get generateInSimpleSteps => 'Generate Well-Crafted Resume in Simple Steps!';
+  String get generateInSimpleSteps =>
+      'Generate Well-Crafted Resume in Simple Steps!';
 
   @override
   String get login => 'Login';
@@ -39,19 +41,22 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get createCard => 'Choose Your Template';
 
   @override
-  String get createCardBody => 'Start by selecting the color scheme for your resume template. Our single, professionally designed template ensures a clean and consistent look for all users.';
+  String get createCardBody =>
+      'Start by selecting the color scheme for your resume template. Our single, professionally designed template ensures a clean and consistent look for all users.';
 
   @override
   String get updateCard => 'Update Your Information';
 
   @override
-  String get updateCardBody => 'Enter your personal details, work experience, education, and skills into the provided form. Our AI assists you in filling out each section accurately and effectively.';
+  String get updateCardBody =>
+      'Enter your personal details, work experience, education, and skills into the provided form. Our AI assists you in filling out each section accurately and effectively.';
 
   @override
   String get shareCard => 'Share Your Resume';
 
   @override
-  String get shareCardBody => 'After completing your resume, save it securely and generate a shareable link. Easily update your information anytime and share the link with potential employers or download it in a preferred format.';
+  String get shareCardBody =>
+      'After completing your resume, save it securely and generate a shareable link. Easily update your information anytime and share the link with potential employers or download it in a preferred format.';
 
   @override
   String get language => 'Language';
@@ -125,40 +130,50 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get createCoverLetter => 'Create Cover Letter';
 
   @override
-  String get companyNameTooltip => 'Enter the full name of the recipient (e.g., hiring manager or recruiter).';
+  String get companyNameTooltip =>
+      'Enter the full name of the recipient (e.g., hiring manager or recruiter).';
 
   @override
   String get jobPostTooltip => 'Enter the job post that you want to apply to.';
 
   @override
-  String get applicantNameTooltip => 'Provide your full name as it appears on official documents.';
+  String get applicantNameTooltip =>
+      'Provide your full name as it appears on official documents.';
 
   @override
-  String get addressTooltip => 'Enter your complete residential address, including city and postal code.';
+  String get addressTooltip =>
+      'Enter your complete residential address, including city and postal code.';
 
   @override
-  String get telephoneTooltip => 'Provide your active phone number for communication purposes.';
+  String get telephoneTooltip =>
+      'Provide your active phone number for communication purposes.';
 
   @override
-  String get emailTooltip => 'Enter your email address where you can be reached.';
+  String get emailTooltip =>
+      'Enter your email address where you can be reached.';
 
   @override
-  String get applicantDegreeTooltip => 'Mention the highest degree or qualification you\'ve obtained (e.g., Bachelor\'s in Computer Science).';
+  String get applicantDegreeTooltip =>
+      'Mention the highest degree or qualification you\'ve obtained (e.g., Bachelor\'s in Computer Science).';
 
   @override
-  String get applicantTitleTooltip => 'State your current job  or professional designation (e.g., Project Manager).';
+  String get applicantTitleTooltip =>
+      'State your current job  or professional designation (e.g., Project Manager).';
 
   @override
-  String get experienceTooltip => 'Summarize your relevant work experience, including years in the field.';
+  String get experienceTooltip =>
+      'Summarize your relevant work experience, including years in the field.';
 
   @override
-  String get skillsTooltip => 'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).';
+  String get skillsTooltip =>
+      'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).';
 
   @override
   String get companyNameExample => 'Example: Google Inc.';
 
   @override
-  String get jobPostExample => 'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.';
+  String get jobPostExample =>
+      'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.';
 
   @override
   String get applicantNameExample => 'Example: John Smith';
@@ -179,10 +194,12 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get applicantTitleExample => 'Example: Full Stack Developer';
 
   @override
-  String get experienceExample => 'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%';
+  String get experienceExample =>
+      'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%';
 
   @override
-  String get skillsExample => 'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation';
+  String get skillsExample =>
+      'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation';
 
   @override
   String get exportToDocx => 'Export to DOCX';

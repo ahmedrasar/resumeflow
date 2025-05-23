@@ -8,15 +8,15 @@ class TutorialCard extends StatelessWidget {
 
   static const _backgroundIconSize = 100.0;
 
-  const TutorialCard(
-      {super.key,
-      required int step,
-      required this.backgroundIconData,
-      required String header,
-      required String body})
-      : _body = body,
-        _header = header,
-        _step = step;
+  const TutorialCard({
+    super.key,
+    required int step,
+    required this.backgroundIconData,
+    required String header,
+    required String body,
+  }) : _body = body,
+       _header = header,
+       _step = step;
 
   @override
   Widget build(BuildContext context) {
@@ -35,17 +35,20 @@ class TutorialCard extends StatelessWidget {
                 top: 5,
                 end: 5,
                 child: Opacity(
-                    opacity: 0.25,
-                    child: Icon(
-                      backgroundIconData,
-                      size: _backgroundIconSize,
-                      color: theme.colorScheme.onSurface,
-                    )),
+                  opacity: 0.25,
+                  child: Icon(
+                    backgroundIconData,
+                    size: _backgroundIconSize,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ),
               ),
               Center(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 30,
+                  ),
                   child: RichText(
                     textAlign: TextAlign.center,
                     maxLines: 5,
@@ -73,7 +76,9 @@ class TutorialCard extends StatelessWidget {
           child: Text(
             '${_step.toString()}.',
             style: theme.textTheme.displayMedium!.copyWith(
-                color: theme.colorScheme.primary, fontWeight: FontWeight.w700),
+              color: theme.colorScheme.primary,
+              fontWeight: FontWeight.w700,
+            ),
           ),
         ),
       ],

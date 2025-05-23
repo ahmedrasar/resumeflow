@@ -10,14 +10,19 @@ class TargetFileSaver implements FileSaverInterface {
 
   @override
   Future<bool> saveFile(
-      List<int> bytes, String fileName, String prompt, String extension) async {
+    List<int> bytes,
+    String fileName,
+    String prompt,
+    String extension,
+  ) async {
     final file = await FilePicker.platform.saveFile(
-        dialogTitle: prompt,
-        type: FileType.custom,
-        bytes: Uint8List.fromList(bytes),
-        allowedExtensions: [extension],
-        fileName: fileName,
-        initialDirectory: (await getApplicationDocumentsDirectory()).path);
+      dialogTitle: prompt,
+      type: FileType.custom,
+      bytes: Uint8List.fromList(bytes),
+      allowedExtensions: [extension],
+      fileName: fileName,
+      initialDirectory: (await getApplicationDocumentsDirectory()).path,
+    );
     if (file == null) return false;
     if (!Platform.isAndroid && !Platform.isIOS) {
       await File(file).writeAsBytes(bytes);

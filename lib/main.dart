@@ -15,9 +15,7 @@ import 'themes/themes.dart';
 void main() async {
   // Core configuration
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   Animate.restartOnHotReload = true;
 
   // Target platform specific configuration
@@ -31,7 +29,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider<SettingsRepository>.value(
           value: SettingsRepository(sharedPreferences),
-        )
+        ),
       ],
       builder: (context, _) {
         final settingsRepository = context.watch<SettingsRepository>();
@@ -52,10 +50,7 @@ void main() async {
             }
             return supportedLocales.first;
           },
-          supportedLocales: const [
-            Locale('en'),
-            Locale('ar'),
-          ],
+          supportedLocales: const [Locale('en'), Locale('ar')],
           localizationsDelegates: const [
             ResumeflowLocalizations.delegate,
             // Flutter Localization Delegates

@@ -13,6 +13,6 @@ class ClientGenAi implements GenAiServiceInterface {
 
   @override
   Future<CoverLetterGenData> genCoverLetter(
-          CoverLetterRequestModel coverLetter) =>
-      ClientCoverLetterGenService(model).genData(coverLetter);
+    CoverLetterRequestModel coverLetter,
+  ) => ClientCoverLetterGenService(model).genData(coverLetter);
 }

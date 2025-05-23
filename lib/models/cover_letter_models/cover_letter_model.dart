@@ -26,12 +26,12 @@ class CoverLetterModel {
   CoverLetterModel.fromData({
     required CoverLetterData data,
     required CoverLetterGenData genData,
-  })  : companyName = data.companyName,
-        name = data.name,
-        address = data.address,
-        telephone = data.telephone,
-        email = data.email,
-        generatedBody = genData.generatedBody;
+  }) : companyName = data.companyName,
+       name = data.name,
+       address = data.address,
+       telephone = data.telephone,
+       email = data.email,
+       generatedBody = genData.generatedBody;
 
   CoverLetterModel copyWith({
     String? companyName,

@@ -21,8 +21,9 @@ class ServerCoverLetterGenService implements CoverLetterGenServiceInterface {
 
   Future<String> _getKey() async {
     final response = await _client.get(Uri.parse('$_apiUrl/generate-api-key'));
-    final key = (jsonDecode(response.body) as Map<String, dynamic>)['api_key']
-        as String?;
+    final key =
+        (jsonDecode(response.body) as Map<String, dynamic>)['api_key']
+            as String?;
     if (key == null) {
       throw GenAiException.fromResponse(response);
     }
@@ -31,7 +32,8 @@ class ServerCoverLetterGenService implements CoverLetterGenServiceInterface {
 
   @override
   Future<CoverLetterGenData> genData(
-      CoverLetterRequestModel coverLetterRM) async {
+    CoverLetterRequestModel coverLetterRM,
+  ) async {
     final apiKey = await _getKey();
 
     final headers = <String, String>{

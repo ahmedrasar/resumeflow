@@ -28,13 +28,14 @@ class ShowcaseScreen extends StatelessWidget {
                 TextSpan(
                   text:
                       '${ResumeflowLocalizations.of(context).showcaseScreenHeaderSeg2}\n',
-                  style:
-                      TextStyle(color: Theme.of(context).colorScheme.secondary),
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
                 TextSpan(
-                    text:
-                        ResumeflowLocalizations.of(context).showcaseScreenBody,
-                    style: Theme.of(context).textTheme.bodyLarge),
+                  text: ResumeflowLocalizations.of(context).showcaseScreenBody,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
               ],
             ),
           ),
@@ -44,32 +45,36 @@ class ShowcaseScreen extends StatelessWidget {
   }
 
   Widget __buildBaseButton(
-      final String text, final Color textColor, final Color backgroundColor,
-      [final void Function()? onPressed]) {
+    final String text,
+    final Color textColor,
+    final Color backgroundColor, [
+    final void Function()? onPressed,
+  ]) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ButtonStyle(
-          fixedSize:
-              const WidgetStatePropertyAll(Size(_buttonWidth, _buttonHeight)),
-          backgroundColor: WidgetStatePropertyAll(backgroundColor)),
-      child: Text(
-        text,
-        style: TextStyle(color: textColor, fontSize: 18),
+        fixedSize: const WidgetStatePropertyAll(
+          Size(_buttonWidth, _buttonHeight),
+        ),
+        backgroundColor: WidgetStatePropertyAll(backgroundColor),
       ),
+      child: Text(text, style: TextStyle(color: textColor, fontSize: 18)),
     );
   }
 
   Widget _buildGetStartedButton(BuildContext context) => __buildBaseButton(
-      ResumeflowLocalizations.of(context).getStarted,
-      Theme.of(context).colorScheme.secondary,
-      Theme.of(context).colorScheme.onSecondary,
-      () => context.go('/home'));
+    ResumeflowLocalizations.of(context).getStarted,
+    Theme.of(context).colorScheme.secondary,
+    Theme.of(context).colorScheme.onSecondary,
+    () => context.go('/home'),
+  );
 
   Widget _buildLearnMoreButton(BuildContext context) => __buildBaseButton(
-      ResumeflowLocalizations.of(context).learnMore,
-      Theme.of(context).colorScheme.inverseSurface,
-      Theme.of(context).colorScheme.onInverseSurface,
-      () => context.go('/tutorial'));
+    ResumeflowLocalizations.of(context).learnMore,
+    Theme.of(context).colorScheme.inverseSurface,
+    Theme.of(context).colorScheme.onInverseSurface,
+    () => context.go('/tutorial'),
+  );
 
   Widget _buildHowItWorksHeader(BuildContext context) {
     return Column(
@@ -90,8 +95,9 @@ class ShowcaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final adaptiveHelper =
-        LayoutHelper(width: MediaQuery.sizeOf(context).width);
+    final adaptiveHelper = LayoutHelper(
+      width: MediaQuery.sizeOf(context).width,
+    );
 
     return Scaffold(
       body: GridBackground(
@@ -120,7 +126,7 @@ class ShowcaseScreen extends StatelessWidget {
                   adaptiveHelper.isCompact()
                       ? _buildLearnMoreButton(context)
                       : TutorialGrid(),
-                  SizedBox(height: 40)
+                  SizedBox(height: 40),
                 ],
               ),
             ),

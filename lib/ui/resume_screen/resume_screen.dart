@@ -12,10 +12,6 @@ class CreateResumeScreen extends StatefulWidget {
 class _CreateResumeScreenState extends State<CreateResumeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: GridBackground(
-        child: Placeholder(),
-      ),
-    );
+    return const Scaffold(body: GridBackground(child: Placeholder()));
   }
 }

@@ -4,5 +4,6 @@ abstract interface class GenAiServiceInterface {
   const GenAiServiceInterface();
 
   Future<CoverLetterGenData> genCoverLetter(
-      CoverLetterRequestModel coverLetter);
+    CoverLetterRequestModel coverLetter,
+  );
 }

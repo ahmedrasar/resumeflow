@@ -17,9 +17,7 @@ class SettingsScreen extends StatelessWidget {
     final theme = Theme.of(context);
 
     final inputDecorationTheme = InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(20),
-      ),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
       filled: true,
       fillColor: Theme.of(context).colorScheme.onPrimary.withAlpha(150),
     );
@@ -49,22 +47,26 @@ class SettingsScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       trailing: DropdownMenu<LocaleEnum>(
                         width: 150,
-                        automaticMatching: true,
+                        // automaticMatching: true,
                         inputDecorationTheme: inputDecorationTheme,
                         initialSelection: settingsRepo.localeLO.object,
                         dropdownMenuEntries: [
                           DropdownMenuEntry(
-                              value: LocaleEnum.system,
-                              label: l10n.systemLanguage),
+                            value: LocaleEnum.system,
+                            label: l10n.systemLanguage,
+                          ),
                           DropdownMenuEntry(
-                              value: LocaleEnum.english,
-                              label: LocaleEnum.english.nativeName!),
+                            value: LocaleEnum.english,
+                            label: LocaleEnum.english.nativeName!,
+                          ),
                           DropdownMenuEntry(
-                              value: LocaleEnum.arabic,
-                              label: LocaleEnum.arabic.nativeName!),
+                            value: LocaleEnum.arabic,
+                            label: LocaleEnum.arabic.nativeName!,
+                          ),
                         ],
-                        onSelected: (locale) async =>
-                            await settingsRepo.localeLO.setObject(locale!),
+                        onSelected:
+                            (locale) async =>
+                                await settingsRepo.localeLO.setObject(locale!),
                       ),
                     ),
                   ),
@@ -82,19 +84,26 @@ class SettingsScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       trailing: DropdownMenu<ThemeMode>(
                         width: 150,
-                        automaticMatching: true,
+                        // automaticMatching: true,
                         inputDecorationTheme: inputDecorationTheme,
                         initialSelection: settingsRepo.themeModeLO.object,
                         dropdownMenuEntries: [
                           DropdownMenuEntry(
-                              value: ThemeMode.system, label: l10n.systemTheme),
+                            value: ThemeMode.system,
+                            label: l10n.systemTheme,
+                          ),
                           DropdownMenuEntry(
-                              value: ThemeMode.light, label: l10n.lightTheme),
+                            value: ThemeMode.light,
+                            label: l10n.lightTheme,
+                          ),
                           DropdownMenuEntry(
-                              value: ThemeMode.dark, label: l10n.darkTheme),
+                            value: ThemeMode.dark,
+                            label: l10n.darkTheme,
+                          ),
                         ],
-                        onSelected: (themeMode) =>
-                            settingsRepo.themeModeLO.setObject(themeMode!),
+                        onSelected:
+                            (themeMode) =>
+                                settingsRepo.themeModeLO.setObject(themeMode!),
                       ),
                     ),
                   ),
@@ -112,19 +121,22 @@ class SettingsScreen extends StatelessWidget {
                       contentPadding: EdgeInsets.symmetric(horizontal: 10),
                       trailing: DropdownMenu<AiGenServiceEnum>(
                         width: 150,
-                        automaticMatching: true,
+                        // automaticMatching: true,
                         inputDecorationTheme: inputDecorationTheme,
                         initialSelection: settingsRepo.aiModelLO.object,
                         dropdownMenuEntries: [
                           DropdownMenuEntry(
-                              value: AiGenServiceEnum.clientSide,
-                              label: l10n.clientAiModel),
+                            value: AiGenServiceEnum.clientSide,
+                            label: l10n.clientAiModel,
+                          ),
                           DropdownMenuEntry(
-                              value: AiGenServiceEnum.serverSide,
-                              label: l10n.serverAiModel),
+                            value: AiGenServiceEnum.serverSide,
+                            label: l10n.serverAiModel,
+                          ),
                         ],
-                        onSelected: (aiModelEnum) =>
-                            settingsRepo.aiModelLO.setObject(aiModelEnum!),
+                        onSelected:
+                            (aiModelEnum) =>
+                                settingsRepo.aiModelLO.setObject(aiModelEnum!),
                       ),
                     ),
                   ),

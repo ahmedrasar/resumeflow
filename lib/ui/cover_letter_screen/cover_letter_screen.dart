@@ -70,10 +70,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           spacing: 5,
           children: [
             SizedBox(width: 10),
-            Text(
-              fieldName,
-              style: theme.textTheme.titleMedium,
-            ),
+            Text(fieldName, style: theme.textTheme.titleMedium),
             Tooltip(
               message: tooltip,
               child: Icon(
@@ -81,7 +78,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 size: 15,
                 color: theme.iconTheme.color?.withAlpha(150),
               ),
-            )
+            ),
           ],
         ),
         TextFormField(
@@ -96,13 +93,12 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
           decoration: InputDecoration(
             hintText: example,
             hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.textTheme.bodyMedium?.color?.withAlpha(75)),
+              color: theme.textTheme.bodyMedium?.color?.withAlpha(75),
+            ),
             filled: true,
             fillColor: theme.colorScheme.onPrimary.withAlpha(125),
             contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
           ),
         ),
       ],
@@ -119,9 +115,10 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: 600),
         child: Padding(
-          padding: layoutHelper.isWide()
-              ? const EdgeInsets.symmetric(vertical: 20)
-              : EdgeInsets.zero,
+          padding:
+              layoutHelper.isWide()
+                  ? const EdgeInsets.symmetric(vertical: 20)
+                  : EdgeInsets.zero,
           child: Material(
             color: formBackgroundColor,
             elevation: layoutHelper.isWide() ? 10 : 0,
@@ -133,10 +130,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
                 child: Column(
                   spacing: 40,
-                  children: [
-                    _buildForm(),
-                    _bulildSummitBtn(),
-                  ],
+                  children: [_buildForm(), _bulildSummitBtn()],
                 ),
               ),
             ),
@@ -158,59 +152,69 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         spacing: 20,
         children: [
           _buildTextField(
-              fieldName: l10n.companyName,
-              tooltip: l10n.companyNameTooltip,
-              example: l10n.companyNameExample,
-              controller: _companyNameController),
+            fieldName: l10n.companyName,
+            tooltip: l10n.companyNameTooltip,
+            example: l10n.companyNameExample,
+            controller: _companyNameController,
+          ),
           _buildTextField(
-              fieldName: l10n.jobPost,
-              tooltip: l10n.jobPostTooltip,
-              example: l10n.jobPostExample,
-              controller: _jobPostController,
-              lines: 5),
+            fieldName: l10n.jobPost,
+            tooltip: l10n.jobPostTooltip,
+            example: l10n.jobPostExample,
+            controller: _jobPostController,
+            lines: 5,
+          ),
           _buildTextField(
-              fieldName: l10n.applicantName,
-              tooltip: l10n.applicantNameTooltip,
-              example: l10n.applicantNameExample,
-              controller: _applicantNameController),
+            fieldName: l10n.applicantName,
+            tooltip: l10n.applicantNameTooltip,
+            example: l10n.applicantNameExample,
+            controller: _applicantNameController,
+          ),
           _buildTextField(
-              fieldName: l10n.applicantDegree,
-              tooltip: l10n.applicantDegreeTooltip,
-              example: l10n.applicantDegreeExample,
-              controller: _degreeController),
+            fieldName: l10n.applicantDegree,
+            tooltip: l10n.applicantDegreeTooltip,
+            example: l10n.applicantDegreeExample,
+            controller: _degreeController,
+          ),
           _buildTextField(
-              fieldName: l10n.applicantTitle,
-              tooltip: l10n.applicantTitleTooltip,
-              example: l10n.applicantTitleExample,
-              controller: _applicantTitleController),
+            fieldName: l10n.applicantTitle,
+            tooltip: l10n.applicantTitleTooltip,
+            example: l10n.applicantTitleExample,
+            controller: _applicantTitleController,
+          ),
           _buildTextField(
-              fieldName: l10n.experience,
-              tooltip: l10n.experienceTooltip,
-              example: l10n.experienceExample,
-              controller: _experienceController,
-              lines: 3),
+            fieldName: l10n.experience,
+            tooltip: l10n.experienceTooltip,
+            example: l10n.experienceExample,
+            controller: _experienceController,
+            lines: 3,
+          ),
           _buildTextField(
-              fieldName: l10n.skills,
-              tooltip: l10n.skillsTooltip,
-              example: l10n.skillsExample,
-              controller: _skillsController,
-              lines: 3),
+            fieldName: l10n.skills,
+            tooltip: l10n.skillsTooltip,
+            example: l10n.skillsExample,
+            controller: _skillsController,
+            lines: 3,
+          ),
           _buildTextField(
-              fieldName: l10n.address,
-              tooltip: l10n.addressTooltip,
-              example: l10n.addressExample,
-              controller: _addressController),
+            fieldName: l10n.address,
+            tooltip: l10n.addressTooltip,
+            example: l10n.addressExample,
+            controller: _addressController,
+          ),
           _buildTextField(
-              fieldName: l10n.telephone,
-              tooltip: l10n.telephoneTooltip,
-              example: l10n.telephoneExample,
-              controller: _telephoneController,
-              keyboardType: TextInputType.phone),
+            fieldName: l10n.telephone,
+            tooltip: l10n.telephoneTooltip,
+            example: l10n.telephoneExample,
+            controller: _telephoneController,
+            keyboardType: TextInputType.phone,
+          ),
           _buildTextField(
-              fieldName: l10n.email,
-              tooltip: l10n.emailTooltip,
-              example: l10n.emailExample,
-              controller: _emailController),
+            fieldName: l10n.email,
+            tooltip: l10n.emailTooltip,
+            example: l10n.emailExample,
+            controller: _emailController,
+          ),
         ],
       ),
     );
@@ -218,22 +222,24 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   Future<CoverLetterModel> __generateCoverletter() async {
     final data = CoverLetterData(
-        companyName: _companyNameController.text,
-        jobPost: _jobPostController.text,
-        name: _applicantNameController.text,
-        address: _addressController.text,
-        telephone: _telephoneController.text,
-        email: _emailController.text,
-        degree: _degreeController.text,
-        title: _applicantTitleController.text,
-        experience: _experienceController.text,
-        skills: _skillsController.text);
+      companyName: _companyNameController.text,
+      jobPost: _jobPostController.text,
+      name: _applicantNameController.text,
+      address: _addressController.text,
+      telephone: _telephoneController.text,
+      email: _emailController.text,
+      degree: _degreeController.text,
+      title: _applicantTitleController.text,
+      experience: _experienceController.text,
+      skills: _skillsController.text,
+    );
 
     final genAiService =
         context.read<SettingsRepository>().aiModelLO.object.aiGenService;
 
-    final genData =
-        await genAiService.genCoverLetter(CoverLetterRequestModel(data: data));
+    final genData = await genAiService.genCoverLetter(
+      CoverLetterRequestModel(data: data),
+    );
     return CoverLetterModel.fromData(data: data, genData: genData);
   }
 
@@ -243,47 +249,53 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         minimumSize: WidgetStatePropertyAll(Size(200, 50)),
         maximumSize: WidgetStatePropertyAll(Size(250, 50)),
         backgroundColor: WidgetStatePropertyAll(
-            _loading ? Colors.grey.shade800 : theme.colorScheme.secondary),
+          _loading ? Colors.grey.shade800 : theme.colorScheme.secondary,
+        ),
       ),
-      onPressed: _loading
-          ? null
-          : () async {
-              validatedBefore = true;
-              if (!_formKey.currentState!.validate()) return;
+      onPressed:
+          _loading
+              ? null
+              : () async {
+                validatedBefore = true;
+                if (!_formKey.currentState!.validate()) return;
 
-              setState(() {
-                _loading = true;
-              });
+                setState(() {
+                  _loading = true;
+                });
 
-              try {
-                final coverLetter = await __generateCoverletter();
-                if (mounted) {
-                  await showDialog(
+                try {
+                  final coverLetter = await __generateCoverletter();
+                  if (mounted) {
+                    await showDialog(
                       barrierDismissible: false,
                       context: context,
                       builder: (context) {
                         return _buildCoverLetterAlert(context, coverLetter);
-                      });
-                }
-              } on GenAiException catch (e) {
-                if (mounted) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                      width: 300,
-                      behavior: SnackBarBehavior.floating,
-                      content: Text(
-                        l10n.serverError(e.code),
-                        textAlign: TextAlign.center,
+                      },
+                    );
+                  }
+                } on GenAiException catch (e) {
+                  if (mounted) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        width: 300,
+                        behavior: SnackBarBehavior.floating,
+                        content: Text(
+                          l10n.serverError(e.code),
+                          textAlign: TextAlign.center,
+                        ),
+                        elevation: 10,
+                        backgroundColor: theme.colorScheme.error,
                       ),
-                      elevation: 10,
-                      backgroundColor: theme.colorScheme.error));
+                    );
+                  }
+                  rethrow;
+                } finally {
+                  setState(() {
+                    _loading = false;
+                  });
                 }
-                rethrow;
-              } finally {
-                setState(() {
-                  _loading = false;
-                });
-              }
-            },
+              },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         spacing: 20,
@@ -303,9 +315,12 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
   }
 
   AlertDialog _buildCoverLetterAlert(
-      BuildContext context, CoverLetterModel coverLetter) {
-    final genBodyTextController =
-        TextEditingController(text: coverLetter.generatedBody);
+    BuildContext context,
+    CoverLetterModel coverLetter,
+  ) {
+    final genBodyTextController = TextEditingController(
+      text: coverLetter.generatedBody,
+    );
     return AlertDialog(
       scrollable: true,
       insetPadding: EdgeInsets.all(20),
@@ -330,15 +345,18 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
               child: IconButton(
                 onPressed: () async {
                   await Clipboard.setData(
-                      ClipboardData(text: genBodyTextController.text));
+                    ClipboardData(text: genBodyTextController.text),
+                  );
                 },
                 tooltip: l10n.copy,
                 style: ButtonStyle(
-                    backgroundColor:
-                        WidgetStatePropertyAll(theme.colorScheme.tertiary)),
+                  backgroundColor: WidgetStatePropertyAll(
+                    theme.colorScheme.tertiary,
+                  ),
+                ),
                 icon: Icon(Icons.copy_all),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -350,10 +368,13 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         ),
         FilledButton(
           onPressed: () async {
-            final editedCoverLetter =
-                coverLetter.copyWith(generatedBody: genBodyTextController.text);
-            await FileSaver.saveCoverLetter(editedCoverLetter,
-                prompt: l10n.chooseDownloadDir);
+            final editedCoverLetter = coverLetter.copyWith(
+              generatedBody: genBodyTextController.text,
+            );
+            await FileSaver.saveCoverLetter(
+              editedCoverLetter,
+              prompt: l10n.chooseDownloadDir,
+            );
           },
           child: Text(l10n.exportToDocx),
         ),

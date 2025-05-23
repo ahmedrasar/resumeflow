@@ -9,21 +9,25 @@ class CoverLetterDashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridBackground(
-      child: Builder(builder: (context) {
-        return GridView.builder(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 200,
-            childAspectRatio: 0.75,
-          ),
-          padding: const EdgeInsets.all(20),
-          itemCount: 1,
-          itemBuilder: (_, int index) {
-            // For unuknown reason the grid builder context does not rebuild the widget
-            return _buildCoverletterCard(
-                context, () => context.go('/home/cover-letters/create'));
-          },
-        );
-      }),
+      child: Builder(
+        builder: (context) {
+          return GridView.builder(
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 0.75,
+            ),
+            padding: const EdgeInsets.all(20),
+            itemCount: 1,
+            itemBuilder: (_, int index) {
+              // For unuknown reason the grid builder context does not rebuild the widget
+              return _buildCoverletterCard(
+                context,
+                () => context.go('/home/cover-letters/create'),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 
@@ -32,9 +36,7 @@ class CoverLetterDashboardPage extends StatelessWidget {
       onTap: ontap,
       child: Card(
         elevation: 5,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -43,12 +45,7 @@ class CoverLetterDashboardPage extends StatelessWidget {
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                 child: ColoredBox(
                   color: Theme.of(context).colorScheme.tertiary,
-                  child: SizedBox.expand(
-                    child: Icon(
-                      Icons.mail,
-                      size: 75,
-                    ),
-                  ),
+                  child: SizedBox.expand(child: Icon(Icons.mail, size: 75)),
                 ),
               ),
             ),

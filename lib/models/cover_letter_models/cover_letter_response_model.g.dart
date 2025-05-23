@@ -7,7 +7,5 @@ part of 'cover_letter_response_model.dart';
 // **************************************************************************
 
 CoverLetterResponseModel _$CoverLetterResponseModelFromJson(
-        Map<String, dynamic> json) =>
-    CoverLetterResponseModel(
-      genBody: json['cover_letter'] as String,
-    );
+  Map<String, dynamic> json,
+) => CoverLetterResponseModel(genBody: json['cover_letter'] as String);

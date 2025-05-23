@@ -94,32 +94,36 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             isSelected: isSettings,
             style: ButtonStyle(
-              backgroundColor:
-                  WidgetStateColor.resolveWith(settingsIconCallback),
+              backgroundColor: WidgetStateColor.resolveWith(
+                settingsIconCallback,
+              ),
             ),
-            onPressed: isSettings
-                ? () => widget.shell.goBranch(_previousBranchIndex)
-                : () => widget.shell.goBranch(HomeScreen.settingsBranchIndex),
+            onPressed:
+                isSettings
+                    ? () => widget.shell.goBranch(_previousBranchIndex)
+                    : () =>
+                        widget.shell.goBranch(HomeScreen.settingsBranchIndex),
             icon: Icon(Icons.settings),
           ),
         ],
       ),
-      bottomNavigationBar: isSettings
-          ? null
-          : NavigationBar(
-              selectedIndex: widget.shell.currentIndex,
-              onDestinationSelected: widget.shell.goBranch,
-              destinations: [
-                NavigationDestination(
-                  icon: Icon(Icons.article),
-                  label: l10n.resume,
-                ),
-                NavigationDestination(
-                  icon: Icon(Icons.mail),
-                  label: l10n.coverLetter,
-                ),
-              ],
-            ),
+      bottomNavigationBar:
+          isSettings
+              ? null
+              : NavigationBar(
+                selectedIndex: widget.shell.currentIndex,
+                onDestinationSelected: widget.shell.goBranch,
+                destinations: [
+                  NavigationDestination(
+                    icon: Icon(Icons.article),
+                    label: l10n.resume,
+                  ),
+                  NavigationDestination(
+                    icon: Icon(Icons.mail),
+                    label: l10n.coverLetter,
+                  ),
+                ],
+              ),
       body: widget.shell,
     );
   }

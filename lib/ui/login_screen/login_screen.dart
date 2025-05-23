@@ -39,10 +39,6 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return const GridBackground(
-      child: Scaffold(
-        body: _ClerkCustomWidget(),
-      ),
-    );
+    return const GridBackground(child: Scaffold(body: _ClerkCustomWidget()));
   }
 }

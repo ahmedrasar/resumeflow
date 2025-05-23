@@ -18,7 +18,8 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get showcaseScreenHeaderSeg2 => 'باستخدام الذكاء الاصطناعي';
 
   @override
-  String get showcaseScreenBody => 'قم بإنشاء سيرة ذاتية احترافية بسهولة باستخدام منشئنا المدعوم بالذكاء الاصطناعي';
+  String get showcaseScreenBody =>
+      'قم بإنشاء سيرة ذاتية احترافية بسهولة باستخدام منشئنا المدعوم بالذكاء الاصطناعي';
 
   @override
   String get getStarted => 'ابدأ الآن';
@@ -30,7 +31,8 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get howItWorks => 'كيف يعمل؟';
 
   @override
-  String get generateInSimpleSteps => 'قم بإنشاء سيرة ذاتية متقنة في خطوات بسيطة!';
+  String get generateInSimpleSteps =>
+      'قم بإنشاء سيرة ذاتية متقنة في خطوات بسيطة!';
 
   @override
   String get login => 'تسجيل الدخول';
@@ -39,19 +41,22 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get createCard => 'اختر القالب الخاص بك';
 
   @override
-  String get createCardBody => 'ابدأ باختيار نظام الألوان لقالب سيرتك الذاتية. يضمن قالبنا المصمم بشكل احترافي مظهرًا نظيفًا ومتسقًا لجميع المستخدمين.';
+  String get createCardBody =>
+      'ابدأ باختيار نظام الألوان لقالب سيرتك الذاتية. يضمن قالبنا المصمم بشكل احترافي مظهرًا نظيفًا ومتسقًا لجميع المستخدمين.';
 
   @override
   String get updateCard => 'تحديث معلوماتك';
 
   @override
-  String get updateCardBody => 'أدخل بياناتك الشخصية وخبراتك العملية وتعليمك ومهاراتك في النموذج المقدم. يساعدك الذكاء الاصطناعي لدينا في ملء كل قسم بدقة وفعالية.';
+  String get updateCardBody =>
+      'أدخل بياناتك الشخصية وخبراتك العملية وتعليمك ومهاراتك في النموذج المقدم. يساعدك الذكاء الاصطناعي لدينا في ملء كل قسم بدقة وفعالية.';
 
   @override
   String get shareCard => 'شارك سيرتك الذاتية';
 
   @override
-  String get shareCardBody => 'بعد إكمال سيرتك الذاتية، احفظها بأمان وقم بإنشاء رابط قابل للمشاركة. قم بتحديث معلوماتك بسهولة في أي وقت وشارك الرابط مع أصحاب العمل المحتملين أو قم بتنزيله بتنسيق مفضل.';
+  String get shareCardBody =>
+      'بعد إكمال سيرتك الذاتية، احفظها بأمان وقم بإنشاء رابط قابل للمشاركة. قم بتحديث معلوماتك بسهولة في أي وقت وشارك الرابط مع أصحاب العمل المحتملين أو قم بتنزيله بتنسيق مفضل.';
 
   @override
   String get language => 'اللغة';
@@ -125,40 +130,50 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get createCoverLetter => 'إنشاء خطاب تعريفى';
 
   @override
-  String get companyNameTooltip => 'أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).';
+  String get companyNameTooltip =>
+      'أدخل الاسم الكامل للمستلم (مثل مدير التوظيف أو الشركة).';
 
   @override
-  String get jobPostTooltip => 'أدخل اعلان او منشور الوظيفة التي تريد التقدم لها.';
+  String get jobPostTooltip =>
+      'أدخل اعلان او منشور الوظيفة التي تريد التقدم لها.';
 
   @override
-  String get applicantNameTooltip => 'قدم اسمك الكامل كما يظهر في المستندات الرسمية.';
+  String get applicantNameTooltip =>
+      'قدم اسمك الكامل كما يظهر في المستندات الرسمية.';
 
   @override
-  String get addressTooltip => 'أدخل عنوانك السكني الكامل، بما في ذلك المدينة والرمز البريدي.';
+  String get addressTooltip =>
+      'أدخل عنوانك السكني الكامل، بما في ذلك المدينة والرمز البريدي.';
 
   @override
   String get telephoneTooltip => 'قدم رقم هاتفك النشط لأغراض الاتصال.';
 
   @override
-  String get emailTooltip => 'أدخل عنوان بريدك الإلكتروني حيث يمكن الوصول إليك.';
+  String get emailTooltip =>
+      'أدخل عنوان بريدك الإلكتروني حيث يمكن الوصول إليك.';
 
   @override
-  String get applicantDegreeTooltip => 'اذكر أعلى درجة أو مؤهل حصلت عليه (مثل بكالوريوس في علوم الكمبيوتر).';
+  String get applicantDegreeTooltip =>
+      'اذكر أعلى درجة أو مؤهل حصلت عليه (مثل بكالوريوس في علوم الكمبيوتر).';
 
   @override
-  String get applicantTitleTooltip => 'اذكر وظيفتك الحالية أو لقبك المهني (مثل مدير مشروع).';
+  String get applicantTitleTooltip =>
+      'اذكر وظيفتك الحالية أو لقبك المهني (مثل مدير مشروع).';
 
   @override
-  String get experienceTooltip => 'لخص خبرتك العملية ذات الصلة، بما في ذلك سنوات العمل في المجال.';
+  String get experienceTooltip =>
+      'لخص خبرتك العملية ذات الصلة، بما في ذلك سنوات العمل في المجال.';
 
   @override
-  String get skillsTooltip => 'قم بإدراج المهارات الرئيسية التي تجعلك مناسبًا للدور (مثل JavaScript، حل المشكلات، القيادة).';
+  String get skillsTooltip =>
+      'قم بإدراج المهارات الرئيسية التي تجعلك مناسبًا للدور (مثل JavaScript، حل المشكلات، القيادة).';
 
   @override
   String get companyNameExample => 'مثال: جوجل إنك.';
 
   @override
-  String get jobPostExample => 'مثال: مطلوب مطور ويب ماهر للانضمام إلى فريقنا الديناميكي.\nيجب أن يكون المرشح المثالي متمرسًا في HTML5 وCSS3 وJavaScript وأطر العمل الحديثة (React/Vue/Angular).\nيجب أن يكون لديه خبرة في التصميم المتجاوب، وإدارة الإصدارات (Git)، وواجهات برمجة التطبيقات (REST APIs).\nتعتبر الخبرة في Node.js وإدارة قواعد البيانات ميزة إضافية. سيتعاون مع فرق متعددة التخصصات لتطوير وصيانة تطبيقات الويب.\nمطلوب مهارات قوية في حل المشكلات والالتزام بكتابة كود نظيف وفعال. يفضل أن يكون لديه 3+ سنوات من الخبرة.';
+  String get jobPostExample =>
+      'مثال: مطلوب مطور ويب ماهر للانضمام إلى فريقنا الديناميكي.\nيجب أن يكون المرشح المثالي متمرسًا في HTML5 وCSS3 وJavaScript وأطر العمل الحديثة (React/Vue/Angular).\nيجب أن يكون لديه خبرة في التصميم المتجاوب، وإدارة الإصدارات (Git)، وواجهات برمجة التطبيقات (REST APIs).\nتعتبر الخبرة في Node.js وإدارة قواعد البيانات ميزة إضافية. سيتعاون مع فرق متعددة التخصصات لتطوير وصيانة تطبيقات الويب.\nمطلوب مهارات قوية في حل المشكلات والالتزام بكتابة كود نظيف وفعال. يفضل أن يكون لديه 3+ سنوات من الخبرة.';
 
   @override
   String get applicantNameExample => 'مثال: جون سميث';
@@ -179,10 +194,12 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   String get applicantTitleExample => 'مثال: مطور Full Stack';
 
   @override
-  String get experienceExample => 'مثال: - 5 سنوات من تطوير Full Stack في شركات تقنية كبرى\n- قيادة فريق مكون من 6 مطورين في مشاريع سحابية على مستوى المؤسسة\n- تنفيذ خطوط CI/CD مما أدى إلى تقليل وقت النشر بنسبة 40%';
+  String get experienceExample =>
+      'مثال: - 5 سنوات من تطوير Full Stack في شركات تقنية كبرى\n- قيادة فريق مكون من 6 مطورين في مشاريع سحابية على مستوى المؤسسة\n- تنفيذ خطوط CI/CD مما أدى إلى تقليل وقت النشر بنسبة 40%';
 
   @override
-  String get skillsExample => 'مثال: - JavaScript وTypeScript وReact وNode.js وPython\n- تصميم قواعد البيانات، تطوير واجهات برمجة التطبيقات، البنية التحتية السحابية (AWS)\n- منهجيات Agile، قيادة الفرق، التوثيق التقني';
+  String get skillsExample =>
+      'مثال: - JavaScript وTypeScript وReact وNode.js وPython\n- تصميم قواعد البيانات، تطوير واجهات برمجة التطبيقات، البنية التحتية السحابية (AWS)\n- منهجيات Agile، قيادة الفرق، التوثيق التقني';
 
   @override
   String get exportToDocx => 'تصدير إلى DOCX';

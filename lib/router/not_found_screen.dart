@@ -15,10 +15,7 @@ class NotFoundScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Opacity(
-              opacity: 0.25,
-              child: Icon(Icons.warning, size: 300),
-            ),
+            Opacity(opacity: 0.25, child: Icon(Icons.warning, size: 300)),
             Text(
               '404 NOT FOUND',
               style: Theme.of(context).textTheme.displayLarge,
@@ -38,9 +35,7 @@ class NotFoundScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () => context.go('/'),
-                  child: const Text(
-                    'Go Home',
-                  ),
+                  child: const Text('Go Home'),
                 ),
               ],
             ),

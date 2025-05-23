@@ -16,7 +16,8 @@ class _ResumeDashboardPageState extends State<ResumeDashboardPage> {
     return GridView.builder(
       itemCount: itemCount,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: crossAxisCount),
+        crossAxisCount: crossAxisCount,
+      ),
       itemBuilder: (context, index) {
         return;
       },
@@ -25,10 +26,6 @@ class _ResumeDashboardPageState extends State<ResumeDashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridBackground(
-        child: _buildResumeGrid(),
-      ),
-    );
+    return Scaffold(body: GridBackground(child: _buildResumeGrid()));
   }
 }

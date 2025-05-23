@@ -12,6 +12,6 @@ Download the app on your platform. Or use our [website](https://resumeflow-1b9fe
 
 - OS version: 6
 
-### Desktop
+### Desktop & Web
 
 - Resoultion: 1280 x 720

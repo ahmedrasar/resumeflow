@@ -8,6 +8,6 @@ class ServerGenAi implements GenAiServiceInterface {
 
   @override
   Future<CoverLetterGenData> genCoverLetter(
-          CoverLetterRequestModel coverLetter) =>
-      ServerCoverLetterGenService(http.Client()).genData(coverLetter);
+    CoverLetterRequestModel coverLetter,
+  ) => ServerCoverLetterGenService(http.Client()).genData(coverLetter);
 }

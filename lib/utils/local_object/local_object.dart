@@ -11,13 +11,13 @@ abstract class LocalObject<DomainType, StoargeType> {
   void Function()? onChangeCallback;
 
   /// [objectKey] must be unique
-  LocalObject(
-      {required String objectKey,
-      required DomainType fallbackObject,
-      required SharedPreferences sharedPreferences,
-      required this.onChangeCallback})
-      : _objectKey = objectKey,
-        _sharedPreferences = sharedPreferences {
+  LocalObject({
+    required String objectKey,
+    required DomainType fallbackObject,
+    required SharedPreferences sharedPreferences,
+    required this.onChangeCallback,
+  }) : _objectKey = objectKey,
+       _sharedPreferences = sharedPreferences {
     assert(isStoargeType(StoargeType));
     _loadObject(fallbackObject);
   }
@@ -29,9 +29,8 @@ abstract class LocalObject<DomainType, StoargeType> {
       const (int) ||
       const (double) ||
       const (String) ||
-      const (List<String>) =>
-        true,
-      _ => false
+      const (List<String>) => true,
+      _ => false,
     };
   }
 
@@ -44,7 +43,7 @@ abstract class LocalObject<DomainType, StoargeType> {
       const (int) => _sharedPreferences.getInt(_objectKey),
       const (double) => _sharedPreferences.getDouble(_objectKey),
       const (String) => _sharedPreferences.getString(_objectKey),
-      _ => _sharedPreferences.getStringList(_objectKey)
+      _ => _sharedPreferences.getStringList(_objectKey),
     };
 
     if (encodedObject == null) {
@@ -71,7 +70,9 @@ abstract class LocalObject<DomainType, StoargeType> {
         await _sharedPreferences.setString(_objectKey, encodedObj as String);
       default:
         await _sharedPreferences.setStringList(
-            _objectKey, encodedObj as List<String>);
+          _objectKey,
+          encodedObj as List<String>,
+        );
     }
 
     _object = newObject;
@@ -84,11 +85,12 @@ abstract class LocalObject<DomainType, StoargeType> {
 class SymmetricLocalObject<StoargeType>
     extends LocalObject<StoargeType, StoargeType> {
   /// [objectKey] must be unique
-  SymmetricLocalObject(
-      {required super.objectKey,
-      required super.fallbackObject,
-      required super.sharedPreferences,
-      required super.onChangeCallback});
+  SymmetricLocalObject({
+    required super.objectKey,
+    required super.fallbackObject,
+    required super.sharedPreferences,
+    required super.onChangeCallback,
+  });
 
   @override
   StoargeType encode(StoargeType object) => object;
@@ -102,13 +104,13 @@ class EnumLocalObject<EnumType extends Enum>
   final List<EnumType> _values;
 
   /// [objectKey] must be unique
-  EnumLocalObject(
-      {required super.objectKey,
-      required super.fallbackObject,
-      required super.sharedPreferences,
-      required super.onChangeCallback,
-      required List<EnumType> values})
-      : _values = values;
+  EnumLocalObject({
+    required super.objectKey,
+    required super.fallbackObject,
+    required super.sharedPreferences,
+    required super.onChangeCallback,
+    required List<EnumType> values,
+  }) : _values = values;
 
   @override
   int encode(EnumType object) => object.index;

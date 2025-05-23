@@ -1,4 +1,4 @@
-name: Build, and Deploy to Firebase
+name: Build, Test, and Deploy to Firebase
 
 on:
   push:
@@ -17,16 +17,12 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: master
-      - run: |
-          flutter --version
-          cd ${{ env.FLUTTER_ROOT }}
-          curl https://patch-diff.githubusercontent.com/raw/flutter/flutter/pull/162062.patch | git apply
-          git status
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build Web
         run: flutter build web
-      
+      - name: Run Tests
+        run: flutter test
       - name: Deploy to Firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:

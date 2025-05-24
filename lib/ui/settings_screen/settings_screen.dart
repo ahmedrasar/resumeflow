@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations_ar.dart';
+import 'package:resumeflow/l10n/resumeflow_localizations_en.dart';
 import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
 import 'package:resumeflow/utils/ai_model_enum/ai_model_enum.dart';
 import 'package:resumeflow/utils/locale_enum/locale_enum.dart';
@@ -57,11 +59,11 @@ class SettingsScreen extends StatelessWidget {
                           ),
                           DropdownMenuEntry(
                             value: LocaleEnum.english,
-                            label: LocaleEnum.english.nativeName!,
+                            label: ResumeflowLocalizationsEn().nativeName,
                           ),
                           DropdownMenuEntry(
                             value: LocaleEnum.arabic,
-                            label: LocaleEnum.arabic.nativeName!,
+                            label: ResumeflowLocalizationsAr().nativeName,
                           ),
                         ],
                         onSelected:

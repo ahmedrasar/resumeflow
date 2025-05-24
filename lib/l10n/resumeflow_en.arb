@@ -1,5 +1,6 @@
 {
     "@@locale": "en",
+    "nativeName": "English",
     "appName": "ResumeFlow",
     "showcaseScreenHeaderSeg1": "Build Your Resume",
     "showcaseScreenHeaderSeg2": "With AI",

@@ -9,6 +9,9 @@ class ResumeflowLocalizationsAr extends ResumeflowLocalizations {
   ResumeflowLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get nativeName => 'العربية';
+
+  @override
   String get appName => 'ResumeFlow';
 
   @override

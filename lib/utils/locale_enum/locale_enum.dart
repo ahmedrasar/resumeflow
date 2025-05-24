@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 enum LocaleEnum {
-  system(null, null),
-  english(Locale('en'), 'English'),
-  arabic(Locale('ar'), 'عربي');
+  system(null),
+  english(Locale('en')),
+  arabic(Locale('ar'));
 
   final Locale? locale;
-  final String? nativeName;
-  const LocaleEnum(this.locale, this.nativeName);
+  const LocaleEnum(this.locale);
 }

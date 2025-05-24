@@ -101,6 +101,12 @@ abstract class ResumeflowLocalizations {
     Locale('en'),
   ];
 
+  /// No description provided for @nativeName.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get nativeName;
+
   /// No description provided for @appName.
   ///
   /// In en, this message translates to:

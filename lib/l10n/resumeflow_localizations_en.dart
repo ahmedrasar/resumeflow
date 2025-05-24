@@ -9,6 +9,9 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   ResumeflowLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get nativeName => 'English';
+
+  @override
   String get appName => 'ResumeFlow';
 
   @override

@@ -80,11 +80,8 @@ abstract class LocalObject<DomainType, StoargeType> {
   }
 }
 
-/// [StoargeType] must be a valid [SharedPreferences] Type
-/// (ie. [bool], [int], [double], [String], [List<String>])
 class SymmetricLocalObject<StoargeType>
     extends LocalObject<StoargeType, StoargeType> {
-  /// [objectKey] must be unique
   SymmetricLocalObject({
     required super.objectKey,
     required super.fallbackObject,

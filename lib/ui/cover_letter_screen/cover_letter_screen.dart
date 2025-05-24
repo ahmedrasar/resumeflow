@@ -107,7 +107,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final layoutHelper = LayoutHelper(width: MediaQuery.sizeOf(context).width);
+    final layoutHelper = context.platformHelper;
 
     final formBackgroundColor = theme.colorScheme.surface;
     final content = Align(

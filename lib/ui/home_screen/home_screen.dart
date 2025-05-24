@@ -130,9 +130,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isCompact =
-        LayoutHelper(width: MediaQuery.sizeOf(context).width).isCompact();
+    final platformHelper = context.platformHelper;
 
-    return isCompact ? _buildCompactView() : _buildWideView();
+    return platformHelper.isCompact ? _buildCompactView() : _buildWideView();
   }
 }

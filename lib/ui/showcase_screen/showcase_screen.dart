@@ -95,7 +95,7 @@ class ShowcaseScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final adaptiveHelper = LayoutHelper(
+    final platformHelper = PlatformHelper(
       width: MediaQuery.sizeOf(context).width,
     );
 
@@ -123,7 +123,7 @@ class ShowcaseScreen extends StatelessWidget {
                   _buildHeader(context),
                   _buildGetStartedButton(context),
                   _buildHowItWorksHeader(context),
-                  adaptiveHelper.isCompact()
+                  platformHelper.isCompact
                       ? _buildLearnMoreButton(context)
                       : TutorialGrid(),
                   SizedBox(height: 40),

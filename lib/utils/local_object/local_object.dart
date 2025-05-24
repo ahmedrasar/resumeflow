@@ -100,7 +100,6 @@ class EnumLocalObject<EnumType extends Enum>
     extends LocalObject<EnumType, int> {
   final List<EnumType> _values;
 
-  /// [objectKey] must be unique
   EnumLocalObject({
     required super.objectKey,
     required super.fallbackObject,

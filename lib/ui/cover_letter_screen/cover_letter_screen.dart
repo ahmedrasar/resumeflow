@@ -7,7 +7,7 @@ import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
 import 'package:resumeflow/utils/file_saver/file_saver.dart';
-import 'package:resumeflow/utils/layout_helper/layout_helper.dart';
+import 'package:resumeflow/utils/platform_helper/platform_helper.dart';
 
 class CoverLetterScreen extends StatefulWidget {
   const CoverLetterScreen({super.key});
@@ -107,7 +107,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final layoutHelper = context.platformHelper;
+    final platformHelper = context.platformHelper;
 
     final formBackgroundColor = theme.colorScheme.surface;
     final content = Align(
@@ -116,14 +116,14 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
         constraints: BoxConstraints(maxWidth: 600),
         child: Padding(
           padding:
-              layoutHelper.isWide()
+              platformHelper.isWide
                   ? const EdgeInsets.symmetric(vertical: 20)
                   : EdgeInsets.zero,
           child: Material(
             color: formBackgroundColor,
-            elevation: layoutHelper.isWide() ? 10 : 0,
+            elevation: platformHelper.isWide ? 10 : 0,
             borderRadius:
-                layoutHelper.isWide() ? BorderRadius.circular(10) : null,
+                platformHelper.isWide ? BorderRadius.circular(10) : null,
             child: ScrollConfiguration(
               behavior: ScrollBehavior().copyWith(scrollbars: false),
               child: SingleChildScrollView(
@@ -141,7 +141,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
 
     return Scaffold(
       backgroundColor: formBackgroundColor,
-      body: layoutHelper.isWide() ? GridBackground(child: content) : content,
+      body: platformHelper.isWide ? GridBackground(child: content) : content,
     );
   }
 

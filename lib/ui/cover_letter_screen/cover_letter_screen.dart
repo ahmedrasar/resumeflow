@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
 import 'package:resumeflow/models/gen_ai_service_interfaces/gen_ai_exception.dart';
-import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
+import 'package:resumeflow/services/client_gen_ai/client_gen_ai.dart';
 import 'package:resumeflow/ui/widgets/grid_background.dart';
 import 'package:flutter/services.dart';
 import 'package:resumeflow/utils/file_saver/file_saver.dart';
@@ -234,8 +233,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
       skills: _skillsController.text,
     );
 
-    final genAiService =
-        context.read<SettingsRepository>().aiModelLO.object.aiGenService;
+    final genAiService = ClientGenAi();
 
     final genData = await genAiService.genCoverLetter(
       CoverLetterRequestModel(data: data),

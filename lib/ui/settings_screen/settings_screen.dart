@@ -4,7 +4,6 @@ import 'package:resumeflow/l10n/resumeflow_localizations.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations_ar.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations_en.dart';
 import 'package:resumeflow/repos/settings_repository/settings_repository.dart';
-import 'package:resumeflow/utils/ai_model_enum/ai_model_enum.dart';
 import 'package:resumeflow/utils/locale_enum/locale_enum.dart';
 
 import '../widgets/grid_background.dart';
@@ -106,39 +105,6 @@ class SettingsScreen extends StatelessWidget {
                         onSelected:
                             (themeMode) =>
                                 settingsRepo.themeModeLO.setObject(themeMode!),
-                      ),
-                    ),
-                  ),
-                  Material(
-                    color: theme.colorScheme.surface.withAlpha(200),
-                    borderRadius: BorderRadius.circular(20),
-                    child: ListTile(
-                      minTileHeight: 75,
-                      leading: Icon(Icons.model_training_outlined),
-                      title: Text(
-                        l10n.aiModel,
-                        overflow: TextOverflow.ellipsis,
-                        style: Theme.of(context).textTheme.bodyLarge,
-                      ),
-                      contentPadding: EdgeInsets.symmetric(horizontal: 10),
-                      trailing: DropdownMenu<AiGenServiceEnum>(
-                        width: 150,
-                        // automaticMatching: true,
-                        inputDecorationTheme: inputDecorationTheme,
-                        initialSelection: settingsRepo.aiModelLO.object,
-                        dropdownMenuEntries: [
-                          DropdownMenuEntry(
-                            value: AiGenServiceEnum.clientSide,
-                            label: l10n.clientAiModel,
-                          ),
-                          DropdownMenuEntry(
-                            value: AiGenServiceEnum.serverSide,
-                            label: l10n.serverAiModel,
-                          ),
-                        ],
-                        onSelected:
-                            (aiModelEnum) =>
-                                settingsRepo.aiModelLO.setObject(aiModelEnum!),
                       ),
                     ),
                   ),

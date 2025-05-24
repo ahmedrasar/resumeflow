@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:docx_template/docx_template.dart';
-import 'package:resumeflow/utils/asset_paths/asset_helper.dart';
+import 'package:resumeflow/constants/asset_paths/asset_paths.dart';
 import 'package:test/test.dart';
 
 void main() {

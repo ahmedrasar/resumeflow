@@ -4,7 +4,7 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import 'package:docx_template/docx_template.dart';
 import 'package:resumeflow/models/cover_letter_models/cover_letter_models.dart';
-import 'package:resumeflow/utils/asset_paths/asset_helper.dart';
+import 'package:resumeflow/constants/asset_paths/asset_paths.dart';
 
 class CoverLetterDocx {
   static const String _recipientNameKey = 'company-name';

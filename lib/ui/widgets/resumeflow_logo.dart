@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:resumeflow/utils/asset_paths/asset_helper.dart';
+import 'package:resumeflow/constants/asset_paths/asset_paths.dart';
 
 class ResumeflowLogo extends StatelessWidget {
   const ResumeflowLogo({super.key});

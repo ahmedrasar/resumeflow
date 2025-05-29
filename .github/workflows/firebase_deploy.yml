@@ -16,7 +16,7 @@ jobs:
       - name: Initilize Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: master
+          channel: stable
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build Web

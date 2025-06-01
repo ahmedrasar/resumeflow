@@ -129,7 +129,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
                 padding: EdgeInsets.symmetric(vertical: 50, horizontal: 25),
                 child: Column(
                   spacing: 40,
-                  children: [_buildForm(), _bulildSummitBtn()],
+                  children: [_buildForm(), _buildSummitBtn()],
                 ),
               ),
             ),
@@ -241,7 +241,7 @@ class _CoverLetterScreenState extends State<CoverLetterScreen> {
     return CoverLetterModel.fromData(data: data, genData: genData);
   }
 
-  Widget _bulildSummitBtn() {
+  Widget _buildSummitBtn() {
     return ElevatedButton(
       style: ButtonStyle(
         minimumSize: WidgetStatePropertyAll(Size(200, 50)),

@@ -9,7 +9,7 @@ import '../ui/home_screen/home_screen.dart';
 import '../ui/showcase_screen/showcase_screen.dart';
 import '../ui/tutorial_screen/tutorial_screen.dart';
 import '../ui/login_screen/login_screen.dart';
-import 'not_found_screen.dart';
+import '../ui/not_found_screen/not_found_screen.dart';
 
 final router = GoRouter(
   initialLocation: '/',

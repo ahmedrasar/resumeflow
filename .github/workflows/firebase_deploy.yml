@@ -20,7 +20,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Build Web
-        run: flutter build web
+        run: flutter build web \
+          --dart-define=GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY}}
       - name: Run Tests
         run: flutter test
       - name: Deploy to Firebase

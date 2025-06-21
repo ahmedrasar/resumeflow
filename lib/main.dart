@@ -41,6 +41,7 @@ void main() async {
           theme: lightTheme,
           darkTheme: darkTheme,
           locale: settingsRepository.localeLO.object.locale,
+          supportedLocales: const [Locale('en'), Locale('ar')],
           localeListResolutionCallback: (locales, supportedLocales) {
             if (locales == null) return supportedLocales.first;
             for (final locale in locales) {
@@ -50,7 +51,6 @@ void main() async {
             }
             return supportedLocales.first;
           },
-          supportedLocales: const [Locale('en'), Locale('ar')],
           localizationsDelegates: const [
             ResumeflowLocalizations.delegate,
             // Flutter Localization Delegates

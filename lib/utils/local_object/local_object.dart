@@ -8,18 +8,25 @@ abstract class LocalObject<DomainType, StoargeType> {
 
   final String _objectKey;
   late DomainType _object;
-  void Function()? onChangeCallback;
+  final DomainType _fallbackObject;
+  final void Function(DomainType value)? _onChangeCallback;
 
   /// [objectKey] must be unique
   LocalObject({
     required String objectKey,
     required DomainType fallbackObject,
     required SharedPreferences sharedPreferences,
-    required this.onChangeCallback,
+    required void Function(DomainType value)? onChangeCallback,
+    bool callOnFirstLoad = false,
   }) : _objectKey = objectKey,
-       _sharedPreferences = sharedPreferences {
+       _fallbackObject = fallbackObject,
+       _sharedPreferences = sharedPreferences,
+       _onChangeCallback = onChangeCallback {
     assert(isStoargeType(StoargeType));
-    _loadObject(fallbackObject);
+    if (!_loadObject()) _object = _fallbackObject;
+    if (callOnFirstLoad && _onChangeCallback != null) {
+      _onChangeCallback(_object);
+    }
   }
 
   @visibleForTesting
@@ -37,7 +44,7 @@ abstract class LocalObject<DomainType, StoargeType> {
   StoargeType encode(DomainType object);
   DomainType decode(StoargeType encodedObject);
 
-  void _loadObject(DomainType fallbackObject) {
+  bool _loadObject() {
     final Object? encodedObject = switch (StoargeType) {
       const (bool) => _sharedPreferences.getBool(_objectKey),
       const (int) => _sharedPreferences.getInt(_objectKey),
@@ -47,15 +54,16 @@ abstract class LocalObject<DomainType, StoargeType> {
     };
 
     if (encodedObject == null) {
-      _object = fallbackObject;
+      return false;
     } else {
       _object = decode(encodedObject as StoargeType);
+      return true;
     }
   }
 
   DomainType get object => _object;
 
-  Future<void> setObject(DomainType newObject) async {
+  Future<void> setObject(DomainType newObject, {bool notify = true}) async {
     if (newObject == object) return;
     final encodedObj = encode(newObject);
 
@@ -76,7 +84,11 @@ abstract class LocalObject<DomainType, StoargeType> {
     }
 
     _object = newObject;
-    if (onChangeCallback != null) onChangeCallback!();
+    if (notify && _onChangeCallback != null) _onChangeCallback(object);
+  }
+
+  Future<void> reset({bool notify = true}) async {
+    await setObject(_fallbackObject, notify: notify);
   }
 }
 
@@ -87,6 +99,7 @@ class SymmetricLocalObject<StoargeType>
     required super.fallbackObject,
     required super.sharedPreferences,
     required super.onChangeCallback,
+    super.callOnFirstLoad,
   });
 
   @override
@@ -106,6 +119,7 @@ class EnumLocalObject<EnumType extends Enum>
     required super.sharedPreferences,
     required super.onChangeCallback,
     required List<EnumType> values,
+    super.callOnFirstLoad,
   }) : _values = values;
 
   @override

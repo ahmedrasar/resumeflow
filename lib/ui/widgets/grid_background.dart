@@ -9,7 +9,9 @@ class GridBackground extends StatelessWidget {
   Widget build(BuildContext context) {
     final backgroundColor = Theme.of(context).colorScheme.surface;
     final brightness = Theme.of(context).brightness;
-    final gridColor = Theme.of(context).colorScheme.inverseSurface;
+    final gridColor = Theme.of(
+      context,
+    ).colorScheme.inverseSurface.withAlpha(15);
     final maskColor = Colors.lightBlue.shade700;
 
     return Stack(
@@ -43,7 +45,6 @@ class GridBackground extends StatelessWidget {
 
 class _Grid extends CustomPainter {
   static const _space = 20.0;
-  static const _alpha = 10;
   static const _strokeWidth = 0.75;
 
   final Color color;
@@ -54,7 +55,7 @@ class _Grid extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final paint =
         Paint()
-          ..color = color.withAlpha(_alpha)
+          ..color = color
           ..strokeWidth = _strokeWidth;
 
     // Vertical lines

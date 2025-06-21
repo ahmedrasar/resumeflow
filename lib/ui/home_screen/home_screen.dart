@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     settingsIconCallback(Set<WidgetState> states) {
       if (states.contains(WidgetState.selected)) {
-        return Theme.of(context).colorScheme.primary.withAlpha(100);
+        return Theme.of(context).colorScheme.secondary.withAlpha(100);
       } else {
         return Colors.transparent;
       }

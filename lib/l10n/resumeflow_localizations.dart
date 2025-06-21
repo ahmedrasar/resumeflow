@@ -317,6 +317,12 @@ abstract class ResumeflowLocalizations {
   /// **'Your Generated Cover Letter'**
   String get generatedCoverLetter;
 
+  /// No description provided for @generatedResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Your Generated Cover Letter'**
+  String get generatedResume;
+
   /// No description provided for @empytFieldError.
   ///
   /// In en, this message translates to:
@@ -334,6 +340,12 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Create Cover Letter'**
   String get createCoverLetter;
+
+  /// No description provided for @createResume.
+  ///
+  /// In en, this message translates to:
+  /// **'Create Resume'**
+  String get createResume;
 
   /// No description provided for @companyNameTooltip.
   ///
@@ -398,61 +410,61 @@ abstract class ResumeflowLocalizations {
   /// No description provided for @companyNameExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: Google Inc.'**
+  /// **'Google Inc.'**
   String get companyNameExample;
 
   /// No description provided for @jobPostExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.'**
+  /// **'Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.'**
   String get jobPostExample;
 
   /// No description provided for @applicantNameExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: John Smith'**
+  /// **'John Smith'**
   String get applicantNameExample;
 
   /// No description provided for @addressExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: 123 Main Street, New York, NY 10001'**
+  /// **'123 Main Street, New York, NY 10001'**
   String get addressExample;
 
   /// No description provided for @telephoneExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: +1 (555) 123-4567'**
+  /// **'+1 (555) 123-4567'**
   String get telephoneExample;
 
   /// No description provided for @emailExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: john.smith@email.com'**
+  /// **'john.smith@email.com'**
   String get emailExample;
 
   /// No description provided for @applicantDegreeExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: Master\'s in Computer Science'**
+  /// **'Master\'s in Computer Science'**
   String get applicantDegreeExample;
 
   /// No description provided for @applicantTitleExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: Full Stack Developer'**
+  /// **'Full Stack Developer'**
   String get applicantTitleExample;
 
   /// No description provided for @experienceExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%'**
+  /// **'- 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%'**
   String get experienceExample;
 
   /// No description provided for @skillsExample.
   ///
   /// In en, this message translates to:
-  /// **'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation'**
+  /// **'- JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation'**
   String get skillsExample;
 
   /// No description provided for @exportToDocx.
@@ -460,6 +472,12 @@ abstract class ResumeflowLocalizations {
   /// In en, this message translates to:
   /// **'Export to DOCX'**
   String get exportToDocx;
+
+  /// No description provided for @exportToPdf.
+  ///
+  /// In en, this message translates to:
+  /// **'Export to PDF'**
+  String get exportToPdf;
 
   /// No description provided for @close.
   ///
@@ -482,20 +500,338 @@ abstract class ResumeflowLocalizations {
   /// No description provided for @aiModel.
   ///
   /// In en, this message translates to:
-  /// **'AI Generation'**
+  /// **'AI Model'**
   String get aiModel;
 
-  /// No description provided for @serverAiModel.
+  /// No description provided for @genAiUnkownError.
   ///
   /// In en, this message translates to:
-  /// **'Server-Side'**
-  String get serverAiModel;
+  /// **'Unkown error with generative AI.'**
+  String get genAiUnkownError;
 
-  /// No description provided for @clientAiModel.
+  /// No description provided for @docxUtilFailedToGenerate.
   ///
   /// In en, this message translates to:
-  /// **'Client-Side'**
-  String get clientAiModel;
+  /// **'Failed to generate docx document.'**
+  String get docxUtilFailedToGenerate;
+
+  /// No description provided for @resetSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all Settings'**
+  String get resetSettings;
+
+  /// No description provided for @education.
+  ///
+  /// In en, this message translates to:
+  /// **'Education'**
+  String get education;
+
+  /// No description provided for @institution.
+  ///
+  /// In en, this message translates to:
+  /// **'Institution'**
+  String get institution;
+
+  /// No description provided for @startDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Date'**
+  String get startDate;
+
+  /// No description provided for @endDate.
+  ///
+  /// In en, this message translates to:
+  /// **'End Date'**
+  String get endDate;
+
+  /// No description provided for @grade.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade'**
+  String get grade;
+
+  /// No description provided for @description.
+  ///
+  /// In en, this message translates to:
+  /// **'Description'**
+  String get description;
+
+  /// No description provided for @degree.
+  ///
+  /// In en, this message translates to:
+  /// **'Degree'**
+  String get degree;
+
+  /// No description provided for @location.
+  ///
+  /// In en, this message translates to:
+  /// **'Location'**
+  String get location;
+
+  /// No description provided for @programmingLanguages.
+  ///
+  /// In en, this message translates to:
+  /// **'Programming Languages'**
+  String get programmingLanguages;
+
+  /// No description provided for @programmingLanguagesTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'List the programming languages you are proficient in (e.g., Python, Java, C++).'**
+  String get programmingLanguagesTooltip;
+
+  /// No description provided for @programmingLanguagesExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Python, JavaScript, Java, C++, Dart'**
+  String get programmingLanguagesExample;
+
+  /// No description provided for @tools.
+  ///
+  /// In en, this message translates to:
+  /// **'Tools'**
+  String get tools;
+
+  /// No description provided for @toolsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Mention the software tools, frameworks, or platforms you are experienced with (e.g., Git, Docker, React).'**
+  String get toolsTooltip;
+
+  /// No description provided for @toolsExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Git, Docker, React, Flutter, VS Code, Figma'**
+  String get toolsExample;
+
+  /// No description provided for @otherSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Skills'**
+  String get otherSkills;
+
+  /// No description provided for @otherSkillsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Include additional technical or domain-specific skills relevant to the job.'**
+  String get otherSkillsTooltip;
+
+  /// No description provided for @otherSkillsExample.
+  ///
+  /// In en, this message translates to:
+  /// **'SEO optimization, Data analysis, Cloud deployment'**
+  String get otherSkillsExample;
+
+  /// No description provided for @softSkills.
+  ///
+  /// In en, this message translates to:
+  /// **'Soft Skills'**
+  String get softSkills;
+
+  /// No description provided for @softSkillsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlight your interpersonal and organizational skills (e.g., teamwork, communication, adaptability).'**
+  String get softSkillsTooltip;
+
+  /// No description provided for @softSkillsExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Teamwork, Communication, Problem-solving, Adaptability, Time management'**
+  String get softSkillsExample;
+
+  /// No description provided for @next.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get next;
+
+  /// No description provided for @previous.
+  ///
+  /// In en, this message translates to:
+  /// **'Previous'**
+  String get previous;
+
+  /// No description provided for @personalInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Personal Info'**
+  String get personalInfo;
+
+  /// No description provided for @resumePreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume Preview'**
+  String get resumePreview;
+
+  /// No description provided for @achievements.
+  ///
+  /// In en, this message translates to:
+  /// **'Achievements'**
+  String get achievements;
+
+  /// No description provided for @achievementsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlight your notable achievements, awards, or recognitions relevant to your career.'**
+  String get achievementsTooltip;
+
+  /// No description provided for @achievementsExample.
+  ///
+  /// In en, this message translates to:
+  /// **'- Employee of the Month, Google Inc. (2022)\n- Published research paper in IEEE Journal\n- Led team to win Hackathon 2023'**
+  String get achievementsExample;
+
+  /// No description provided for @github.
+  ///
+  /// In en, this message translates to:
+  /// **'GitHub'**
+  String get github;
+
+  /// No description provided for @githubTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide the URL to your GitHub profile showcasing your projects and contributions.'**
+  String get githubTooltip;
+
+  /// No description provided for @githubExample.
+  ///
+  /// In en, this message translates to:
+  /// **'https://github.com/johnsmith'**
+  String get githubExample;
+
+  /// No description provided for @linkedin.
+  ///
+  /// In en, this message translates to:
+  /// **'LinkedIn'**
+  String get linkedin;
+
+  /// No description provided for @linkedinTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide the URL to your LinkedIn profile for professional networking.'**
+  String get linkedinTooltip;
+
+  /// No description provided for @linkedinExample.
+  ///
+  /// In en, this message translates to:
+  /// **'https://linkedin.com/in/johnsmith'**
+  String get linkedinExample;
+
+  /// No description provided for @degreeTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Specify the degree or qualification obtained at this institution (e.g., Bachelor of Science in Engineering).'**
+  String get degreeTooltip;
+
+  /// No description provided for @degreeExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Bachelor of Science in Computer Engineering'**
+  String get degreeExample;
+
+  /// No description provided for @institutionTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the full name of the educational institution attended.'**
+  String get institutionTooltip;
+
+  /// No description provided for @institutionExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Massachusetts Institute of Technology'**
+  String get institutionExample;
+
+  /// No description provided for @locationTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Provide the city and country where the institution is located.'**
+  String get locationTooltip;
+
+  /// No description provided for @locationExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Cambridge, MA, USA'**
+  String get locationExample;
+
+  /// No description provided for @startDateTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Indicate the month and year you started your studies.'**
+  String get startDateTooltip;
+
+  /// No description provided for @startDateExample.
+  ///
+  /// In en, this message translates to:
+  /// **'September 2018'**
+  String get startDateExample;
+
+  /// No description provided for @endDateTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Indicate the month and year you completed or expect to complete your studies.'**
+  String get endDateTooltip;
+
+  /// No description provided for @endDateExample.
+  ///
+  /// In en, this message translates to:
+  /// **'June 2022'**
+  String get endDateExample;
+
+  /// No description provided for @gradeTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Mention your final grade, GPA, or classification if applicable.'**
+  String get gradeTooltip;
+
+  /// No description provided for @gradeExample.
+  ///
+  /// In en, this message translates to:
+  /// **'GPA: 3.9/4.0'**
+  String get gradeExample;
+
+  /// No description provided for @projects.
+  ///
+  /// In en, this message translates to:
+  /// **'Projects'**
+  String get projects;
+
+  /// No description provided for @projectName.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Name'**
+  String get projectName;
+
+  /// No description provided for @projectNameTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the name of the project you worked on.'**
+  String get projectNameTooltip;
+
+  /// No description provided for @projectNameExample.
+  ///
+  /// In en, this message translates to:
+  /// **'AI Resume Builder'**
+  String get projectNameExample;
+
+  /// No description provided for @projectDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Project Description'**
+  String get projectDescription;
+
+  /// No description provided for @projectDescriptionTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Briefly describe the project, its goals, and your contributions.'**
+  String get projectDescriptionTooltip;
+
+  /// No description provided for @projectDescriptionExample.
+  ///
+  /// In en, this message translates to:
+  /// **'Developed an AI-powered web application to help users generate professional resumes automatically. Led a team of 4, integrated GPT-based suggestions, and deployed to AWS.'**
+  String get projectDescriptionExample;
 }
 
 class _ResumeflowLocalizationsDelegate

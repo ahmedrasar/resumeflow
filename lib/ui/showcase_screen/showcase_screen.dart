@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:resumeflow/l10n/resumeflow_localizations.dart';
+import 'package:resumeflow/router/routes.dart';
 import 'package:resumeflow/ui/tutorial_screen/tutorial_grid.dart';
 import 'package:resumeflow/utils/platform_helper/platform_helper.dart';
 
@@ -66,14 +67,14 @@ class ShowcaseScreen extends StatelessWidget {
     ResumeflowLocalizations.of(context).getStarted,
     Theme.of(context).colorScheme.secondary,
     Theme.of(context).colorScheme.onSecondary,
-    () => context.go('/home'),
+    () => context.go(AppRoutes.home.full),
   );
 
   Widget _buildLearnMoreButton(BuildContext context) => __buildBaseButton(
     ResumeflowLocalizations.of(context).learnMore,
     Theme.of(context).colorScheme.inverseSurface,
     Theme.of(context).colorScheme.onInverseSurface,
-    () => context.go('/tutorial'),
+    () => context.go(AppRoutes.tutorial.full),
   );
 
   Widget _buildHowItWorksHeader(BuildContext context) {

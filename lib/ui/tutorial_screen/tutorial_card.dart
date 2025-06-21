@@ -71,13 +71,13 @@ class TutorialCard extends StatelessWidget {
         ),
         Positioned.directional(
           textDirection: directionality,
-          top: -10,
-          start: 20,
+          top: 10,
+          start: 25,
           child: Text(
             '${_step.toString()}.',
             style: theme.textTheme.displayMedium!.copyWith(
-              color: theme.colorScheme.primary,
-              fontWeight: FontWeight.w700,
+              color: theme.colorScheme.secondary.withAlpha(200),
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),

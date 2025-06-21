@@ -4,6 +4,8 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
   firebase_core
+  pdfx
+  printing
   screen_retriever_windows
   window_manager
 )

@@ -122,6 +122,9 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get generatedCoverLetter => 'Your Generated Cover Letter';
 
   @override
+  String get generatedResume => 'Your Generated Cover Letter';
+
+  @override
   String get empytFieldError => 'Field can not be empty';
 
   @override
@@ -131,6 +134,9 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
 
   @override
   String get createCoverLetter => 'Create Cover Letter';
+
+  @override
+  String get createResume => 'Create Resume';
 
   @override
   String get companyNameTooltip =>
@@ -172,40 +178,43 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
       'List the key skills that make you suitable for the role (e.g., JavaScript, problem-solving, leadership).';
 
   @override
-  String get companyNameExample => 'Example: Google Inc.';
+  String get companyNameExample => 'Google Inc.';
 
   @override
   String get jobPostExample =>
-      'Example: Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.';
+      'Seeking a skilled Web Developer to join our dynamic team.\nThe ideal candidate will have expertise in HTML5, CSS3, JavaScript, and modern frameworks (React/Vue/Angular).\nMust be proficient in responsive design, version control (Git), and REST APIs.\nExperience with Node.js and database management is a plus. Will collaborate with cross-functional teams to develop and maintain web applications.\nStrong problem-solving abilities and commitment to clean, efficient code required. 3+ years experience preferred.';
 
   @override
-  String get applicantNameExample => 'Example: John Smith';
+  String get applicantNameExample => 'John Smith';
 
   @override
-  String get addressExample => 'Example: 123 Main Street, New York, NY 10001';
+  String get addressExample => '123 Main Street, New York, NY 10001';
 
   @override
-  String get telephoneExample => 'Example: +1 (555) 123-4567';
+  String get telephoneExample => '+1 (555) 123-4567';
 
   @override
-  String get emailExample => 'Example: john.smith@email.com';
+  String get emailExample => 'john.smith@email.com';
 
   @override
-  String get applicantDegreeExample => 'Example: Master\'s in Computer Science';
+  String get applicantDegreeExample => 'Master\'s in Computer Science';
 
   @override
-  String get applicantTitleExample => 'Example: Full Stack Developer';
+  String get applicantTitleExample => 'Full Stack Developer';
 
   @override
   String get experienceExample =>
-      'Example: - 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%';
+      '- 5 years of full-stack development at major tech companies\n- Led team of 6 developers on enterprise cloud projects\n- Implemented CI/CD pipelines reducing deployment time by 40%';
 
   @override
   String get skillsExample =>
-      'Example: - JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation';
+      '- JavaScript, TypeScript, React, Node.js, Python\n- Database design, API development, Cloud infrastructure (AWS)\n- Agile methodologies, Team leadership, Technical documentation';
 
   @override
   String get exportToDocx => 'Export to DOCX';
+
+  @override
+  String get exportToPdf => 'Export to PDF';
 
   @override
   String get close => 'Close';
@@ -217,11 +226,190 @@ class ResumeflowLocalizationsEn extends ResumeflowLocalizations {
   String get chooseDownloadDir => 'Choose download directory';
 
   @override
-  String get aiModel => 'AI Generation';
+  String get aiModel => 'AI Model';
 
   @override
-  String get serverAiModel => 'Server-Side';
+  String get genAiUnkownError => 'Unkown error with generative AI.';
 
   @override
-  String get clientAiModel => 'Client-Side';
+  String get docxUtilFailedToGenerate => 'Failed to generate docx document.';
+
+  @override
+  String get resetSettings => 'Reset all Settings';
+
+  @override
+  String get education => 'Education';
+
+  @override
+  String get institution => 'Institution';
+
+  @override
+  String get startDate => 'Start Date';
+
+  @override
+  String get endDate => 'End Date';
+
+  @override
+  String get grade => 'Grade';
+
+  @override
+  String get description => 'Description';
+
+  @override
+  String get degree => 'Degree';
+
+  @override
+  String get location => 'Location';
+
+  @override
+  String get programmingLanguages => 'Programming Languages';
+
+  @override
+  String get programmingLanguagesTooltip =>
+      'List the programming languages you are proficient in (e.g., Python, Java, C++).';
+
+  @override
+  String get programmingLanguagesExample =>
+      'Python, JavaScript, Java, C++, Dart';
+
+  @override
+  String get tools => 'Tools';
+
+  @override
+  String get toolsTooltip =>
+      'Mention the software tools, frameworks, or platforms you are experienced with (e.g., Git, Docker, React).';
+
+  @override
+  String get toolsExample => 'Git, Docker, React, Flutter, VS Code, Figma';
+
+  @override
+  String get otherSkills => 'Other Skills';
+
+  @override
+  String get otherSkillsTooltip =>
+      'Include additional technical or domain-specific skills relevant to the job.';
+
+  @override
+  String get otherSkillsExample =>
+      'SEO optimization, Data analysis, Cloud deployment';
+
+  @override
+  String get softSkills => 'Soft Skills';
+
+  @override
+  String get softSkillsTooltip =>
+      'Highlight your interpersonal and organizational skills (e.g., teamwork, communication, adaptability).';
+
+  @override
+  String get softSkillsExample =>
+      'Teamwork, Communication, Problem-solving, Adaptability, Time management';
+
+  @override
+  String get next => 'Next';
+
+  @override
+  String get previous => 'Previous';
+
+  @override
+  String get personalInfo => 'Personal Info';
+
+  @override
+  String get resumePreview => 'Resume Preview';
+
+  @override
+  String get achievements => 'Achievements';
+
+  @override
+  String get achievementsTooltip =>
+      'Highlight your notable achievements, awards, or recognitions relevant to your career.';
+
+  @override
+  String get achievementsExample =>
+      '- Employee of the Month, Google Inc. (2022)\n- Published research paper in IEEE Journal\n- Led team to win Hackathon 2023';
+
+  @override
+  String get github => 'GitHub';
+
+  @override
+  String get githubTooltip =>
+      'Provide the URL to your GitHub profile showcasing your projects and contributions.';
+
+  @override
+  String get githubExample => 'https://github.com/johnsmith';
+
+  @override
+  String get linkedin => 'LinkedIn';
+
+  @override
+  String get linkedinTooltip =>
+      'Provide the URL to your LinkedIn profile for professional networking.';
+
+  @override
+  String get linkedinExample => 'https://linkedin.com/in/johnsmith';
+
+  @override
+  String get degreeTooltip =>
+      'Specify the degree or qualification obtained at this institution (e.g., Bachelor of Science in Engineering).';
+
+  @override
+  String get degreeExample => 'Bachelor of Science in Computer Engineering';
+
+  @override
+  String get institutionTooltip =>
+      'Enter the full name of the educational institution attended.';
+
+  @override
+  String get institutionExample => 'Massachusetts Institute of Technology';
+
+  @override
+  String get locationTooltip =>
+      'Provide the city and country where the institution is located.';
+
+  @override
+  String get locationExample => 'Cambridge, MA, USA';
+
+  @override
+  String get startDateTooltip =>
+      'Indicate the month and year you started your studies.';
+
+  @override
+  String get startDateExample => 'September 2018';
+
+  @override
+  String get endDateTooltip =>
+      'Indicate the month and year you completed or expect to complete your studies.';
+
+  @override
+  String get endDateExample => 'June 2022';
+
+  @override
+  String get gradeTooltip =>
+      'Mention your final grade, GPA, or classification if applicable.';
+
+  @override
+  String get gradeExample => 'GPA: 3.9/4.0';
+
+  @override
+  String get projects => 'Projects';
+
+  @override
+  String get projectName => 'Project Name';
+
+  @override
+  String get projectNameTooltip =>
+      'Enter the name of the project you worked on.';
+
+  @override
+  String get projectNameExample => 'AI Resume Builder';
+
+  @override
+  String get projectDescription => 'Project Description';
+
+  @override
+  String get projectDescriptionTooltip =>
+      'Briefly describe the project, its goals, and your contributions.';
+
+  @override
+  String get projectDescriptionExample =>
+      'Developed an AI-powered web application to help users generate professional resumes automatically. Led a team of 4, integrated GPT-based suggestions, and deployed to AWS.';
 }

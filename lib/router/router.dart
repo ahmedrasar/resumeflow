@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:resumeflow/ui/cover_letter_screen/cover_letter_screen.dart';
-import 'package:resumeflow/ui/home_screen/cover_letter_dashboard_page.dart';
-import 'package:resumeflow/ui/home_screen/resume_dashboard_page.dart';
+import 'package:resumeflow/router/routes.dart';
+import 'package:resumeflow/ui/document_screens/cover_letter_screen.dart';
+import 'package:resumeflow/ui/dashboards/cover_letter_dashboard_page.dart';
+import 'package:resumeflow/ui/dashboards/resumes_dashboard_page.dart';
+import 'package:resumeflow/ui/document_screens/resume_screen.dart';
 import 'package:resumeflow/ui/settings_screen/settings_screen.dart';
+import 'package:resumeflow/ui/test.dart';
 
 import '../ui/home_screen/home_screen.dart';
 import '../ui/showcase_screen/showcase_screen.dart';
 import '../ui/tutorial_screen/tutorial_screen.dart';
-import '../ui/login_screen/login_screen.dart';
 import '../ui/not_found_screen/not_found_screen.dart';
 
 final router = GoRouter(
-  initialLocation: '/',
+  initialLocation: AppRoutes.root.full,
   errorBuilder: (context, state) => NotFoundScreen(state),
   routes: [
     GoRoute(
-      path: '/',
+      path: AppRoutes.root.self,
       builder: (context, state) => const ShowcaseScreen(),
       routes: [
+        GoRoute(path: 'x', builder: (context, state) => TestScreen()),
         GoRoute(
-          path: 'tutorial',
+          path: AppRoutes.tutorial.self,
           pageBuilder: (context, state) {
             return CustomTransitionPage(
               child: const TutorialScreen(),
@@ -39,13 +42,11 @@ final router = GoRouter(
           },
         ),
         GoRoute(
-          path: 'login',
-          builder: (context, state) => const LoginScreen(),
-        ),
-        GoRoute(
-          path: 'home',
+          path: AppRoutes.home.self,
           redirect: (context, state) {
-            if (state.fullPath == '/home') return '/home/cover-letters';
+            if (state.fullPath == AppRoutes.home.full) {
+              return AppRoutes.coverLettersDashboard.full;
+            }
             return null;
           },
           routes: [
@@ -55,19 +56,25 @@ final router = GoRouter(
                 StatefulShellBranch(
                   routes: [
                     GoRoute(
-                      path: '/resumes',
-                      builder: (context, state) => ResumeDashboardPage(),
+                      path: AppRoutes.resumeDashboard.self,
+                      builder: (context, state) => ResumesDashboardPage(),
+                      routes: [
+                        GoRoute(
+                          path: AppRoutes.resume.self,
+                          builder: (context, state) => ResumeScreen(),
+                        ),
+                      ],
                     ),
                   ],
                 ),
                 StatefulShellBranch(
                   routes: [
                     GoRoute(
-                      path: '/cover-letters',
-                      builder: (context, state) => CoverLetterDashboardPage(),
+                      path: AppRoutes.coverLettersDashboard.self,
+                      builder: (context, state) => CoverLettersDashboardPage(),
                       routes: [
                         GoRoute(
-                          path: '/create',
+                          path: AppRoutes.coverLetter.self,
                           builder: (context, state) => CoverLetterScreen(),
                         ),
                       ],
@@ -77,7 +84,7 @@ final router = GoRouter(
                 StatefulShellBranch(
                   routes: [
                     GoRoute(
-                      path: '/settings',
+                      path: AppRoutes.settings.self,
                       builder: (context, state) => SettingsScreen(),
                     ),
                   ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:resumeflow/router/routes.dart';
 
 class NotFoundScreen extends StatelessWidget {
   const NotFoundScreen(this.state, {super.key});
@@ -9,6 +10,7 @@ class NotFoundScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // TODO: replace with l10n text
       body: Container(
         width: double.infinity,
         color: Theme.of(context).colorScheme.error,
@@ -34,7 +36,7 @@ class NotFoundScreen extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () => context.go('/'),
+                  onPressed: () => context.go(AppRoutes.home.full),
                   child: const Text('Go Home'),
                 ),
               ],

@@ -9,17 +9,11 @@ class TargetFileSaver implements FileSaverInterface {
   const TargetFileSaver();
 
   @override
-  Future<bool> saveFile(
-    List<int> bytes,
-    String fileName,
-    String prompt,
-    String extension,
-  ) async {
+  Future<bool> saveFile(Uint8List bytes, String fileName, String prompt) async {
     final file = await FilePicker.platform.saveFile(
       dialogTitle: prompt,
       type: FileType.custom,
-      bytes: Uint8List.fromList(bytes),
-      allowedExtensions: [extension],
+      bytes: bytes,
       fileName: fileName,
       initialDirectory: (await getApplicationDocumentsDirectory()).path,
     );

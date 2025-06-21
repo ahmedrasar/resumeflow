@@ -7,12 +7,7 @@ class TargetFileSaver implements FileSaverInterface {
   const TargetFileSaver();
 
   @override
-  Future<bool> saveFile(
-    List<int> bytes,
-    String fileName,
-    String prompt,
-    String extension,
-  ) {
+  Future<bool> saveFile(List<int> bytes, String fileName, String prompt) {
     final web.HTMLAnchorElement anchor =
         web.document.createElement('a') as web.HTMLAnchorElement
           ..href = 'data:application/octet-stream;base64,${base64Encode(bytes)}'
